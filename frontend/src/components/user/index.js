@@ -18,11 +18,7 @@ const Index = () => {
         <Col xs={12}>
           <h1>User Management</h1>
         </Col>
-        <Col xs={12}>
-          <Route to="/create" element={<Create />}>
-            <Button variant="primary">Create User</Button>
-          </Route>
-        </Col>
+        <Col xs={12}></Col>
         <Col xs={12} className="pt-5">
           <Table striped bordered hover size="sm">
             <thead>

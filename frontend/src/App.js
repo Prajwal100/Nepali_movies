@@ -1,29 +1,18 @@
 import "./App.css";
-import { BrowserRouter as Router, Route } from "react-router-dom";
-import Index from "./components/user/index";
-import Create from "./components/user/create";
-
-import { Container, Navbar, Column } from "react-bootstrap";
+import { Container } from "react-bootstrap";
+import Header from "./pages/Header/Header";
+import { Routes, Route } from "react-router-dom";
+import UsersPage from "./pages/UsersPage/Users";
+import LandingPage from "./pages/LandingPage/LandingPage";
 function App() {
   return (
-    <Router>
-      <div className="section">
-        <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-          <Container>
-            <Navbar.Brand href="#home">CRUD</Navbar.Brand>
-            <Navbar.Toggle />
-            <Navbar.Collapse className="justify-content-end">
-              <Navbar.Text>
-                Signed in as: <a href="#login">Prajwal R.</a>
-              </Navbar.Text>
-            </Navbar.Collapse>
-          </Container>
-        </Navbar>
-        <Container>
-          <Index />
-        </Container>
-      </div>
-    </Router>
+    <div className="section">
+      <Header />
+      <Routes>
+        <Route exact path="/" element={<LandingPage />}></Route>
+        <Route exact path="/users" element={<UsersPage />}></Route>
+      </Routes>
+    </div>
   );
 }
 
