@@ -1,4 +1,3 @@
-import "./App.css";
 import { Container } from "react-bootstrap";
 import Header from "./pages/Header/Header";
 import { Routes, Route } from "react-router-dom";
