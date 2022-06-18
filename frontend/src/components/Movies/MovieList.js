@@ -3,8 +3,15 @@ import React from "react";
 import { Row, Container, Col } from "react-bootstrap";
 const MovieList = () => {
   return (
-    <Container>
+    <Container className="mt-4">
       <Row>
+        <SingleMovie />
+        <SingleMovie />
+        <SingleMovie />
+        <SingleMovie />
+        <SingleMovie />
+        <SingleMovie />
+        <SingleMovie />
         <SingleMovie />
       </Row>
     </Container>

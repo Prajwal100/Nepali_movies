@@ -5,15 +5,15 @@ const Header = () => {
   return (
     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
       <Container>
-        <Navbar.Brand>
-          <Link to="/">Nepali Movies</Link>
-        </Navbar.Brand>
+        <Link className="logo" to="/">
+          <Navbar.Brand>Nepali Movies</Navbar.Brand>
+        </Link>
         <Nav className="me-auto">
           <Nav.Link href="#home">Home</Nav.Link>
           <Nav.Link href="#features">Features</Nav.Link>
-          <Nav.Link>
-            <Link to="/users">Users</Link>
-          </Nav.Link>
+          <Link to="/users" className="nav-link">
+            Users
+          </Link>
         </Nav>
         <Navbar.Toggle />
         <Navbar.Collapse className="justify-content-end">

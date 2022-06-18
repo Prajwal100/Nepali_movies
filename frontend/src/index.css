@@ -1,6 +1,16 @@
-@import url('https://fonts.googleapis.com/css2?family=Gentium+Plus:ital,wght@0,700;1,400&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
 body {
   margin: 0;
+  font-family:'Poppins', sans-serif !important;
+}
+
+a{
+  text-decoration: none !important;
+  
+}
+
+.navbar-brand{
+  font-size:30px !important;
   font-family: 'Gentium Plus', serif;
+  
 }
