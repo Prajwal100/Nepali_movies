@@ -9,7 +9,7 @@ const {
   deleteUser,
 } = require("../controllers/userController");
 router.route("/user/create").post(createUser);
-router.route("/users").get(getUsers);
+router.route("/all").get(getUsers);
 router.route("/user/update/:id").put(updateUser);
 router.route("/user/delete/:id").delete(deleteUser);
 

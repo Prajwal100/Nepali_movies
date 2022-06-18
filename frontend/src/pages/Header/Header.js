@@ -9,10 +9,14 @@ const Header = () => {
           <Navbar.Brand>Nepali Movies</Navbar.Brand>
         </Link>
         <Nav className="me-auto">
-          <Nav.Link href="#home">Home</Nav.Link>
-          <Nav.Link href="#features">Features</Nav.Link>
+          <Link to="/" className="nav-link">
+            Home
+          </Link>
+          <Link to="/" className="nav-link">
+            Categories
+          </Link>
           <Link to="/users" className="nav-link">
-            Users
+            Celebrity List
           </Link>
         </Nav>
         <Navbar.Toggle />

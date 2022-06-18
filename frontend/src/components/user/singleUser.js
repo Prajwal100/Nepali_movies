@@ -12,7 +12,9 @@ const SingleUser = () => {
         />
         <Card.Body>
           <Card.Title>
-            <Link to="https://www.themoviedb.org/t/">Namrata Shrestha</Link>
+            <Link class="name" to="">
+              Namrata Shrestha
+            </Link>
           </Card.Title>
         </Card.Body>
       </Card>
