@@ -15,3 +15,16 @@ a{
   font-family: 'Gentium Plus', serif;
   
 }
+
+.loader{
+  height:600px;
+}
+
+.loader .loader-inner{
+  display:flex;
+  height:100%;
+  width:100%;
+  text-align:center;
+  align-items:center;
+  justify-content:center;
+}

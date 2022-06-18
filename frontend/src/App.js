@@ -3,6 +3,9 @@ import Header from "./pages/Header/Header";
 import { Routes, Route } from "react-router-dom";
 import UsersPage from "./pages/UsersPage/Users";
 import LandingPage from "./pages/LandingPage/LandingPage";
+
+//Loader spinner
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 function App() {
   return (
     <div className="section">

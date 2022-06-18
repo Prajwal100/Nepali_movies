@@ -2,18 +2,15 @@ import React from "react";
 import "./singleUser.css";
 import { Card, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
-const SingleUser = () => {
+const SingleUser = (props) => {
   return (
     <Col xs={3} className="mt-4">
       <Card>
-        <Card.Img
-          variant="top"
-          src="https://i0.wp.com/www.nepalitrends.com/wp-content/uploads/2018/03/18403575_10156191780857942_704805207278765448_n-e1522087692140.jpg?fit=768%2C760&ssl=1"
-        />
+        <Card.Img variant="top" src={props.img} />
         <Card.Body>
           <Card.Title>
             <Link class="name" to="">
-              Namrata Shrestha
+              {props.name}
             </Link>
           </Card.Title>
         </Card.Body>
