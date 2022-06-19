@@ -8,9 +8,13 @@ import {
   celebrityReducer,
   celebrityDetailsReducer,
 } from "./reducers/celebrityReducer";
+
+import { moviesReducer } from "./reducers/movieReducer";
 const reducer = combineReducers({
   celebrities: celebrityReducer,
   celebrityDetails: celebrityDetailsReducer,
+
+  movies: moviesReducer,
 });
 
 let initialState = {};

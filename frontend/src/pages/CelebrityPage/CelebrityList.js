@@ -31,9 +31,7 @@ const CelebrityList = () => {
       ) : (
         <Row>
           <Col xs={12} className="mt-3">
-            <h2 style={{ textDecoration: "underline" }}>
-              Nepali Actor & Acress
-            </h2>
+            <h2>Nepali Celebrities</h2>
           </Col>
 
           {celebrities &&
