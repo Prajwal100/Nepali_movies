@@ -9,11 +9,11 @@ const SingleMovie = (props) => {
         <div className="movie_card">
           <div className="image">
             <div className="wrapper">
-              <a className="movie_image" title="Kabaddi 4">
+              <a className="movie_image" title={props.movie.name}>
                 <img
                   loading="lazy"
                   className="poster"
-                  src="https://www.trybooking.com/UserData/Homepage/G/EHI901673-dbe971d96d1f40b8b19a9d438d7c3a64.jpeg"
+                  src={props.movie.image}
                   alt=""
                 />
               </a>
@@ -26,8 +26,8 @@ const SingleMovie = (props) => {
           </div>
           <div className="content">
             <h2 className="text-center">
-              <a href="/tv/76479" title="Kabaddi 4">
-                Kabaddi 4
+              <a href="/tv/76479" title={props.movie.name}>
+                {props.movie.name}
               </a>
             </h2>
           </div>

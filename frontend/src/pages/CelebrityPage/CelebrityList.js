@@ -37,6 +37,7 @@ const CelebrityList = () => {
           {celebrities &&
             celebrities.map((celebrity) => (
               <SingleCelebrity
+                key={celebrity._id}
                 name={celebrity.name}
                 img={celebrity.image}
                 id={celebrity._id}

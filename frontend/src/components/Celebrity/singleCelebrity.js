@@ -11,7 +11,7 @@ const SingleCelebrity = (props) => {
         </div>
         <Card.Body>
           <Card.Title>
-            <Link class="name" to={`/celebrity/${props.id}`}>
+            <Link className="name" to={`/celebrity/${props.id}`}>
               {props.name}
             </Link>
           </Card.Title>
