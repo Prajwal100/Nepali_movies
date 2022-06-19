@@ -2,7 +2,7 @@ const Celebrity = require("../models/Celebrity");
 
 // get celebrities route here
 exports.getCelebrities = async (req, res, next) => {
-  const celebrities = await Celebrity.find();
+  const celebrities = await Celebrity.find().sort({ createdAt: -1 }).limit(10);
   res.status(200).json({ data: celebrities, message: "Successfully fetched." });
 };
 
@@ -14,6 +14,20 @@ exports.storeCelebrity = async (req, res, next) => {
     message: "Successfully created.",
     celebrity,
   });
+};
+
+// show celebrity Router
+
+exports.showCelebrity = async (req, res, next) => {
+  let celebrity = await Celebrity.findById(req.params.id);
+  if (!celebrity) {
+    return res.status(404).json({
+      status: false,
+      message: "Celebrity not found.",
+    });
+  }
+
+  res.status(200).json({ data: celebrity, message: "Successfully fetched." });
 };
 
 // update celebrity Router

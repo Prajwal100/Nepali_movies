@@ -5,14 +5,13 @@ const MovieList = () => {
   return (
     <Container className="mt-4">
       <Row>
-        <SingleMovie />
-        <SingleMovie />
-        <SingleMovie />
-        <SingleMovie />
-        <SingleMovie />
-        <SingleMovie />
-        <SingleMovie />
-        <SingleMovie />
+        <SingleMovie col="3" />
+        <SingleMovie col="3" />
+        <SingleMovie col="3" />
+        <SingleMovie col="3" />
+        <SingleMovie col="3" />
+        <SingleMovie col="3" />
+        <SingleMovie col="3" />
       </Row>
     </Container>
   );

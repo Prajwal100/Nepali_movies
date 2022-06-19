@@ -3,6 +3,9 @@ import {
   ALL_CELEBRITY_SUCCESS,
   ALL_CELEBRITY_FAIL,
   CLEAR_ERRORS,
+  CELEBRITY_DETAILS_REQUEST,
+  CELEBRITY_DETAILS_SUCCESS,
+  CELEBRITY_DETAILS_FAIL,
 } from "../actions/types";
 
 export const celebrityReducer = (state = { celebrities: [] }, action) => {
@@ -26,6 +29,36 @@ export const celebrityReducer = (state = { celebrities: [] }, action) => {
         celebrities: payload,
       };
 
+    case CLEAR_ERRORS:
+      return {
+        ...state,
+        error: null,
+      };
+
+    default:
+      return state;
+  }
+};
+
+export const celebrityDetailsReducer = (state = { celebrity: {} }, action) => {
+  const { type, payload } = action;
+
+  switch (type) {
+    case CELEBRITY_DETAILS_REQUEST:
+      return {
+        ...state,
+        loading: true,
+      };
+    case CELEBRITY_DETAILS_SUCCESS:
+      return {
+        loading: false,
+        celebrity: payload.data,
+      };
+    case CELEBRITY_DETAILS_FAIL:
+      return {
+        ...state,
+        error: payload,
+      };
     case CLEAR_ERRORS:
       return {
         ...state,

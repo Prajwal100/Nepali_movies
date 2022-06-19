@@ -4,9 +4,13 @@ import thunk from "redux-thunk";
 
 import { composeWithDevTools } from "redux-devtools-extension";
 
-import { celebrityReducer } from "./reducers/celebrityReducer";
+import {
+  celebrityReducer,
+  celebrityDetailsReducer,
+} from "./reducers/celebrityReducer";
 const reducer = combineReducers({
   celebrities: celebrityReducer,
+  celebrityDetails: celebrityDetailsReducer,
 });
 
 let initialState = {};

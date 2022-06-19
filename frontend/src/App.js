@@ -1,8 +1,9 @@
 import { Container } from "react-bootstrap";
 import Header from "./pages/Header/Header";
 import { Routes, Route } from "react-router-dom";
-import UsersPage from "./pages/UsersPage/Users";
+import CelebrityPage from "./pages/CelebrityPage/CelebrityList";
 import LandingPage from "./pages/LandingPage/LandingPage";
+import CelebrityDetail from "./pages/CelebrityPage/celebrityDetails";
 
 //Loader spinner
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
@@ -12,7 +13,12 @@ function App() {
       <Header />
       <Routes>
         <Route exact path="/" element={<LandingPage />}></Route>
-        <Route exact path="/users" element={<UsersPage />}></Route>
+        <Route exact path="/celebrities" element={<CelebrityPage />}></Route>
+        <Route
+          exact
+          path="/celebrity/:id"
+          element={<CelebrityDetail />}
+        ></Route>
       </Routes>
     </div>
   );

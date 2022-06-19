@@ -1,12 +1,15 @@
 import React, { useEffect } from "react";
-import SingleUser from "../../components/user/singleUser";
+import SingleCelebrity from "../../components/Celebrity/singleCelebrity";
 import { Container, Row, Col } from "react-bootstrap";
 
 import { useDispatch, useSelector } from "react-redux";
 import { getCelebrities } from "../../actions/celebrityActions";
 import Loader from "../../components/Layout/Loader";
 
-const UsersPage = () => {
+//toastr
+import toast, { Toaster } from "react-hot-toast";
+
+const CelebrityList = () => {
   const dispatch = useDispatch();
 
   const { loading, celebrities, error } = useSelector(
@@ -14,10 +17,15 @@ const UsersPage = () => {
   );
 
   useEffect(() => {
+    if (error) {
+      toast.error(error);
+    }
+
     dispatch(getCelebrities());
-  }, [dispatch]);
+  }, [dispatch, error]);
   return (
     <Container>
+      <Toaster />
       {loading ? (
         <Loader />
       ) : (
@@ -30,11 +38,15 @@ const UsersPage = () => {
 
           {celebrities &&
             celebrities.map((celebrity) => (
-              <SingleUser name={celebrity.name} img={celebrity.image} />
+              <SingleCelebrity
+                name={celebrity.name}
+                img={celebrity.image}
+                id={celebrity._id}
+              />
             ))}
         </Row>
       )}
     </Container>
   );
 };
-export default UsersPage;
+export default CelebrityList;

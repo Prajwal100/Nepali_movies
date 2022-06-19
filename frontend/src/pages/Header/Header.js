@@ -15,7 +15,7 @@ const Header = () => {
           <Link to="/" className="nav-link">
             Categories
           </Link>
-          <Link to="/users" className="nav-link">
+          <Link to="/celebrities" className="nav-link">
             Celebrity List
           </Link>
         </Nav>

@@ -2,9 +2,9 @@ import React from "react";
 import "./SingleMovie.css";
 import { AiOutlineHeart } from "react-icons/ai";
 import { Col } from "react-bootstrap";
-const SingleMovie = () => {
+const SingleMovie = (props) => {
   return (
-    <Col xs="3" className="mt-4">
+    <Col xs={props.col} className="mt-4">
       <div className="border">
         <div className="movie_card">
           <div className="image">
@@ -25,12 +25,11 @@ const SingleMovie = () => {
             </div>
           </div>
           <div className="content">
-            <h2>
+            <h2 className="text-center">
               <a href="/tv/76479" title="Kabaddi 4">
-                The Boys
+                Kabaddi 4
               </a>
             </h2>
-            <p>Release Date: Jul 25, 2019</p>
           </div>
         </div>
       </div>

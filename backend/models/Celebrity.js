@@ -6,6 +6,9 @@ const celebritySchema = new mongoose.Schema({
     trim: true,
     required: [true, "Please enter celebrity name."],
   },
+  biography: {
+    type: String,
+  },
   dob: {
     type: Date,
   },
@@ -17,6 +20,9 @@ const celebritySchema = new mongoose.Schema({
   },
   address: {
     type: String,
+  },
+  createdAt: {
+    type: Date,
   },
 });
 

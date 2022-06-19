@@ -1,15 +1,15 @@
 import React from "react";
-import "./singleUser.css";
+import "./singleCelebrity.css";
 import { Card, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
-const SingleUser = (props) => {
+const SingleCelebrity = (props) => {
   return (
     <Col xs={3} className="mt-4">
       <Card>
         <Card.Img variant="top" src={props.img} />
         <Card.Body>
           <Card.Title>
-            <Link class="name" to="">
+            <Link class="name" to={`/celebrity/${props.id}`}>
               {props.name}
             </Link>
           </Card.Title>
@@ -19,4 +19,4 @@ const SingleUser = (props) => {
   );
 };
 
-export default SingleUser;
+export default SingleCelebrity;
