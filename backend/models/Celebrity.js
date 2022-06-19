@@ -12,6 +12,9 @@ const celebritySchema = new mongoose.Schema({
   dob: {
     type: Date,
   },
+  followers: {
+    type: Number,
+  },
   image: {
     type: String,
   },

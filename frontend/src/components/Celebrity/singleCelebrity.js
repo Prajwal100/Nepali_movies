@@ -6,7 +6,9 @@ const SingleCelebrity = (props) => {
   return (
     <Col xs={3} className="mt-4">
       <Card>
-        <Card.Img variant="top" src={props.img} />
+        <div className="celebrity-wrapper">
+          <Card.Img variant="top" src={props.img} />
+        </div>
         <Card.Body>
           <Card.Title>
             <Link class="name" to={`/celebrity/${props.id}`}>

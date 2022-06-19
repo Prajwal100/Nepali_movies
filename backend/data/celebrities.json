@@ -1,0 +1,56 @@
+[
+  {
+    "name": "Namrata Shrestha",
+    "biography":
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+    "dob": "1999-06-20",
+    "followers":1000000,
+    "address": "kathmandu, Nepal",
+    "gender": "Female",
+    "image":
+      "https://i.pinimg.com/originals/27/e0/d3/27e0d35b2b5c2b3bb5aac5d1902be4b5.jpg"
+  },
+  {
+    "name": "Nikhil Upreti",
+    "biography":
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+    "dob": "1999-06-20",
+    "followers":5000000,
+    "address": "kathmandu, Nepal",
+    "gender": "Male",
+    "image": "https://www.fursadnepal.net/uploads/ckeditor/nikhil.jpg"
+  },
+  {
+    "name": "Rajesh Hamal",
+    "biography":
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+    "dob": "1999-06-20",
+    "followers":1345000,
+    "address": "kathmandu, Nepal",
+    "gender": "Male",
+    "image":
+      "https://3.bp.blogspot.com/-uUE9Um9KnfA/VmomXEPuQ-I/AAAAAAAACKI/83VNZxN6bGA/s640/Rajesh-Hamal-Icon.png"
+  },
+  {
+    "name": "Rekha Thapa",
+    "biography":
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+    "dob": "1999-06-20",
+    "followers":500000,
+    "address": "kathmandu, Nepal",
+    "gender": "Female",
+    "image":
+      "https://i0.wp.com/www.nepalitrends.com/wp-content/uploads/2018/01/20052016034648raaaa-600x0.jpg?resize=596%2C758"
+  },
+  {
+    "name": "Dayahang Rai",
+    "biography":
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+    "dob": "1999-06-20",
+    "followers":200000,
+    "address": "kathmandu, Nepal",
+    "gender": "Male",
+    "image":
+      "https://nepalimoviesweb.files.wordpress.com/2016/07/dayahang-rai.jpg"
+  }
+]

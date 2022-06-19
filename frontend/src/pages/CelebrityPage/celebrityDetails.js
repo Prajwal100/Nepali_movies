@@ -25,6 +25,17 @@ const CelebrityDetail = () => {
       dispatch(clearErrors);
     }
   }, [dispatch, id, error]);
+
+  // convert digits to K, M ...
+  const followersFormatter = (num) => {
+    if (num > 999 && num < 1000000) {
+      return (num / 1000).toFixed(1) + "K";
+    } else if (num >= 1000000) {
+      return (num / 1000000).toFixed(1) + "M";
+    } else if (num <= 999) {
+      return num;
+    }
+  };
   return (
     <section>
       <Toaster />
@@ -48,7 +59,7 @@ const CelebrityDetail = () => {
                       Follow
                     </button>
                     <button type="button" className="btn btn-info ms-1">
-                      10M Followers
+                      {followersFormatter(celebrity.followers)} Followers
                     </button>
                   </div>
                 </div>
