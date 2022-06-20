@@ -4,6 +4,7 @@ import { Routes, Route } from "react-router-dom";
 import CelebrityPage from "./pages/CelebrityPage/CelebrityList";
 import LandingPage from "./pages/LandingPage/LandingPage";
 import CelebrityDetail from "./pages/CelebrityPage/celebrityDetails";
+import MovieDetail from "./components/Movies/movieDetails";
 
 //Loader spinner
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
@@ -19,6 +20,8 @@ function App() {
           path="/celebrity/:id"
           element={<CelebrityDetail />}
         ></Route>
+
+        <Route exact path="/movie/:id" element={<MovieDetail />}></Route>
       </Routes>
     </div>
   );

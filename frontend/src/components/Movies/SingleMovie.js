@@ -2,6 +2,7 @@ import React from "react";
 import "./SingleMovie.css";
 import { AiOutlineHeart } from "react-icons/ai";
 import { Col } from "react-bootstrap";
+import { Link } from "react-router-dom";
 const SingleMovie = (props) => {
   return (
     <Col xs={props.col} className="mt-4">
@@ -26,9 +27,9 @@ const SingleMovie = (props) => {
           </div>
           <div className="content">
             <h2 className="text-center">
-              <a href="/tv/76479" title={props.movie.name}>
+              <Link to={`movie/${props.movie._id}`} title={props.movie.name}>
                 {props.movie.name}
-              </a>
+              </Link>
             </h2>
           </div>
         </div>
