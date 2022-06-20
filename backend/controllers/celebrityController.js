@@ -1,5 +1,5 @@
 const Celebrity = require("../models/Celebrity");
-const ErrorHandler = require("../utils/ErrorHandler");
+const ErrorHandler = require("../utils/errorHandler");
 // get celebrities route here
 exports.getCelebrities = async (req, res, next) => {
   const celebrities = await Celebrity.find().sort({ createdAt: -1 }).limit(10);
