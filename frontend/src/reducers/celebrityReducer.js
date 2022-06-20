@@ -20,7 +20,7 @@ export const celebrityReducer = (state = { celebrities: [] }, action) => {
     case ALL_CELEBRITY_SUCCESS:
       return {
         loading: false,
-        celebrities: payload.data,
+        celebrities: payload.celebrity,
       };
 
     case ALL_CELEBRITY_FAIL:

@@ -24,7 +24,7 @@ exports.showCelebrity = async (req, res, next) => {
     return next(new ErrorHandler("Celebrity not found.", 404));
   }
 
-  res.status(200).json({ data: celebrity, message: "Successfully fetched." });
+  res.status(200).json({ celebrity, message: "Successfully fetched." });
 };
 
 // update celebrity Router

@@ -18,6 +18,7 @@ const CelebrityDetail = () => {
     (state) => state.celebrityDetails
   );
   useEffect(() => {
+    console.log(id);
     dispatch(getCelebrityDetails(id));
 
     if (error) {
