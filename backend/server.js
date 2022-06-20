@@ -1,8 +1,10 @@
 const app = require("./app");
-const dotenv = require("dotenv");
+// const dotenv = require("dotenv");
 const PORT = process.env.PORT || 4000;
 
-dotenv.config({ path: "backend/config/config.env" });
+//setting up the config files
+if (process.env.NODE_ENV !== "PRODUCTION")
+  require("dotenv").dotenv.config({ path: "backend/config/config.env" });
 
 const connectDatabase = require("./config/database");
 
