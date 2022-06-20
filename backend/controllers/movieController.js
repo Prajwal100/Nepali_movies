@@ -1,10 +1,17 @@
 const Movie = require("../models/Movies");
-
+const SearchFeatures = require("../utils/searchFeature");
 exports.getMovies = async (req, res, next) => {
-  const movies = await Movie.find();
+  const resultPerPage = 4;
+  const totalMovies = await Movie.countDocuments();
+  const searchFeatures = new SearchFeatures(Movie.find(), req.query).pagination(
+    resultPerPage
+  );
+
+  const movies = await searchFeatures.query;
   res.status(200).json({
     data: movies,
     message: "Successfully fetched data.",
+    totalMovies,
   });
 };
 

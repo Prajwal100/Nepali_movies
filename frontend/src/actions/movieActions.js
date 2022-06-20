@@ -9,13 +9,15 @@ import {
   MOVIE_DETAILS_FAIL,
 } from "./types";
 
-export const getMovies = () => async (dispatch) => {
+export const getMovies = (currentPage) => async (dispatch) => {
   try {
     dispatch({
       type: ALL_MOVIE_REQUEST,
     });
 
-    const { data } = await axios.get("/api/v1/movie/get-movies");
+    const { data } = await axios.get(
+      `/api/v1/movie/get-movies?page=${currentPage}`
+    );
 
     dispatch({
       type: ALL_MOVIE_SUCCESS,
