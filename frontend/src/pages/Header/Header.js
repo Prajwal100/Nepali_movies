@@ -21,9 +21,18 @@ const Header = () => {
         </Nav>
         <Navbar.Toggle />
         <Navbar.Collapse className="justify-content-end">
-          <Navbar.Text>
+          {/* <Navbar.Text>
             Signed in as: <a href="#login">Prajwal R.</a>
-          </Navbar.Text>
+          </Navbar.Text> */}
+
+          <Nav>
+            <Link to="/register" className="nav-link">
+              Register
+            </Link>
+            <Link to="/login" className="nav-link">
+              Login
+            </Link>
+          </Nav>
         </Navbar.Collapse>
       </Container>
     </Navbar>
