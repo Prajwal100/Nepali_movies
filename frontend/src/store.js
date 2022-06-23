@@ -10,12 +10,17 @@ import {
 } from "./reducers/celebrityReducer";
 
 import { moviesReducer, movieDetailReducer } from "./reducers/movieReducer";
+
+import { authReducer } from "./reducers/userReducer";
+
 const reducer = combineReducers({
   celebrities: celebrityReducer,
   celebrityDetails: celebrityDetailsReducer,
 
   movies: moviesReducer,
   movieDetails: movieDetailReducer,
+
+  authReducer,
 });
 
 let initialState = {};
