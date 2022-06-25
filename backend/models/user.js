@@ -68,7 +68,7 @@ userSchema.methods.getJwtToken = function () {
     },
     process.env.JWT_SECRET,
     {
-      expiresIn: "7d",
+      expiresIn: parseInt(process.env.JWT_EXPIRES_TIME),
     }
   );
 };

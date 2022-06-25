@@ -23,7 +23,7 @@ export const login = (email, password) => async (dispatch) => {
     };
 
     const { data } = await axios.post(
-      "/api/v1/login",
+      "/api/v1/auth/login",
       { email, password },
       config
     );
@@ -51,7 +51,7 @@ export const register = (userData) => async (dispatch) => {
       },
     };
 
-    const { data } = axios.post("/api/v1/register", userData, config);
+    const { data } = axios.post("/api/v1/auth/register", userData, config);
 
     dispatch({
       type: REGISTER_SUCCESS,
