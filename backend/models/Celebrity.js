@@ -8,6 +8,8 @@ const celebritySchema = new mongoose.Schema({
   },
   biography: {
     type: String,
+    trim: true,
+    required: [true, "Please enter biography."],
   },
   dob: {
     type: Date,

@@ -1,6 +1,8 @@
 const Movie = require("../models/Movies");
 const SearchFeatures = require("../utils/searchFeature");
-exports.getMovies = async (req, res, next) => {
+const catchAsyncErrors = require("../middlewares/catchAsyncErrors");
+
+exports.getMovies = catchAsyncErrors(async (req, res, next) => {
   const resultPerPage = 4;
   const totalMovies = await Movie.countDocuments();
   const searchFeatures = new SearchFeatures(Movie.find(), req.query).pagination(
@@ -13,9 +15,9 @@ exports.getMovies = async (req, res, next) => {
     message: "Successfully fetched data.",
     totalMovies,
   });
-};
+});
 
-exports.showMovie = async (req, res, next) => {
+exports.showMovie = catchAsyncErrors(async (req, res, next) => {
   const movie = await Movie.findById(req.params.id);
 
   if (!movie) {
@@ -26,4 +28,4 @@ exports.showMovie = async (req, res, next) => {
     data: movie,
     message: "Successfully fetched movie",
   });
-};
+});
