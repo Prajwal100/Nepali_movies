@@ -4,8 +4,10 @@ const cors = require("cors");
 const errorMiddleware = require("./middlewares/errors");
 const path = require("path");
 
-app.use(cors());
+const cookieParser = require("cookie-parser");
 
+app.use(cors());
+app.use(cookieParser());
 app.use(express.json());
 const user = require("./routes/userRoute");
 const celebrity = require("./routes/celebrityRoute");

@@ -1,5 +1,4 @@
 const mongoose = require("mongoose");
-const Schema = mongoose.Schema;
 
 const movieSchema = new mongoose.Schema({
   name: {
@@ -14,7 +13,7 @@ const movieSchema = new mongoose.Schema({
     required: [true, "Please select category."],
   },
   uploadedBy: {
-    type: Schema.Types.ObjectId,
+    type: mongoose.Schema.ObjectId,
     ref: "User",
   },
   overview: {
@@ -26,7 +25,7 @@ const movieSchema = new mongoose.Schema({
   cast: [
     {
       castId: {
-        type: Schema.Types.ObjectId,
+        type: mongoose.Schema.ObjectId,
         ref: "Celebrity",
       },
     },

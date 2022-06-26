@@ -38,6 +38,12 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: [true, "Please enter gender"],
   },
+  role: {
+    type: String,
+    trim: true,
+    required: [true, "Role must be required"],
+    default: "user",
+  },
   createAt: {
     type: Date,
     default: Date.now,
@@ -68,7 +74,7 @@ userSchema.methods.getJwtToken = function () {
     },
     process.env.JWT_SECRET,
     {
-      expiresIn: parseInt(process.env.JWT_EXPIRES_TIME),
+      expiresIn: "7d",
     }
   );
 };

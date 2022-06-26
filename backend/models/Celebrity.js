@@ -29,6 +29,11 @@ const celebritySchema = new mongoose.Schema({
   createdAt: {
     type: Date,
   },
+
+  uploadedBy: {
+    type: mongoose.Schema.ObjectId,
+    ref: "User",
+  },
 });
 
 module.exports = mongoose.model("Celebrity", celebritySchema);

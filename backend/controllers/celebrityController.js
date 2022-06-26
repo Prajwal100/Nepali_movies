@@ -10,6 +10,9 @@ exports.getCelebrities = async (req, res, next) => {
 // store celebrity route here
 
 exports.storeCelebrity = catchAsyncErrors(async (req, res, next) => {
+  req.body.uploadedBy = req.user.id;
+
+  console.log(req.body);
   const celebrity = await Celebrity.create(req.body);
   res.status(201).json({
     message: "Successfully created.",

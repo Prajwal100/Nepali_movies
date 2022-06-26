@@ -8,13 +8,20 @@ const {
   showCelebrity,
 } = require("../controllers/celebrityController.js");
 
+const { isAuthenticatedUser, authorizeRoles } = require("../middlewares/auth");
 router.route("/get-celebrities").get(getCelebrities);
 
-router.route("/create-celebrity").post(storeCelebrity);
+router
+  .route("/create-celebrity")
+  .post(isAuthenticatedUser, authorizeRoles("admin"), storeCelebrity);
 
 router.route("/show-celebrity/:id").get(showCelebrity);
 
-router.route("/update-celebrity/:id").put(updateCelebrity);
+router
+  .route("/update-celebrity/:id")
+  .put(isAuthenticatedUser, authorizeRoles("admin"), updateCelebrity);
 
-router.route("/delete-celebrity/:id").delete(deleteCelebrity);
+router
+  .route("/delete-celebrity/:id")
+  .delete(isAuthenticatedUser, authorizeRoles("admin"), deleteCelebrity);
 module.exports = router;
