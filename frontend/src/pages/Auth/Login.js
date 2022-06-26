@@ -1,27 +1,32 @@
 import React, { useEffect, useState } from "react";
 import Loader from "../../components/Layout/Loader";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { login, clearErrors } from "../../actions/userActions";
 import MetaData from "../../components/Layout/MetaData";
 
 const LoginPage = ({ history }) => {
+  const navigate = useNavigate();
+  const location = useLocation();
   const dispatch = useDispatch();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const redirect = location.search
+    ? location.search.split("=")[1]
+    : "user/dashboard";
 
   const { isAuthenticated, error, loading } = useSelector(
     (state) => state.authReducer
   );
   useEffect(() => {
     if (isAuthenticated) {
-      history.pushState("/");
+      navigate(`/${redirect}`);
     }
     if (error) {
       alert(error);
       dispatch(clearErrors());
     }
-  }, [dispatch, isAuthenticated, error, history]);
+  }, [dispatch, isAuthenticated, error, history, redirect, navigate]);
 
   const submitHandler = (e) => {
     e.preventDefault();

@@ -59,6 +59,19 @@ exports.logoutUser = catchAsyncErrors(async (req, res, next) => {
   });
 });
 
+// GET USER DETAILS;
+
+exports.getUserDetails = catchAsyncErrors(async (req, res, next) => {
+  const user = await User.findById(req.user.id);
+
+  console.log(user);
+
+  res.status(200).json({
+    message: "Successfully fetched user data",
+    data: user,
+  });
+});
+
 // Get all users
 
 exports.getUsers = async (req, res, next) => {

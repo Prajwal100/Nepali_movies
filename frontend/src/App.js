@@ -1,3 +1,4 @@
+import React, { useEffect, useState } from "react";
 import { Container } from "react-bootstrap";
 import Header from "./pages/Header/Header";
 import { Routes, Route } from "react-router-dom";
@@ -9,9 +10,15 @@ import MovieDetail from "./components/Movies/movieDetails";
 import LoginPage from "./pages/Auth/Login";
 import RegisterPage from "./pages/Auth/Register";
 
+import { loadUser } from "./actions/userActions";
+import store from "./store";
+
 //Loader spinner
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 function App() {
+  useEffect(() => {
+    store.dispatch(loadUser());
+  }, []);
   return (
     <div className="section">
       <Header />

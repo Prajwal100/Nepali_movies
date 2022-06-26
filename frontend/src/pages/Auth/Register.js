@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import MetaData from "../../components/Layout/MetaData";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { register, clearErrors } from "../../actions/userActions";
 import { FaSpinner } from "react-icons/fa";
@@ -8,6 +8,8 @@ const RegisterPage = ({ history }) => {
   const { loading, error, isAuthenticated } = useSelector(
     (state) => state.authReducer
   );
+
+  const navigate = useNavigate();
 
   const [user, setUser] = useState({
     name: "",
@@ -20,7 +22,7 @@ const RegisterPage = ({ history }) => {
 
   useEffect(() => {
     if (isAuthenticated) {
-      history.push("/");
+      navigate("/");
     }
     if (error) {
       alert(error);

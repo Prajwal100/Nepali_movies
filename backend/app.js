@@ -13,7 +13,7 @@ const user = require("./routes/userRoute");
 const celebrity = require("./routes/celebrityRoute");
 const movie = require("./routes/movieRoute");
 
-app.use("/api/v1/auth", user);
+app.use("/api/v1", user);
 app.use("/api/v1/celebrity", celebrity);
 app.use("/api/v1/movie", movie);
 
