@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { login, clearErrors } from "../../actions/userActions";
 import MetaData from "../../components/Layout/MetaData";
+import toast from "react-hot-toast";
 
 const LoginPage = ({ history }) => {
   const navigate = useNavigate();
@@ -11,7 +12,6 @@ const LoginPage = ({ history }) => {
   const dispatch = useDispatch();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  console.log(location.search);
   const redirect = location.search ? location.search.split("=")[1] : "account";
 
   const { isAuthenticated, error, loading } = useSelector(
@@ -20,6 +20,7 @@ const LoginPage = ({ history }) => {
   useEffect(() => {
     if (isAuthenticated) {
       navigate(`/${redirect}`, { replace: true });
+      toast.success("Successfully login.");
     }
     if (error) {
       alert(error);
