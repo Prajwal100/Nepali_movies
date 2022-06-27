@@ -3,12 +3,18 @@ const app = express();
 const cors = require("cors");
 const errorMiddleware = require("./middlewares/errors");
 const path = require("path");
+const bodyparser = require("body-parser");
+const cloudinary = require("cloudinary");
 
 const cookieParser = require("cookie-parser");
 
 app.use(cors());
 app.use(cookieParser());
 app.use(express.json());
+app.use(bodyparser.urlencoded({ extended: true }));
+
+// setting up cloudinary
+
 const user = require("./routes/userRoute");
 const celebrity = require("./routes/celebrityRoute");
 const movie = require("./routes/movieRoute");

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Container } from "react-bootstrap";
-import Header from "./pages/Header/Header";
+import Header from "./components/Layout/Header/Header";
 import { Routes, Route } from "react-router-dom";
 import CelebrityPage from "./pages/CelebrityPage/CelebrityList";
 import LandingPage from "./pages/LandingPage/LandingPage";
