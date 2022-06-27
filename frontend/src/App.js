@@ -3,7 +3,7 @@ import { Container } from "react-bootstrap";
 import Header from "./components/Layout/Header/Header";
 import { Routes, Route } from "react-router-dom";
 import CelebrityPage from "./pages/CelebrityPage/CelebrityList";
-import LandingPage from "./pages/LandingPage/LandingPage";
+import Home from "./pages/Home/Home";
 import CelebrityDetail from "./pages/CelebrityPage/celebrityDetails";
 import MovieDetail from "./components/Movies/movieDetails";
 
@@ -13,6 +13,8 @@ import RegisterPage from "./pages/Auth/Register";
 import { loadUser } from "./actions/userActions";
 import store from "./store";
 
+import { Toaster } from "react-hot-toast";
+
 //Loader spinner
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 function App() {
@@ -21,15 +23,17 @@ function App() {
   }, []);
   return (
     <div className="section">
+      <Toaster />
+
       <Header />
       <Routes>
-        {/* LOGIN & REGISTER ROUTES STARTS */}
+        {/* AUTH ROUTES STARTS */}
         <Route exact path="/login" element={<LoginPage />}></Route>
         <Route exact path="/register" element={<RegisterPage />}></Route>
 
-        {/* LOGIN & REGISTER ROUTES ENDS */}
+        {/* AUTH ROUTES ENDS */}
 
-        <Route exact path="/" element={<LandingPage />}></Route>
+        <Route exact path="/" element={<Home />}></Route>
         <Route exact path="/celebrities" element={<CelebrityPage />}></Route>
         <Route
           exact

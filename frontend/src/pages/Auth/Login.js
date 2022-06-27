@@ -11,23 +11,21 @@ const LoginPage = ({ history }) => {
   const dispatch = useDispatch();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  console.log(location);
-  // const redirect = location.search
-  //   ? location.search.split("=")[1]
-  //   : "user/dashboard";
+  console.log(location.search);
+  const redirect = location.search ? location.search.split("=")[1] : "account";
 
   const { isAuthenticated, error, loading } = useSelector(
     (state) => state.authReducer
   );
   useEffect(() => {
     if (isAuthenticated) {
-      // navigate(`/${redirect}`);
+      navigate(`/${redirect}`, { replace: true });
     }
     if (error) {
       alert(error);
       dispatch(clearErrors());
     }
-  }, [dispatch, isAuthenticated, error, history, navigate]);
+  }, [dispatch, isAuthenticated, error, history, navigate, redirect]);
 
   const submitHandler = (e) => {
     e.preventDefault();
