@@ -13,6 +13,8 @@ import { moviesReducer, movieDetailReducer } from "./reducers/movieReducer";
 
 import { authReducer } from "./reducers/userReducer";
 
+import { wishlistReducer } from "./reducers/wishlistReducer";
+
 const reducer = combineReducers({
   celebrities: celebrityReducer,
   celebrityDetails: celebrityDetailsReducer,
@@ -21,6 +23,8 @@ const reducer = combineReducers({
   movieDetails: movieDetailReducer,
 
   authReducer,
+
+  wishlist: wishlistReducer,
 });
 
 let initialState = {};

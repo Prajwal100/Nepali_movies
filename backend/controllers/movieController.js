@@ -25,7 +25,7 @@ exports.showMovie = catchAsyncErrors(async (req, res, next) => {
   }
 
   res.status(200).json({
-    data: movie,
+    movie,
     message: "Successfully fetched movie",
   });
 });
