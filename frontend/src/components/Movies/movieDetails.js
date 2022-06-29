@@ -56,11 +56,6 @@ const MovieDetails = () => {
 
                       <p className="mb-0">{movie.category}</p>
                     </li>
-                    <li className="list-group-item d-flex justify-content-between align-items-center p-3">
-                      <strong>Place Of Birth :</strong>
-
-                      <p className="mb-0">{movie.address}</p>
-                    </li>
                   </ul>
                 </div>
               </div>

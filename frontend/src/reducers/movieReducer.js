@@ -53,7 +53,7 @@ export const movieDetailReducer = (state = { movie: {} }, action) => {
     case MOVIE_DETAILS_SUCCESS:
       return {
         loading: false,
-        movie: payload.data,
+        movie: payload.movie,
       };
     case MOVIE_DETAILS_FAIL:
       return {

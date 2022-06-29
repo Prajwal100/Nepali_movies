@@ -17,6 +17,7 @@ import { Toaster } from "react-hot-toast";
 
 //Loader spinner
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
+import Footer from "./components/Layout/Footer/Footer";
 function App() {
   useEffect(() => {
     store.dispatch(loadUser());
@@ -43,6 +44,7 @@ function App() {
 
         <Route exact path="/movie/:id" element={<MovieDetail />}></Route>
       </Routes>
+      <Footer />
     </div>
   );
 }

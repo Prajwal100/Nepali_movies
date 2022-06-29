@@ -9,7 +9,7 @@ export const wishlistReducer = (state = { wishlistItems: [] }, action) => {
   switch (type) {
     case ADD_TO_WISHLIST:
       const item = payload;
-      console.log("reducer", item);
+      console.log("reducer", item.movie, state);
 
       const itemExist = state.wishlistItems.find((i) => i.movie === item.movie);
 
@@ -18,7 +18,7 @@ export const wishlistReducer = (state = { wishlistItems: [] }, action) => {
         return {
           ...state,
           wishlistItems: state.wishlistItems.find((i) =>
-            i.celebrity === item.celebrity ? item : i
+            i.movie === item.movie ? item : i
           ),
         };
       } else {

@@ -6,6 +6,8 @@ import { useDispatch, useSelector } from "react-redux";
 
 import { logoutUser } from "../../../actions/userActions";
 
+import Badge from "react-bootstrap/Badge";
+
 import toast, { Toaster } from "react-hot-toast";
 import { AiOutlinePoweroff } from "react-icons/ai";
 const Header = () => {
@@ -13,6 +15,7 @@ const Header = () => {
   const navigate = useNavigate();
 
   const { user, loading } = useSelector((state) => state.authReducer);
+  const { wishlistItems } = useSelector((state) => state.wishlist);
 
   const handleLogout = () => {
     dispatch(logoutUser());
@@ -20,7 +23,13 @@ const Header = () => {
   };
   return (
     <>
-      <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+      <Navbar
+        collapseOnSelect
+        expand="lg"
+        bg="dark"
+        variant="dark"
+        style={{ position: "fixed", top: "0", width: "100%", zIndex: "9999" }}
+      >
         <Container>
           <Link className="logo" to="/">
             <Navbar.Brand>Nepali Movies</Navbar.Brand>
@@ -39,6 +48,9 @@ const Header = () => {
           <Navbar.Toggle />
           <Navbar.Collapse className="justify-content-end">
             <Nav>
+              <Link to="/register" className="nav-link">
+                Wishlist <Badge bg="secondary">{wishlistItems.length}</Badge>
+              </Link>
               {user ? (
                 <React.Fragment>
                   <Navbar.Text>

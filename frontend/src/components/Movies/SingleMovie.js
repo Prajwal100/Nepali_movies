@@ -1,6 +1,6 @@
 import React from "react";
 import "./SingleMovie.css";
-import { AiOutlineHeart } from "react-icons/ai";
+import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
 import { Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import toast from "react-hot-toast";
@@ -45,9 +45,9 @@ const SingleMovie = (props) => {
               </Link>
             </div>
             <div className="options">
-              <a className="no_click" href="#" onClick={addToWishlistHandler}>
-                <AiOutlineHeart />
-              </a>
+              <Link className="no_click" to="" onClick={addToWishlistHandler}>
+                {itemInWishlist ? <AiFillHeart /> : <AiOutlineHeart />}
+              </Link>
             </div>
           </div>
           <div className="content">
