@@ -23,7 +23,7 @@ const LoginPage = ({ history }) => {
       toast.success("Successfully login.");
     }
     if (error) {
-      alert(error);
+      toast.error(error);
       dispatch(clearErrors());
     }
   }, [dispatch, isAuthenticated, error, history, navigate, redirect]);

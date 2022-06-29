@@ -39,7 +39,7 @@ export const login = (email, password) => async (dispatch) => {
   } catch (error) {
     dispatch({
       type: LOGIN_FAIL,
-      payload: error.response.data.message,
+      payload: error.response.data.errorMessage,
     });
   }
 };
@@ -50,13 +50,19 @@ export const register = (userData) => async (dispatch) => {
       type: REGISTER_REQUEST,
     });
 
+    console.log("hrere", userData);
+
     const config = {
       headers: {
         "Content-Type": "multipart/form-data",
       },
     };
 
-    const { data } = axios.post("/api/v1/auth/register", userData, config);
+    const { data } = await axios.post(
+      "/api/v1/auth/register",
+      userData,
+      config
+    );
 
     dispatch({
       type: REGISTER_SUCCESS,
@@ -65,7 +71,7 @@ export const register = (userData) => async (dispatch) => {
   } catch (error) {
     dispatch({
       type: REGISTER_FAIL,
-      payload: error.response.data.message,
+      payload: error.response.data.errorMessage,
     });
   }
 };
@@ -86,7 +92,7 @@ export const loadUser = () => async (dispatch) => {
   } catch (error) {
     dispatch({
       type: LOAD_USER_FAIL,
-      payload: error.response.data.message,
+      payload: error.response.data.errorMessage,
     });
   }
 };
@@ -103,7 +109,7 @@ export const logoutUser = () => async (dispatch) => {
   } catch (error) {
     dispatch({
       type: LOGOUT_USER_FAIL,
-      payload: error.response.data.message,
+      payload: error.response.data.errorMessage,
     });
   }
 };

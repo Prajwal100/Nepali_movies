@@ -53,7 +53,7 @@ function Footer() {
                 <div className="col-md-3">
                 <div className="">
                     <h2 className="text-primary-grey">Nepali Movies</h2>
-                    <p className="mt-2 leading-5">Nepali Movies Private Limited,Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis, nisi reprehenderit. Inventore.<br />
+                    <p className="mt-2 leading-5">Nepali Movies Private Limited.<br />
                 
                     44600,<br />
                     kathmandu, Nepal
@@ -63,7 +63,7 @@ function Footer() {
                 </div>
                 {footerLinks.map((el, i) => (
                     <div className="col-md-3" key={i}>
-                    <h2 className="text-primary-grey mb-2 uppercase">{el.title}</h2>
+                    <h4 className="text-primary-grey mb-2 uppercase">{el.title}</h4>
                     <ul>
                     {el.links.map((item, i) => (
                         <li><a href={item.redirect} target="_blank" rel="noreferrer" className="hover:underline" key={i}>{item.name}</a></li>

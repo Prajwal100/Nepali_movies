@@ -6,6 +6,7 @@ const sendToken = require("../utils/jwtToken");
 
 // Register User => /api/v1/auth/register
 exports.registerUser = catchAsyncErrors(async (req, res, next) => {
+  console.log(req.body);
   const { name, username, email, password, gender } = req.body;
 
   const user = await User.create({

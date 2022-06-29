@@ -15,6 +15,7 @@ import {
 
 export const authReducer = (state = { user: {} }, action) => {
   const { type, payload } = action;
+  console.log(payload);
   switch (type) {
     case LOGIN_REQUEST:
     case REGISTER_REQUEST:
@@ -38,6 +39,7 @@ export const authReducer = (state = { user: {} }, action) => {
     case REGISTER_FAIL:
       return {
         ...state,
+        loading: false,
         isAuthenticated: false,
         user: null,
         error: payload,
