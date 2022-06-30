@@ -24,7 +24,7 @@ function App() {
   }, []);
   return (
     <div className="section">
-      <Toaster position="top-right" reverseOrder={false} />
+      <Toaster position="bottom-right" reverseOrder={false} />
 
       <Header />
       <Routes>

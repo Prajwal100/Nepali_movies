@@ -12,7 +12,8 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <Provider store={store}>
     <BrowserRouter forceRefresh={true}>
-      <App />
+      <Route exact path="/" component={<App />} />
+      {/* <Route exact path="/admin" component="" /> */}
     </BrowserRouter>
   </Provider>
 );
