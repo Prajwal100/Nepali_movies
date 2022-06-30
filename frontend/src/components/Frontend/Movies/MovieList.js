@@ -3,8 +3,8 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Row, Container, Col } from "react-bootstrap";
 
-import { getMovies } from "../../actions/movieActions";
-import Loader from "../../components/Layout/Loader";
+import { getMovies } from "../../../actions/movieActions";
+import Loader from "../layout/Loader";
 const MovieList = () => {
   const [CurrentPage, setCurrentPage] = useState(1);
   const [Movies, setMovies] = useState([]);

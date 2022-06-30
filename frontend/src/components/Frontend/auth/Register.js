@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
-import MetaData from "../../components/Layout/MetaData";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { register, clearErrors } from "../../actions/userActions";
+import { register, clearErrors } from "../../../actions/userActions";
 import { FaSpinner } from "react-icons/fa";
 import toast from "react-hot-toast";
+import Loader from "../layout/Loader";
+import MetaData from "../layout/MetaData";
 const RegisterPage = ({ history }) => {
   const { loading, error, isAuthenticated } = useSelector(
     (state) => state.authReducer

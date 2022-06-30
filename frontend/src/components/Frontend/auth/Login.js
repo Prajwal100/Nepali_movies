@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
-import Loader from "../../components/Layout/Loader";
+import Loader from "../layout/Loader";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate, useLocation } from "react-router-dom";
-import { login, clearErrors } from "../../actions/userActions";
-import MetaData from "../../components/Layout/MetaData";
+import { login, clearErrors } from "../../../actions/userActions";
+import MetaData from "../layout/MetaData";
 import toast from "react-hot-toast";
 
 const LoginPage = ({ history }) => {

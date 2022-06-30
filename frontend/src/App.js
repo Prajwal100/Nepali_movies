@@ -1,15 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Container } from "react-bootstrap";
 import Header from "./components/Layout/Header/Header";
-import { Routes, Route } from "react-router-dom";
-import CelebrityPage from "./pages/CelebrityPage/CelebrityList";
-import Home from "./pages/Home/Home";
-import CelebrityDetail from "./pages/CelebrityPage/celebrityDetails";
-import MovieDetail from "./components/Movies/movieDetails";
-
-import LoginPage from "./pages/Auth/Login";
-import RegisterPage from "./pages/Auth/Register";
-
+import Routes from "./components/index";
 import { loadUser } from "./actions/userActions";
 import store from "./store";
 
@@ -24,27 +16,9 @@ function App() {
   }, []);
   return (
     <div className="section">
-      <Toaster position="bottom-right" reverseOrder={false} />
+      {/* <Toaster position="bottom-right" reverseOrder={false} /> */}
 
-      <Header />
-      <Routes>
-        {/* AUTH ROUTES STARTS */}
-        <Route exact path="/login" element={<LoginPage />}></Route>
-        <Route exact path="/register" element={<RegisterPage />}></Route>
-
-        {/* AUTH ROUTES ENDS */}
-
-        <Route exact path="/" element={<Home />}></Route>
-        <Route exact path="/celebrities" element={<CelebrityPage />}></Route>
-        <Route
-          exact
-          path="/celebrity/:id"
-          element={<CelebrityDetail />}
-        ></Route>
-
-        <Route exact path="/movie/:id" element={<MovieDetail />}></Route>
-      </Routes>
-      <Footer />
+      <Routes />
     </div>
   );
 }

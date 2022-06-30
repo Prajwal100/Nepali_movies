@@ -12,7 +12,7 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <Provider store={store}>
     <BrowserRouter forceRefresh={true}>
-      <Route exact path="/" component={<App />} />
+      <App />
       {/* <Route exact path="/admin" component="" /> */}
     </BrowserRouter>
   </Provider>

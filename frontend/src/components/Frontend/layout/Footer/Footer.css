@@ -1,0 +1,16 @@
+.footer-section{
+    background:#172337;
+    color:white;
+    padding:40px 0;
+}
+
+.footer-section ul{
+    padding:0
+}
+
+.footer-section ul li{
+    list-style: none;
+}
+.footer-section a{
+    color:white;
+}

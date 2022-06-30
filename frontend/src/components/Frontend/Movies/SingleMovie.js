@@ -7,7 +7,10 @@ import toast from "react-hot-toast";
 
 import { useDispatch, useSelector } from "react-redux";
 
-import { addToWishlist, removeWishlist } from "../../actions/wishlistActions";
+import {
+  addToWishlist,
+  removeWishlist,
+} from "../../../actions/wishlistActions";
 const SingleMovie = (props) => {
   const dispatch = useDispatch();
 
