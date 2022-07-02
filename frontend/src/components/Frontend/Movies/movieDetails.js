@@ -4,10 +4,12 @@ import "./movieDetails.css";
 import { Row, Badge } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import { getDetailsMovies, clearErrors } from "../../actions/movieActions";
+import { getDetailsMovies, clearErrors } from "../../../actions/movieActions";
 import toast, { Toaster } from "react-hot-toast";
-import Loader from "../Layout/Loader";
+import Loader from "../layout/Loader";
 import Moment from "moment";
+import Layout from "../layout";
+import MetaData from "../layout/MetaData";
 const MovieDetails = () => {
   const dispatch = useDispatch();
   const { id } = useParams();
@@ -23,12 +25,13 @@ const MovieDetails = () => {
   }, [dispatch, id, error]);
 
   return (
-    <section>
+    <Layout>
+      <MetaData title="Celebrity Details" />
       <Toaster />
       {loading ? (
         <Loader />
       ) : (
-        <div className="container py-5">
+        <div className="container mt-5 py-5">
           <div className="row">
             <div className="col-lg-4">
               <div className="card mb-4">
@@ -78,7 +81,7 @@ const MovieDetails = () => {
           </div>
         </div>
       )}
-    </section>
+    </Layout>
   );
 };
 

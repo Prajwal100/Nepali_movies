@@ -9,6 +9,8 @@ import {
 import toast, { Toaster } from "react-hot-toast";
 import Loader from "../layout/Loader";
 import Moment from "moment";
+import Layout from "../layout";
+import MetaData from "../layout/MetaData";
 const CelebrityDetail = () => {
   const dispatch = useDispatch();
   const { id } = useParams();
@@ -36,12 +38,12 @@ const CelebrityDetail = () => {
     }
   };
   return (
-    <section>
-      <Toaster />
+    <Layout>
+      <MetaData title="Login | Nepali Movies" />
       {loading ? (
         <Loader />
       ) : (
-        <div className="container py-5">
+        <div className="container mt-5 py-5">
           <div className="row">
             <div className="col-lg-4">
               <div className="card mb-4">
@@ -104,7 +106,7 @@ const CelebrityDetail = () => {
           </div>
         </div>
       )}
-    </section>
+    </Layout>
   );
 };
 

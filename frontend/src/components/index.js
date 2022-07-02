@@ -4,7 +4,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import CelebrityPage from "./Frontend/Celebrity/CelebrityList";
 import Home from "../components/Frontend/home/index";
 import CelebrityDetail from "./Frontend/Celebrity/celebrityDetails";
-import MovieDetail from "./components/Movies/movieDetails";
+import MovieDetail from "./Frontend/Movies/movieDetails";
 
 import LoginPage from "./Frontend/auth/Login";
 import RegisterPage from "./Frontend/auth/Register";
