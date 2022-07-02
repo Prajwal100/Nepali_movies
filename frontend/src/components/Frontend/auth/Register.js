@@ -6,6 +6,7 @@ import { FaSpinner } from "react-icons/fa";
 import toast from "react-hot-toast";
 import Loader from "../layout/Loader";
 import MetaData from "../layout/MetaData";
+import Layout from "../layout";
 const RegisterPage = ({ history }) => {
   const { loading, error, isAuthenticated } = useSelector(
     (state) => state.authReducer
@@ -81,7 +82,7 @@ const RegisterPage = ({ history }) => {
     }
   };
   return (
-    <React.Fragment>
+    <Layout>
       <MetaData title="Register | Nepali Movies" />
       <section>
         <div className="container py-5 h-100">
@@ -97,7 +98,7 @@ const RegisterPage = ({ history }) => {
                     />
                   </div>
                   <div className="col-md-6 col-lg-7 d-flex align-items-center">
-                    <div className="card-body p-4 p-lg-5 text-black">
+                    <div className="row card-body p-4 p-lg-5 text-black">
                       <form
                         onSubmit={submitHandler}
                         encType="multipart/form-data"
@@ -232,7 +233,8 @@ const RegisterPage = ({ history }) => {
                         <div className="form-outline mb-4">
                           <img
                             src={avatarPreview}
-                            className="rounded-circle mb-2"
+                            style={{ width: "200px", height: "auto" }}
+                            className="img-fluid rounded-circle mb-2"
                             alt="avatar"
                           />
                           <br />
@@ -288,7 +290,7 @@ const RegisterPage = ({ history }) => {
           </div>
         </div>
       </section>
-    </React.Fragment>
+    </Layout>
   );
 };
 

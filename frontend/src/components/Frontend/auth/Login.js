@@ -5,6 +5,7 @@ import { Link, useNavigate, useLocation } from "react-router-dom";
 import { login, clearErrors } from "../../../actions/userActions";
 import MetaData from "../layout/MetaData";
 import toast from "react-hot-toast";
+import Layout from "../layout";
 
 const LoginPage = ({ history }) => {
   const navigate = useNavigate();
@@ -33,7 +34,7 @@ const LoginPage = ({ history }) => {
     dispatch(login(email, password));
   };
   return (
-    <React.Fragment>
+    <Layout>
       <MetaData title="Login | Nepali Movies" />
       {loading ? (
         <Loader />
@@ -129,7 +130,7 @@ const LoginPage = ({ history }) => {
           </div>
         </section>
       )}
-    </React.Fragment>
+    </Layout>
   );
 };
 

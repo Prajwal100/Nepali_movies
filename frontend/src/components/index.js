@@ -1,10 +1,10 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-// import CelebrityPage from "./pages/CelebrityPage/CelebrityList";
+import CelebrityPage from "./Frontend/Celebrity/CelebrityList";
 import Home from "../components/Frontend/home/index";
-// import CelebrityDetail from "./pages/CelebrityPage/celebrityDetails";
-// import MovieDetail from "./components/Movies/movieDetails";
+import CelebrityDetail from "./Frontend/Celebrity/celebrityDetails";
+import MovieDetail from "./components/Movies/movieDetails";
 
 import LoginPage from "./Frontend/auth/Login";
 import RegisterPage from "./Frontend/auth/Register";
@@ -18,14 +18,10 @@ const routes = () => {
       <Route exact path="/register" element={<RegisterPage />}></Route>
 
       <Route exact path="/" element={<Home />}></Route>
-      {/* <Route exact path="/celebrities" element={<CelebrityPage />}></Route>
-        <Route
-          exact
-          path="/celebrity/:id"
-          element={<CelebrityDetail />}
-        ></Route>
+      <Route exact path="/celebrities" element={<CelebrityPage />}></Route>
+      <Route exact path="/celebrity/:id" element={<CelebrityDetail />}></Route>
 
-        <Route exact path="/movie/:id" element={<MovieDetail />}></Route> */}
+      <Route exact path="/movie/:id" element={<MovieDetail />}></Route>
     </Routes>
   );
 };
