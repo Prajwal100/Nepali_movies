@@ -16,7 +16,7 @@ function App() {
   }, []);
   return (
     <div className="section">
-      {/* <Toaster position="bottom-right" reverseOrder={false} /> */}
+      <Toaster position="bottom-right" reverseOrder={false} />
 
       <Routes />
     </div>

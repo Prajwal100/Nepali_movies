@@ -13,7 +13,6 @@ root.render(
   <Provider store={store}>
     <BrowserRouter forceRefresh={true}>
       <App />
-      {/* <Route exact path="/admin" component="" /> */}
     </BrowserRouter>
   </Provider>
 );

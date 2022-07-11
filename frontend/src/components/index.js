@@ -1,13 +1,13 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import CelebrityPage from "./Frontend/Celebrity/CelebrityList";
-import Home from "../components/Frontend/home/index";
-import CelebrityDetail from "./Frontend/Celebrity/celebrityDetails";
-import MovieDetail from "./Frontend/Movies/movieDetails";
+import CelebrityPage from "./Pages/Celebrity/CelebrityList";
+import Home from "../components/Pages/home/index";
+import CelebrityDetail from "./Pages/Celebrity/celebrityDetails";
+import MovieDetail from "./Pages/Movies/movieDetails";
 
-import LoginPage from "./Frontend/auth/Login";
-import RegisterPage from "./Frontend/auth/Register";
+import LoginPage from "./Pages/auth/Login";
+import RegisterPage from "./Pages/auth/Register";
 
 const routes = () => {
   return (
