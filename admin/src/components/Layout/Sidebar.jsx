@@ -1,4 +1,5 @@
 import React from "react";
+import {Link} from 'react-router-dom'
 const Sidebar = () => {
   return <React.Fragment>
     <ul className="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
@@ -25,21 +26,32 @@ const Sidebar = () => {
 </div>
 
 <li className="nav-item">
-    <a className="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
+    <Link className="nav-link collapsed" to="#" data-toggle="collapse" data-target="#collapseTwo"
         aria-expanded="true" aria-controls="collapseTwo">
-        <i className="fas fa-fw fa-cog"></i>
-        <span>Components</span>
-    </a>
+        <i className="fas fa-users"></i>
+        <span>Celebrities</span>
+    </Link>
     <div id="collapseTwo" className="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
         <div className="bg-white py-2 collapse-inner rounded">
-            <h6 className="collapse-header">Custom Components:</h6>
-            <a className="collapse-item" href="buttons.html">Buttons</a>
-            <a className="collapse-item" href="cards.html">Cards</a>
+            <Link className="collapse-item" to="">All Celebrity</Link>
+            <Link className="collapse-item" to="cards.html">Add Celebrity</Link>
         </div>
     </div>
 </li>
 
-
+<li className="nav-item">
+    <Link className="nav-link collapsed" to="#" data-toggle="collapse" data-target="#collapseMovie"
+        aria-expanded="true" aria-controls="collapseMovie">
+        <i className="fas fa-image"></i>
+        <span>Movies</span>
+    </Link>
+    <div id="collapseMovie" className="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+        <div className="bg-white py-2 collapse-inner rounded">
+            <Link className="collapse-item" to="">All Movies</Link>
+            <Link className="collapse-item" to="cards.html">Add Movie</Link>
+        </div>
+    </div>
+</li>
 
 <div className="text-center d-none d-md-inline">
     <button className="rounded-circle border-0" id="sidebarToggle"></button>
