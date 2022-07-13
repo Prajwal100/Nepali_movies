@@ -1,7 +1,7 @@
 import React from "react";
 import Footer from "./Footer";
 import Sidebar from "./Sidebar";
-
+import Navbar from './Header'
 const AdminLayouts = ({ children }) => {
   return (
     <>
@@ -9,7 +9,15 @@ const AdminLayouts = ({ children }) => {
         <Sidebar />
 
         <div id="content-wrapper" className="d-flex flex-column">
-          {children}
+          
+           
+     <div id="content">
+       <Navbar />
+       
+       {children}
+
+       
+      </div>
 
           <Footer />
         </div>
