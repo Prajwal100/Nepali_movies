@@ -21,7 +21,6 @@ router
   .route("/update-celebrity/:id")
   .put(isAuthenticatedUser, authorizeRoles("admin"), updateCelebrity);
 
-router
-  .route("/delete-celebrity/:id")
-  .delete(isAuthenticatedUser, authorizeRoles("admin"), deleteCelebrity);
+router.route("/delete-celebrity/:id").delete(deleteCelebrity);
 module.exports = router;
+// isAuthenticatedUser, authorizeRoles("admin"),

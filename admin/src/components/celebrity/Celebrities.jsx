@@ -3,21 +3,23 @@ import AdminLayouts from '../Layout'
 import { useDispatch,useSelector } from 'react-redux'
 import {listCelebrities} from '../../actions/celebrityActions'
 import Celebrity from './Celebrity'
+import {Link} from 'react-router-dom'
 const CelebrityList=()=>{
     const dispatch=useDispatch();
     const celebrityList=useSelector((state)=>state.celebrityList);
     const {loading,error,celebrities}=celebrityList;
     
+    
     useEffect(()=>{
         dispatch(listCelebrities());
-    },[dispatch])
+    },[])
     return (
         <React.Fragment>
                 <div className="container-fluid">
 
                     <div className="card shadow mb-4">
                         <div className="card-header py-3">
-                            <h6 className="m-0 font-weight-bold text-primary">All Celebrities</h6>
+                            <h6 className="m-0 font-weight-bold text-primary">All Celebrities <Link  to="/celebrity/create" className="btn btn-warning"><i className="fa fa-plus"></i> Create</Link></h6>
                         </div>
                         <div className="card-body">
                             <div className="table-responsive">

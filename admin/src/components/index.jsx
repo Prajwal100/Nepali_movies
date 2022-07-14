@@ -1,7 +1,7 @@
 import React from 'react';
 import {Routes,Route} from 'react-router-dom'
 import Celebrity from './celebrity/Celebrities';
-import CreateCelebrity from './celebrity/create'
+import CreateCelebrity from './celebrity/AddCelebrity'
 import Dashboard from './dashboard';
 const routes =()=>{
     return (
