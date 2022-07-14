@@ -39,7 +39,10 @@ export const createCelebrity = (reqData) => async (dispatch, getState) => {
       type: CELEBRITY_CREATE_REQUEST,
     });
 
-    const response = await axios.post(`api/v1/create-celebrity/`, reqData);
+    const response = await axios.post(
+      `/api/v1/celebrity/create-celebrity`,
+      reqData
+    );
 
     const responseData = response.data;
 

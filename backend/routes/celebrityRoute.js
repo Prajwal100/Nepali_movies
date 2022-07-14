@@ -11,9 +11,7 @@ const {
 const { isAuthenticatedUser, authorizeRoles } = require("../middlewares/auth");
 router.route("/get-celebrities").get(getCelebrities);
 
-router
-  .route("/create-celebrity")
-  .post(isAuthenticatedUser, authorizeRoles("admin"), storeCelebrity);
+router.route("/create-celebrity").post(storeCelebrity);
 
 router.route("/show-celebrity/:id").get(showCelebrity);
 
