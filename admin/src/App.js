@@ -1,10 +1,10 @@
-import { Toaster } from "react-hot-toast";
-
+import "react-toastify/dist/ReactToastify.css";
+import Toast from "./components/LoadingError/Toast";
 import Routes from "./components/index";
 function App() {
   return (
     <>
-      <Toaster position="bottom-right" reverseOrder={false} />
+      <Toast />
 
       <Routes />
     </>

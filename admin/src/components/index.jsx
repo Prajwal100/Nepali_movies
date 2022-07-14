@@ -1,6 +1,6 @@
 import React from 'react';
 import {Routes,Route} from 'react-router-dom'
-import Celebrity from './celebrity';
+import Celebrity from './celebrity/Celebrities';
 import CreateCelebrity from './celebrity/create'
 import Dashboard from './dashboard';
 const routes =()=>{

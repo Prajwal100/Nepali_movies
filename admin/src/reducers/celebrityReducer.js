@@ -1,27 +1,30 @@
 import {
-  ALL_CELEBRITY_REQUEST,
-  ALL_CELEBRITY_SUCCESS,
-  ALL_CELEBRITY_FAIL,
+  CELEBRITY_LIST_REQUEST,
+  CELEBRITY_LIST_SUCCESS,
+  CELEBRITY_LIST_FAIL,
   CLEAR_ERRORS,
-} from "../constants/types";
+} from "../constants/celebrityConstant";
 
-export const celebrityReducer = (state = { celebrities: [] }, action) => {
+export const celebrityListReducer = (
+  state = { celebrities: [], numOfPages: 0, sortBy: "" },
+  action
+) => {
   const { type, payload } = action;
 
   switch (type) {
-    case ALL_CELEBRITY_REQUEST:
+    case CELEBRITY_LIST_REQUEST:
       return {
         loading: true,
         celebrities: [],
       };
 
-    case ALL_CELEBRITY_SUCCESS:
+    case CELEBRITY_LIST_SUCCESS:
       return {
         loading: false,
         celebrities: payload.data,
       };
 
-    case ALL_CELEBRITY_FAIL:
+    case CELEBRITY_LIST_FAIL:
       return {
         loading: true,
         celebrities: payload,
