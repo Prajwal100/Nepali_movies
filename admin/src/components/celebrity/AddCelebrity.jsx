@@ -27,7 +27,7 @@ const AddCelebrityComponent = () => {
     if (name) {
       dispatch(createCelebrity(formState.values));
       setFormState({ values: {} });
-      navigate("/celebrities")
+      // navigate("/celebrities")
       setSubmitted(false);
     }
   };
@@ -41,7 +41,7 @@ const AddCelebrityComponent = () => {
             </h6>
           </div>
           <div className="card-body">
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} enctype="multipart/form-data">
               <div className="row">
                 <div className="col-6">
                   <div className="form-group">

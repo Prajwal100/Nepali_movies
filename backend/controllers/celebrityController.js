@@ -1,6 +1,8 @@
 const Celebrity = require("../models/Celebrity");
 const ErrorHandler = require("../utils/errorHandler");
 const catchAsyncErrors = require("../middlewares/catchAsyncErrors");
+
+const multer = require("multer");
 // get celebrities route here
 exports.getCelebrities = async (req, res, next) => {
   const celebrities = await Celebrity.find().sort({ createdAt: -1 }).limit(10);
@@ -11,6 +13,12 @@ exports.getCelebrities = async (req, res, next) => {
 
 exports.storeCelebrity = catchAsyncErrors(async (req, res, next) => {
   // req.body.uploadedBy = req.user.id;
+
+  // upload(req, res, function (err) {
+  //   if (err) {
+  //     return res.statue(401).json({ message: "Error uploading file" });
+  //   }
+  // });
 
   const celebrity = await Celebrity.create(req.body);
   res.status(201).json({

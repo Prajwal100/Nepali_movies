@@ -1,5 +1,6 @@
 const express = require("express");
 const router = express.Router();
+const multer = require("multer");
 const {
   getCelebrities,
   storeCelebrity,
@@ -11,7 +12,18 @@ const {
 const { isAuthenticatedUser, authorizeRoles } = require("../middlewares/auth");
 router.route("/get-celebrities").get(getCelebrities);
 
-router.route("/create-celebrity").post(storeCelebrity);
+// upload image here
+const storage = multer.diskStorage({
+  destination: function (req, file, callback) {
+    callback(null, "./uploads");
+  },
+  filename: function (req, file, callback) {
+    callback(null, Date.now() + "-" + file.originalname);
+  },
+});
+const upload = multer({ storage: storage });
+
+router.route("/create-celebrity", upload.single("avatar")).post(storeCelebrity);
 
 router.route("/show-celebrity/:id").get(showCelebrity);
 
