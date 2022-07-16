@@ -4,19 +4,19 @@ const Sidebar = () => {
   return <React.Fragment>
     <ul className="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
-<a className="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+<Link className="sidebar-brand d-flex align-items-center justify-content-center" to="/">
     <div className="sidebar-brand-icon rotate-n-15">
         <i className="fas fa-laugh-wink"></i>
     </div>
     <div className="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>
-</a>
+</Link>
 
 <hr className="sidebar-divider my-0" />
 
 <li className="nav-item active">
-    <a className="nav-link" href="index.html">
+    <Link to="/" className="nav-link" >
         <i className="fas fa-fw fa-tachometer-alt"></i>
-        <span>Dashboard</span></a>
+        <span>Dashboard</span></Link>
 </li>
 
 <hr className="sidebar-divider" />
