@@ -8,9 +8,12 @@ import {
   celebrityListReducer,
   celebrityDeleteReducer,
 } from "./reducers/celebrityReducer";
+
+import { userReducer } from "./reducers/userReducer";
 const reducer = combineReducers({
   celebrityList: celebrityListReducer,
   celebrityDelete: celebrityDeleteReducer,
+  userLogin: userReducer,
 });
 
 const initialState = {};

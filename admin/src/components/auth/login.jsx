@@ -1,11 +1,23 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
+import {useDispatch,useSelector} from 'react-redux';
+import {useNavigate} from 'react-router-dom'
 import Helmet from "react-helmet";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { TextField } from "formik-material-ui";
+import {userLogin} from '../../actions/userActions'
 
 const LoginPage = () => {
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
   const [errorMessage, setErrorMessage] = useState("");
+  const {loading,error,isAuthenticated} = useSelector((state)=>state.userLogin)
+  
+  useEffect(()=>{
+    if(isAuthenticated){
+        navigate('/',{replace:true})
+    }
+  },[dispatch, isAuthenticated,navigate])
   return (
     <>
       <Helmet>
@@ -32,6 +44,8 @@ const LoginPage = () => {
             try {
               setErrorMessage(" ");
               const { email, password } = values;
+              dispatch(userLogin(email, password))
+            
             } catch (err) {
               setErrorMessage(err.message || "Login Error");
             }
