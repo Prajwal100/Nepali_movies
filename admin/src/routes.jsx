@@ -4,6 +4,9 @@ import Celebrity from "./components/celebrity/Celebrities";
 import CreateCelebrity from "./components/celebrity/AddCelebrity";
 import Dashboard from "./components/dashboard";
 import { isLoggedIn } from "./utils/helper";
+
+// Login page
+import LoginPage from './components/auth/login'
 export const getRoutes = () => {
   
   const routes=[
@@ -16,7 +19,8 @@ export const getRoutes = () => {
         },
         {
           path:'login',
-          
+          element:isLoggedIn() ? <Navigate to="/" /> : <LoginPage />,
+        
         }
       ]
       
