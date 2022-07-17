@@ -95,7 +95,7 @@ const DashboardComponent = () => {
   );
 };
 const Dashboard = () => {
-  return <AdminLayouts children={<DashboardComponent />} />;
+  return <AdminLayouts title="Nepali Movies || Dashboard" children={<DashboardComponent />} />;
 };
 
 export default Dashboard;

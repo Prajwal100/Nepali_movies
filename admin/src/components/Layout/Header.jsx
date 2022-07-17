@@ -1,7 +1,15 @@
 import React, { useEffect } from "react";
-
+import {useDispatch,useSelector} from 'react-redux'
+import {Link,useNavigate} from 'react-router-dom'
+import {userLogout} from '../../actions/userActions'
 const Header = () => {
-
+  const dispatch=useDispatch();
+  const navigate = useNavigate();
+  const {profile}=useSelector((state)=>state.userLogin.profile);
+  const logoutHandler=(e)=>{
+    dispatch(userLogout())
+    navigate('/login',{replace: true})
+  }
   return (
     <>
        <nav className="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
@@ -243,7 +251,7 @@ const Header = () => {
                 aria-expanded="false"
               >
                 <span className="mr-2 d-none d-lg-inline text-gray-600 small">
-                  Douglas McGee
+                  {profile}
                 </span>
                 <img
                   className="img-profile rounded-circle"
@@ -267,15 +275,14 @@ const Header = () => {
                   Activity Log
                 </a>
                 <div className="dropdown-divider"></div>
-                <a
+                <Link
                   className="dropdown-item"
-                  href="#"
-                  data-toggle="modal"
-                  data-target="#logoutModal"
+                  to="#"
+                  onClick={logoutHandler}
                 >
                   <i className="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                   Logout
-                </a>
+                </Link>
               </div>
             </li>
           </ul>

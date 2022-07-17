@@ -2,7 +2,8 @@ import {
   LOGIN_USER_REQUEST,
   LOGIN_USER_SUCCESS,
   LOGIN_USER_FAIL,
-  LOGOUT_USER,
+  LOGOUT_USER_SUCCESS,
+  LOGOUT_USER_FAIL,
   GET_PROFILE,
   UPDATE_PROFILE,
 } from "../constants/userConstant";
@@ -40,9 +41,14 @@ export const userReducer = (state = initialState, action) => {
         profile: payload,
       };
 
-    case LOGOUT_USER:
+    case LOGOUT_USER_SUCCESS:
       return {
+        isAuthenticated: false,
         state: {},
+      };
+    case LOGOUT_USER_FAIL:
+      return {
+        ...state,
       };
 
     default:
