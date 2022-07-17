@@ -8,6 +8,9 @@ import {
   UPDATE_PROFILE,
   LOGOUT_USER_SUCCESS,
   LOGOUT_USER_FAIL,
+  GET_PROFILE_REQUEST,
+  GET_PROFILE_SUCCESS,
+  GET_PROFILE_FAIL,
 } from "../constants/userConstant";
 
 export const userLogin = (email, password) => async (dispatch) => {
@@ -56,5 +59,21 @@ export const userLogout = () => async (dispatch) => {
         : error.message;
     toast.error(message, ToastObjects);
     dispatch({ type: LOGOUT_USER_FAIL });
+  }
+};
+
+export const getUserProfile = () => async (dispatch) => {
+  try {
+    dispatch({ type: GET_PROFILE_REQUEST });
+    const responseData = await axios.get("/api/v1/me");
+    const data = responseData.data.user;
+    dispatch({ type: GET_PROFILE_SUCCESS, payload: data });
+  } catch (error) {
+    const message =
+      error.response && error.response.data.errorMessage
+        ? error.response.data.errorMessage
+        : error.message;
+    toast.error(message, ToastObjects);
+    dispatch({ type: GET_PROFILE_FAIL });
   }
 };

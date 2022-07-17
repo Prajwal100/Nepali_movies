@@ -1,11 +1,14 @@
 import React, { useEffect } from "react";
 import {useDispatch,useSelector} from 'react-redux'
 import {Link,useNavigate} from 'react-router-dom'
-import {userLogout} from '../../actions/userActions'
+import {userLogout,getUserProfile} from '../../actions/userActions'
 const Header = () => {
   const dispatch=useDispatch();
   const navigate = useNavigate();
-  const {profile}=useSelector((state)=>state.userLogin.profile);
+  const {profile}=useSelector((state)=>state.userLogin);
+  // useEffect(()=>{
+  //   dispatch(getUserProfile())
+  // },[dispatch])
   const logoutHandler=(e)=>{
     dispatch(userLogout())
     navigate('/login',{replace: true})
