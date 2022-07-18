@@ -66,11 +66,12 @@ exports.getUserDetails = catchAsyncErrors(async (req, res, next) => {
   const user = await User.findById(req.user.id);
   res.status(200).json({
     message: "Successfully fetched user data",
-    data: {
-      name: user.name,
-      username: user.username,
-      email: user.email,
-    },
+    user,
+    // data: {
+    //   name: user.name,
+    //   username: user.username,
+    //   email: user.email,
+    // },
   });
 });
 

@@ -2,13 +2,14 @@ import React, { useEffect } from "react";
 import {useDispatch,useSelector} from 'react-redux'
 import {Link,useNavigate} from 'react-router-dom'
 import {userLogout,getUserProfile} from '../../actions/userActions'
+import {isLoggedIn} from '../../utils/helper'
 const Header = () => {
   const dispatch=useDispatch();
   const navigate = useNavigate();
-  const {profile}=useSelector((state)=>state.userLogin);
-  // useEffect(()=>{
-  //   dispatch(getUserProfile())
-  // },[dispatch])
+  const {user,loading}=useSelector((state)=>state.userLogin);
+  useEffect(() => {
+    dispatch(getUserProfile());
+  }, [dispatch]);
   const logoutHandler=(e)=>{
     dispatch(userLogout())
     navigate('/login',{replace: true})
@@ -254,7 +255,7 @@ const Header = () => {
                 aria-expanded="false"
               >
                 <span className="mr-2 d-none d-lg-inline text-gray-600 small">
-                  {profile}
+                  {user.name}
                 </span>
                 <img
                   className="img-profile rounded-circle"
@@ -272,10 +273,6 @@ const Header = () => {
                 <a className="dropdown-item" href="#">
                   <i className="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
                   Settings
-                </a>
-                <a className="dropdown-item" href="#">
-                  <i className="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-                  Activity Log
                 </a>
                 <div className="dropdown-divider"></div>
                 <Link

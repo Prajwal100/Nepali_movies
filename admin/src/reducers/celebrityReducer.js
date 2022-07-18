@@ -47,7 +47,7 @@ export const celebrityListReducer = (state = { celebrities: [] }, action) => {
 
 // CREATE CELEBRITY REDUCER
 export const createCelebrityReducer = (state = {}, action) => {
-  const [type, payload] = action;
+  const { type, payload } = action;
   switch (type) {
     case CELEBRITY_CREATE_REQUEST:
       return {

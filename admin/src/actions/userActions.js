@@ -5,7 +5,6 @@ import {
   LOGIN_USER_REQUEST,
   LOGIN_USER_SUCCESS,
   LOGIN_USER_FAIL,
-  UPDATE_PROFILE,
   LOGOUT_USER_SUCCESS,
   LOGOUT_USER_FAIL,
   GET_PROFILE_REQUEST,
@@ -23,13 +22,11 @@ export const userLogin = (email, password) => async (dispatch) => {
       },
     };
 
-    const response = await axios.post(
+    const { data } = await axios.post(
       "/api/v1/auth/login",
       { email, password },
       config
     );
-
-    const data = response.data;
 
     if (data.success && data.token) {
       localStorage.setItem("access_token", data.token);
@@ -64,10 +61,8 @@ export const userLogout = () => async (dispatch) => {
 
 export const getUserProfile = () => async (dispatch) => {
   try {
-    dispatch({ type: GET_PROFILE_REQUEST });
-    const responseData = await axios.get("/api/v1/me");
-    const data = responseData.data.user;
-    dispatch({ type: GET_PROFILE_SUCCESS, payload: data });
+    const { data } = await axios.get("/api/v1/me");
+    dispatch({ type: GET_PROFILE_SUCCESS, payload: data.user });
   } catch (error) {
     const message =
       error.response && error.response.data.errorMessage

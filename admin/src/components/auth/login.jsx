@@ -11,7 +11,7 @@ const LoginPage = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
   const [errorMessage, setErrorMessage] = useState("");
-  const {loading,error,isAuthenticated} = useSelector((state)=>state.userLogin)
+  const {isAuthenticated} = useSelector((state)=>state.userLogin)
   
   useEffect(()=>{
     if(isAuthenticated){
