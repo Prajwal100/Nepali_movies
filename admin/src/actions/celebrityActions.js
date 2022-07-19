@@ -79,7 +79,7 @@ export const deleteCelebrity = (id) => async (dispatch, getState) => {
       toast.error(data.message, ToastObjects);
     } else {
       toast.success(data.message, ToastObjects);
-      dispatch({ type: CELEBRITY_DELETE_SUCCESS });
+      dispatch({ type: CELEBRITY_DELETE_SUCCESS, payload: data.status });
     }
   } catch (error) {
     const message =

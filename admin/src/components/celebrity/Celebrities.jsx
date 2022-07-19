@@ -6,12 +6,12 @@ import Celebrity from './Celebrity'
 import {Link} from 'react-router-dom'
 import Loader from '../Layout/Loader'
 import { deleteCelebrity } from "../../actions/celebrityActions";
-import {DELETE_CELEBRITY_RESET} from '../../actions/celebrityActions'
+import {CELEBRITY_DELETE_RESET} from '../../constants/celebrityConstant'
 
 const CelebrityList=()=>{
     const dispatch=useDispatch();
-    const celebrityList=useSelector((state)=>state.celebrityList);
-    const {loading,error,celebrities,isDeleted}=celebrityList;
+    const {loading,error,celebrities}=useSelector((state)=>state.celebrityList);
+    const {isDeleted}=useSelector((state)=>state.celebrityDelete);
     
     const deleteHandler = (id) => {
         if (window.confirm("Are you sure you want to delete")) {
@@ -22,7 +22,7 @@ const CelebrityList=()=>{
         dispatch(listCelebrities());
         
         if(isDeleted){
-          dispatch({type:DELETE_CELEBRITY_RESET})
+          dispatch({type:CELEBRITY_DELETE_RESET})
         }
         
     },[dispatch,isDeleted])
