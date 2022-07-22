@@ -2,6 +2,7 @@ import React from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
 import Celebrity from "./components/celebrity/Celebrities";
 import CreateCelebrity from "./components/celebrity/AddCelebrity";
+import EditCelebrity from "./components/celebrity/EditCelebrity";
 import Dashboard from "./components/dashboard";
 import { isLoggedIn } from "./utils/helper";
 
@@ -22,12 +23,16 @@ export const getRoutes = () => {
           element: isLoggedIn() ? <Dashboard /> : <Navigate to="/login" />,
         },
         {
-          path: "/celebrities",
+          path: "/admin/celebrities",
           element: <Celebrity />,
         },
         {
-          path: "/celebrity/create",
+          path: "/admin/celebrity/create",
           element: <CreateCelebrity />,
+        },
+        {
+          path: "/admin/celebrity/edit/:id",
+          element: <EditCelebrity />,
         },
       ],
     },

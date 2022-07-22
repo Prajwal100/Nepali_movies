@@ -5,6 +5,9 @@ import {
   CELEBRITY_CREATE_REQUEST,
   CELEBRITY_CREATE_SUCCESS,
   CELEBRITY_CREATE_FAIL,
+  CELEBRITY_EDIT_REQUEST,
+  CELEBRITY_EDIT_SUCCESS,
+  CELEBRITY_EDIT_FAIL,
   CELEBRITY_DELETE_REQUEST,
   CELEBRITY_DELETE_SUCCESS,
   CELEBRITY_DELETE_FAIL,
@@ -71,6 +74,35 @@ export const createCelebrityReducer = (state = {}, action) => {
       return state;
   }
 };
+
+// EDIT CELEBRITY REDUCER
+export const celebrityEditReducer = (state = { celebrity: {} }, action) => {
+  const { type, payload } = action;
+
+  switch (type) {
+    case CELEBRITY_EDIT_REQUEST:
+      return {
+        ...state,
+        loading: true,
+      };
+
+    case CELEBRITY_EDIT_SUCCESS:
+      return {
+        loading: false,
+        celebrity: payload,
+      };
+
+    case CELEBRITY_EDIT_FAIL:
+      return {
+        loading: false,
+        error: payload,
+      };
+
+    default:
+      return state;
+  }
+};
+
 // DELETE CELEBRITY REDUCER
 export const celebrityDeleteReducer = (state = {}, action) => {
   const { type, payload } = action;

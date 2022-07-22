@@ -12,6 +12,7 @@ exports.getCelebrities = async (req, res, next) => {
 // store celebrity route here
 
 exports.storeCelebrity = catchAsyncErrors(async (req, res, next) => {
+  console.log(req.body);
   // req.body.uploadedBy = req.user.id;
 
   // upload(req, res, function (err) {

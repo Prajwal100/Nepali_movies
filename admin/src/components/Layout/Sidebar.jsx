@@ -33,8 +33,8 @@ const Sidebar = () => {
     </Link>
     <div id="collapseTwo" className="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
         <div className="bg-white py-2 collapse-inner rounded">
-            <Link className="collapse-item" to="/celebrities">All Celebrity</Link>
-            <Link className="collapse-item" to="/celebrity/create">Add Celebrity</Link>
+            <Link className="collapse-item" to="/admin/celebrities">All Celebrity</Link>
+            <Link className="collapse-item" to="/admin/celebrity/create">Add Celebrity</Link>
         </div>
     </div>
 </li>

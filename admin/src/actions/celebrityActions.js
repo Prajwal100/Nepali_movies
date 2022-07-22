@@ -8,6 +8,9 @@ import {
   CELEBRITY_CREATE_REQUEST,
   CELEBRITY_CREATE_SUCCESS,
   CELEBRITY_CREATE_FAIL,
+  CELEBRITY_EDIT_REQUEST,
+  CELEBRITY_EDIT_SUCCESS,
+  CELEBRITY_EDIT_FAIL,
   CELEBRITY_DELETE_REQUEST,
   CELEBRITY_DELETE_SUCCESS,
   CELEBRITY_DELETE_FAIL,
@@ -39,9 +42,16 @@ export const createCelebrity = (reqData) => async (dispatch, getState) => {
       type: CELEBRITY_CREATE_REQUEST,
     });
 
+    const config = {
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
+    };
+
     const response = await axios.post(
       `/api/v1/celebrity/create-celebrity`,
-      reqData
+      reqData,
+      config
     );
 
     const responseData = response.data;
@@ -62,6 +72,27 @@ export const createCelebrity = (reqData) => async (dispatch, getState) => {
         : error.message;
     toast.error(message, ToastObjects);
     dispatch({ type: CELEBRITY_CREATE_FAIL, payload: message });
+  }
+};
+
+// EDIT CELEBRITY ACTION;
+
+export const editCelebrity = (id) => async (dispatch) => {
+  try {
+    dispatch({ type: CELEBRITY_EDIT_REQUEST });
+
+    const { celebrity } = await axios.get(
+      `/api/v1/celebrity/show-celebrity/${id}`
+    );
+
+    dispatch({ type: CELEBRITY_EDIT_SUCCESS, payload: celebrity });
+  } catch (error) {
+    const message =
+      error.response && error.response.data.errorMessage
+        ? error.response.data.errorMessage
+        : error.message;
+    toast.error(message, ToastObjects);
+    dispatch({ type: CELEBRITY_EDIT_FAIL, payload: message });
   }
 };
 

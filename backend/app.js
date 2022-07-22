@@ -4,7 +4,7 @@ const cors = require("cors");
 const errorMiddleware = require("./middlewares/errors");
 const path = require("path");
 const bodyparser = require("body-parser");
-const cloudinary = require("cloudinary");
+const multer = require("multer");
 
 const cookieParser = require("cookie-parser");
 

@@ -1,22 +1,38 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import AdminLayouts from "../Layout";
 import { useDispatch, useSelector } from "react-redux";
 import {createCelebrity} from '../../actions/celebrityActions'
-import {useNavigate} from 'react-router-dom'
-const AddCelebrityComponent = () => {
+import {Link, useNavigate,useParams } from 'react-router-dom'
+
+
+const EditCelebrityComponent = ({match}) => {
+  const {id}=useParams();
   const dispatch = useDispatch();
   const navigate=useNavigate();
   const [submitted, setSubmitted] = useState(false);
   const [formState, setFormState] = useState({
     values: {},
   });
+  
+  const {celebrity}=useSelector((state)=>state.celebrityEdit);
+  
+  useEffect(()=>{
+    setFormState({values:{}})
+    
+    if(celebrity._id !==id){
+      
+    }
+    else{
+      setFormState({values:celebrity})
+    }
+  },[celebrity,dispatch,id])
 
   const handleChange = (e) => {
     setFormState((formState) => ({
       ...formState,
       values: {
         ...formState.values,
-        [e.target.name]: e.target.type==="file" ? e.target.files[0]: e.target.value,
+        [e.target.name]: e.target.value,
       },
     }));
   };
@@ -37,11 +53,11 @@ const AddCelebrityComponent = () => {
         <div className="card shadow mb-4">
           <div className="card-header py-3">
             <h6 className="m-0 font-weight-bold text-primary">
-              <i className="fa fa-plus"></i> Add Celebrity
+              <i className="fa fa-plus"></i> Update Celebrity
             </h6>
           </div>
           <div className="card-body">
-            <form onSubmit={handleSubmit} encType="multipart/form-data">
+            <form onSubmit={handleSubmit} enctype="multipart/form-data">
               <div className="row">
                 <div className="col-6">
                   <div className="form-group">
@@ -130,9 +146,11 @@ const AddCelebrityComponent = () => {
                   </div>
                 </div>
                 <div className="col-6">
+                  
                   <button type="submit" className="btn btn-success">
                     Submit
                   </button>
+                  <Link to="/admin/celebrities" className="btn btn-warning ml-2">Cancel</Link>
                 </div>
               </div>
             </form>
@@ -142,8 +160,8 @@ const AddCelebrityComponent = () => {
     </React.Fragment>
   );
 };
-function AddCelebrity() {
-  return <AdminLayouts children={<AddCelebrityComponent />} />;
+function EditCelebrity() {
+  return <AdminLayouts children={<EditCelebrityComponent />} />;
 }
 
-export default AddCelebrity;
+export default EditCelebrity;

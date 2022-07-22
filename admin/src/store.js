@@ -7,12 +7,14 @@ import { composeWithDevTools } from "redux-devtools-extension";
 import {
   celebrityListReducer,
   celebrityDeleteReducer,
+  celebrityEditReducer,
 } from "./reducers/celebrityReducer";
 
 import { userReducer } from "./reducers/userReducer";
 const reducer = combineReducers({
   celebrityList: celebrityListReducer,
   celebrityDelete: celebrityDeleteReducer,
+  celebrityEdit: celebrityEditReducer,
   userLogin: userReducer,
 });
 

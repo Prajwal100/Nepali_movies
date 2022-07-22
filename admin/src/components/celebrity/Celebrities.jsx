@@ -1,12 +1,12 @@
-import React,{ useEffect,useState} from 'react'
+import React,{ useEffect} from 'react'
 import AdminLayouts from '../Layout'
 import { useDispatch,useSelector } from 'react-redux'
 import {listCelebrities} from '../../actions/celebrityActions'
-import Celebrity from './Celebrity'
 import {Link} from 'react-router-dom'
 import Loader from '../Layout/Loader'
 import { deleteCelebrity } from "../../actions/celebrityActions";
 import {CELEBRITY_DELETE_RESET} from '../../constants/celebrityConstant'
+import moment from "moment";
 
 const CelebrityList=()=>{
     const dispatch=useDispatch();
@@ -33,7 +33,7 @@ const CelebrityList=()=>{
                    {loading ? <Loader /> : (
                      <div className="card shadow mb-4">
                      <div className="card-header py-3">
-                         <h6 className="m-0 font-weight-bold text-primary">All Celebrities <Link  to="/celebrity/create" className="btn btn-warning"><i className="fa fa-plus"></i> Create</Link></h6>
+                         <h6 className="m-0 font-weight-bold text-primary">All Celebrities <Link  to="/admin/celebrity/create" className="btn btn-warning"><i className="fa fa-plus"></i> Create</Link></h6>
                      </div>
                      <div className="card-body">
                          <div className="table-responsive">
@@ -60,17 +60,16 @@ const CelebrityList=()=>{
                                  </tfoot>
                                  <tbody>
                                      {celebrities.map((celebrity)=>(
-                                        //  <Celebrity celebrity={celebrity} key={celebrity._id} />
                                         <tr>
                                         <td>{celebrity.name}</td>
                                         <td>
                                           <img src={celebrity.image} alt={celebrity.name} style={{ width: "60px" }} />
                                         </td>
                                         <td>{celebrity.gender}</td>
-                                        <td>{celebrity.dob}</td>
+                                        <td>{moment(celebrity.dob).format("YYYY-MMM-DD")}</td>
                                         <td>{celebrity.address}</td>
                                         <td>
-                                          <Link to="" className="btn btn-primary btn-sm">
+                                          <Link to={`/admin/celebrity/edit/${celebrity._id}`} className="btn btn-primary btn-sm">
                                             <i className="fa fa-edit"></i>
                                           </Link>
                                           <Link
