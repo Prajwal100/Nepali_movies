@@ -11,6 +11,9 @@ import {
   CELEBRITY_EDIT_REQUEST,
   CELEBRITY_EDIT_SUCCESS,
   CELEBRITY_EDIT_FAIL,
+  CELEBRITY_UPDATE_REQUEST,
+  CELEBRITY_UPDATE_SUCCESS,
+  CELEBRITY_UPDATE_FAIL,
   CELEBRITY_DELETE_REQUEST,
   CELEBRITY_DELETE_SUCCESS,
   CELEBRITY_DELETE_FAIL,
@@ -81,11 +84,9 @@ export const editCelebrity = (id) => async (dispatch) => {
   try {
     dispatch({ type: CELEBRITY_EDIT_REQUEST });
 
-    const { celebrity } = await axios.get(
-      `/api/v1/celebrity/show-celebrity/${id}`
-    );
+    const { data } = await axios.get(`/api/v1/celebrity/show-celebrity/${id}`);
 
-    dispatch({ type: CELEBRITY_EDIT_SUCCESS, payload: celebrity });
+    dispatch({ type: CELEBRITY_EDIT_SUCCESS, payload: data.celebrity });
   } catch (error) {
     const message =
       error.response && error.response.data.errorMessage
@@ -95,6 +96,9 @@ export const editCelebrity = (id) => async (dispatch) => {
     dispatch({ type: CELEBRITY_EDIT_FAIL, payload: message });
   }
 };
+
+// UPDATE CELEBRITY ACTIONS
+export const updateCelebrity = (id) => async (dispatch, getState) => {};
 
 //   DELETE CELEBRITY ACTION
 export const deleteCelebrity = (id) => async (dispatch, getState) => {

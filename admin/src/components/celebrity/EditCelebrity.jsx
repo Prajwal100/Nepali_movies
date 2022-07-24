@@ -1,8 +1,9 @@
 import React, { useState,useEffect } from "react";
 import AdminLayouts from "../Layout";
 import { useDispatch, useSelector } from "react-redux";
-import {createCelebrity} from '../../actions/celebrityActions'
+import {createCelebrity,editCelebrity} from '../../actions/celebrityActions'
 import {Link, useNavigate,useParams } from 'react-router-dom'
+import moment from "moment";
 
 
 const EditCelebrityComponent = ({match}) => {
@@ -15,12 +16,14 @@ const EditCelebrityComponent = ({match}) => {
   });
   
   const {celebrity}=useSelector((state)=>state.celebrityEdit);
-  
+  console.log('hey',celebrity);
   useEffect(()=>{
     setFormState({values:{}})
+    // dispatch(editCelebrity(id));
+    //   setFormState({values:celebrity})
     
     if(celebrity._id !==id){
-      
+      dispatch(editCelebrity(id));
     }
     else{
       setFormState({values:celebrity})
@@ -84,7 +87,7 @@ const EditCelebrityComponent = ({match}) => {
                       className="form-control"
                       placeholder="Date of birth"
                       name="dob"
-                      value={formState.values.dob || ''}
+                      value={moment(formState.values.dob).format("YYYY-MMM-DD")|| ''}
                       onChange={handleChange}
                     />
                     {submitted && !formState.values.name && (
@@ -130,6 +133,7 @@ const EditCelebrityComponent = ({match}) => {
                       className="form-control"
                       placeholder="Enter Address"
                       name="address"
+                      value={formState.values.address || ''}
                       onChange={handleChange}
                     />
                   </div>
@@ -141,6 +145,7 @@ const EditCelebrityComponent = ({match}) => {
                       className="form-control"
                       placeholder="Enter Biography"
                       name="biography"
+                      value={formState.values.biography || ''}
                       onChange={handleChange}
                     ></textarea>
                   </div>
@@ -148,7 +153,7 @@ const EditCelebrityComponent = ({match}) => {
                 <div className="col-6">
                   
                   <button type="submit" className="btn btn-success">
-                    Submit
+                    Update
                   </button>
                   <Link to="/admin/celebrities" className="btn btn-warning ml-2">Cancel</Link>
                 </div>

@@ -7,7 +7,7 @@ import Loader from '../Layout/Loader'
 import { deleteCelebrity } from "../../actions/celebrityActions";
 import {CELEBRITY_DELETE_RESET} from '../../constants/celebrityConstant'
 import moment from "moment";
-
+import {generateImageUrl} from '../../utils/helper'
 const CelebrityList=()=>{
     const dispatch=useDispatch();
     const {loading,error,celebrities}=useSelector((state)=>state.celebrityList);
@@ -63,7 +63,7 @@ const CelebrityList=()=>{
                                         <tr>
                                         <td>{celebrity.name}</td>
                                         <td>
-                                          <img src={celebrity.image} alt={celebrity.name} style={{ width: "60px" }} />
+                                          <img src={generateImageUrl(celebrity.image)} alt={celebrity.name} style={{ width: "60px" }} />
                                         </td>
                                         <td>{celebrity.gender}</td>
                                         <td>{moment(celebrity.dob).format("YYYY-MMM-DD")}</td>

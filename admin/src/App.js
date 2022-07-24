@@ -5,6 +5,7 @@ import { useRoutes, useLocation } from "react-router-dom";
 import { getRoutes } from "./routes";
 import store from "./store";
 import { getUserProfile } from "./actions/userActions";
+import "react-datepicker/dist/react-datepicker.css";
 function App() {
   // useEffect(() => {
   //   store.dispatch(getUserProfile());
