@@ -13,8 +13,10 @@ app.use(cookieParser());
 app.use(express.json());
 app.use(bodyparser.urlencoded({ extended: true }));
 
-// setting up cloudinary
-
+app.use(express.static(path.join(__dirname, "uploads")));
+// app.use(express.static("/backend/uploads"));
+// app.use("/admin/backend/uploads", express.static("/admin/backend/uploads"));
+// app.use("/admin/uploads", express.static("/admin/uploads"));
 const user = require("./routes/userRoute");
 const celebrity = require("./routes/celebrityRoute");
 const movie = require("./routes/movieRoute");

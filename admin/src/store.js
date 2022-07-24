@@ -8,6 +8,7 @@ import {
   celebrityListReducer,
   celebrityDeleteReducer,
   celebrityEditReducer,
+  celebrityUpdateReducer,
 } from "./reducers/celebrityReducer";
 
 import { userReducer } from "./reducers/userReducer";
@@ -15,6 +16,7 @@ const reducer = combineReducers({
   celebrityList: celebrityListReducer,
   celebrityDelete: celebrityDeleteReducer,
   celebrityEdit: celebrityEditReducer,
+  celebrityUpdate: celebrityUpdateReducer,
   userLogin: userReducer,
 });
 

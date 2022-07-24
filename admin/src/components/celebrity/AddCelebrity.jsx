@@ -15,9 +15,7 @@ const AddCelebrityComponent = () => {
   const handleChange = (e) => {
     if(e.target.name ==="image"){
       const reader=new FileReader();
-      console.log(reader);
       reader.onload=()=>{
-        console.log(reader);
         if(reader.readyState===2){
           setDefaultImage(reader.result);
         }

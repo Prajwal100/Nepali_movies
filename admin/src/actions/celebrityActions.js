@@ -98,7 +98,45 @@ export const editCelebrity = (id) => async (dispatch) => {
 };
 
 // UPDATE CELEBRITY ACTIONS
-export const updateCelebrity = (id) => async (dispatch, getState) => {};
+export const updateCelebrity = (reqData) => async (dispatch, getState) => {
+  try {
+    dispatch({ type: CELEBRITY_UPDATE_REQUEST });
+
+    const config = {
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
+    };
+    const response = await axios.patch(
+      `/api/v1/celebrity/update-celebrity/${reqData._id}`,
+      reqData,
+      config
+    );
+
+    const responseData = response.data;
+    if (!responseData.status) {
+      toast.error(responseData.message, ToastObjects);
+    } else {
+      toast.success(responseData.message, ToastObjects);
+      dispatch({
+        type: CELEBRITY_UPDATE_SUCCESS,
+        payload: responseData.celebrity,
+      });
+
+      dispatch({
+        type: CELEBRITY_EDIT_SUCCESS,
+        payload: responseData.celebrity,
+      });
+    }
+  } catch (error) {
+    const message =
+      error.response && error.response.data.errorMessage
+        ? error.response.data.errorMessage
+        : error.message;
+    toast.error(message, ToastObjects);
+    dispatch({ type: CELEBRITY_UPDATE_FAIL, payload: message });
+  }
+};
 
 //   DELETE CELEBRITY ACTION
 export const deleteCelebrity = (id) => async (dispatch, getState) => {

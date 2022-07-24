@@ -20,7 +20,7 @@ exports.storeCelebrity = catchAsyncErrors(async (req, res, next) => {
   const celebrity = new Celebrity({
     name: req.body.name,
     biography: req.body.biography,
-    image: req.file.path,
+    image: req.file.filename,
     dob: req.body.dob,
     gender: req.body.gender,
     address: req.body.address,
@@ -60,12 +60,22 @@ exports.updateCelebrity = catchAsyncErrors(async (req, res, next) => {
     return next(new ErrorHandler("Celebrity not found.", 404));
   }
 
-  celebrity = await Celebrity.findByIdAndUpdate(req.params.id, req.body, {
-    new: true,
-    runValidators: true,
-  });
+  let { name, biography, dob, address, gender } = req.body;
+  celebrityData = Celebrity.findById(req.params.id).then((celebrity) => {
+    celebrity.name = name;
+    celebrity.biography = biography;
+    celebrity.dob = dob;
+    celebrity.address = address;
+    celebrity.gender = gender;
+    if (req.file) {
+      celebrity.image = req.file.filename;
+    }
 
-  res.status(200).json({ data: celebrity, message: "Successfully updated." });
+    return celebrity.save();
+  });
+  res
+    .status(200)
+    .json({ celebrity, status: true, message: "Successfully updated." });
 });
 
 // delete celebrity route here

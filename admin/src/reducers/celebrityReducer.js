@@ -107,7 +107,7 @@ export const celebrityEditReducer = (state = { celebrity: {} }, action) => {
 };
 
 // UPDATE CELEBRITY REDUCER;
-export const celebrityUpdate = (state = { celebrity: {} }, action) => {
+export const celebrityUpdateReducer = (state = { celebrity: {} }, action) => {
   const { type, payload } = action;
 
   switch (type) {

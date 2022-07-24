@@ -1,7 +1,7 @@
 import React, { useState,useEffect } from "react";
 import AdminLayouts from "../Layout";
 import { useDispatch, useSelector } from "react-redux";
-import {createCelebrity,editCelebrity} from '../../actions/celebrityActions'
+import {updateCelebrity,editCelebrity} from '../../actions/celebrityActions'
 import {Link, useNavigate,useParams } from 'react-router-dom'
 import moment from "moment";
 
@@ -11,6 +11,7 @@ const EditCelebrityComponent = ({match}) => {
   const dispatch = useDispatch();
   const navigate=useNavigate();
   const [submitted, setSubmitted] = useState(false);
+  const [imagePreview,setImagePreview] = useState('https://monstar-lab.com/global/wp-content/uploads/sites/11/2019/04/male-placeholder-image.jpeg');
   const [formState, setFormState] = useState({
     values: {},
   });
@@ -31,11 +32,20 @@ const EditCelebrityComponent = ({match}) => {
   },[celebrity,dispatch,id])
 
   const handleChange = (e) => {
+    if(e.target.name==="image"){
+      let reader=new FileReader();
+      reader.onload=()=>{
+        if(reader.readyState===2){
+          setImagePreview(reader.result);
+        }
+      }
+      reader.readAsDataURL(e.target.files[0]);
+    }
     setFormState((formState) => ({
       ...formState,
       values: {
         ...formState.values,
-        [e.target.name]: e.target.value,
+        [e.target.name]: e.target.type==="file" ? e.target.files[0]: e.target.value,
       },
     }));
   };
@@ -44,9 +54,9 @@ const EditCelebrityComponent = ({match}) => {
     setSubmitted(true);
     const { name } = formState.values;
     if (name) {
-      dispatch(createCelebrity(formState.values));
+      dispatch(updateCelebrity(formState.values));
       setFormState({ values: {} });
-      // navigate("/celebrities")
+      navigate("/admin/celebrities")
       setSubmitted(false);
     }
   };
@@ -87,7 +97,7 @@ const EditCelebrityComponent = ({match}) => {
                       className="form-control"
                       placeholder="Date of birth"
                       name="dob"
-                      value={moment(formState.values.dob).format("YYYY-MMM-DD")|| ''}
+                      value={formState.values.dob || ''}
                       onChange={handleChange}
                     />
                     {submitted && !formState.values.name && (
@@ -98,16 +108,16 @@ const EditCelebrityComponent = ({match}) => {
 
                 <div className="col-6">
                   <div className="form-group">
-                    <label>Image</label>
+                    <label >Image</label>
                     <input type="file" className="form-control" name="image" onChange={handleChange}/>
                     <div className="text-danger">Image field is required</div>
                   </div>
                 </div>
                 <div className="col-6">
                   <div className="form-group">
-                    <label>Preview</label>
+                    <label className="mr-2">Preview</label>
                     <img
-                      src="https://monstar-lab.com/global/wp-content/uploads/sites/11/2019/04/male-placeholder-image.jpeg"
+                      src={imagePreview}
                       alt="preview"
                       className="img-fluid"
                       style={{ width: "160px", height: "160px" }}

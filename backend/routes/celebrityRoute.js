@@ -44,7 +44,12 @@ router.route("/show-celebrity/:id").get(showCelebrity);
 
 router
   .route("/update-celebrity/:id")
-  .put(isAuthenticatedUser, authorizeRoles("admin"), updateCelebrity);
+  .patch(
+    upload.single("image"),
+    isAuthenticatedUser,
+    authorizeRoles("admin"),
+    updateCelebrity
+  );
 
 router.route("/delete-celebrity/:id").delete(deleteCelebrity);
 module.exports = router;
