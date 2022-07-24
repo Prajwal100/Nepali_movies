@@ -1,13 +1,27 @@
 const Celebrity = require("../models/Celebrity");
 const Movie = require("../models/Movies");
-
+const User = require("../models/user");
 const celebrities = require("../data/celebrities");
 const movies = require("../data/movies");
+const users = require("../data/users.json");
 
 const connectDB = require("../config/database");
 const dotenv = require("dotenv");
 dotenv.config({ path: "backend/config/config.env" });
 connectDB();
+
+const seederUsers = async () => {
+  try {
+    await User.deleteMany();
+    console.log("Deleted all");
+    await User.insertMany(users);
+    console.log("Inserted Users");
+    process.exit();
+  } catch (error) {
+    console.log(error);
+    process.exit();
+  }
+};
 
 const seederCelebrity = async () => {
   try {
@@ -34,6 +48,8 @@ const seederMovies = async () => {
     process.exit();
   }
 };
+
+seederUsers();
 
 seederCelebrity();
 

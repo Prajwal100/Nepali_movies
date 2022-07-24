@@ -5,14 +5,26 @@ const catchAsyncErrors = require("../middlewares/catchAsyncErrors");
 const multer = require("multer");
 // get celebrities route here
 exports.getCelebrities = async (req, res, next) => {
-  const celebrities = await Celebrity.find().sort({ createdAt: -1 }).limit(10);
+  let sortObject = {};
+  let sortByField = "_id";
+  sortObject[sortByField] = -1;
+  const celebrities = await Celebrity.find().sort(sortObject);
   res.status(200).json({ data: celebrities, message: "Successfully fetched." });
 };
 
 // store celebrity route here
 
 exports.storeCelebrity = catchAsyncErrors(async (req, res, next) => {
-  console.log(req.body);
+  console.log(req.body, req.file);
+
+  const celebrity = new Celebrity({
+    name: req.body.name,
+    biography: req.body.biography,
+    image: req.file.path,
+    dob: req.body.dob,
+    gender: req.body.gender,
+    address: req.body.address,
+  });
   // req.body.uploadedBy = req.user.id;
 
   // upload(req, res, function (err) {
@@ -21,11 +33,11 @@ exports.storeCelebrity = catchAsyncErrors(async (req, res, next) => {
   //   }
   // });
 
-  const celebrity = await Celebrity.create(req.body);
+  const savedCelebrity = await celebrity.save();
   res.status(201).json({
     message: "Successfully created.",
     status: true,
-    celebrity,
+    savedCelebrity,
   });
 });
 

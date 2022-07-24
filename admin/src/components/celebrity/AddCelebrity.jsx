@@ -7,11 +7,23 @@ const AddCelebrityComponent = () => {
   const dispatch = useDispatch();
   const navigate=useNavigate();
   const [submitted, setSubmitted] = useState(false);
+  const [defaultImage,setDefaultImage] = useState('https://monstar-lab.com/global/wp-content/uploads/sites/11/2019/04/male-placeholder-image.jpeg')
   const [formState, setFormState] = useState({
     values: {},
   });
 
   const handleChange = (e) => {
+    if(e.target.name ==="image"){
+      const reader=new FileReader();
+      console.log(reader);
+      reader.onload=()=>{
+        console.log(reader);
+        if(reader.readyState===2){
+          setDefaultImage(reader.result);
+        }
+      };
+      reader.readAsDataURL(e.target.files[0]);
+    }
     setFormState((formState) => ({
       ...formState,
       values: {
@@ -27,7 +39,7 @@ const AddCelebrityComponent = () => {
     if (name) {
       dispatch(createCelebrity(formState.values));
       setFormState({ values: {} });
-      // navigate("/celebrities")
+      navigate("/admin/celebrities")
       setSubmitted(false);
     }
   };
@@ -80,18 +92,20 @@ const AddCelebrityComponent = () => {
                 <div className="col-6">
                   <div className="form-group">
                     <label>Image</label>
-                    <input type="file" className="form-control" name="image" onChange={handleChange}/>
-                    <div className="text-danger">Image field is required</div>
+                    <input type="file" accept="image/*" className="form-control" name="image" onChange={handleChange}/>
+                    {submitted && !formState.values.image && (
+                      <div className="text-danger">Image field is required</div>
+                    )}
                   </div>
                 </div>
                 <div className="col-6">
                   <div className="form-group">
-                    <label>Preview</label>
+                    <label className="mr-3">Preview</label>
                     <img
-                      src="https://monstar-lab.com/global/wp-content/uploads/sites/11/2019/04/male-placeholder-image.jpeg"
+                      src={defaultImage}
                       alt="preview"
                       className="img-fluid"
-                      style={{ width: "160px", height: "160px" }}
+                      style={{ maxWidth: "160px", maxHeight: "160px" }}
                     />
                   </div>
                 </div>

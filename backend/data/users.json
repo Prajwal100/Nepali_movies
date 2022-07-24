@@ -1,10 +1,20 @@
 [
+  {
+    "name": "Mr. User",
+    "username":
+      "Mr. User",
+    "email": "user@gmail.com",
+    "password":"$2a$10$cIqFBeeJzk7MpBM/P/9/XebtCS6wMq2NvoV.eFCQ.GVPQ0kBb7sTm",
+    "role": "user",
+    "gender":"male"
+  },
     {
-      "name": "Prajwal Rai",
+      "name": "Mr. Admin",
       "username":
-        "Prajwal123",
-      "email": "May 27, 2022",
-      "password":["Comedy" ,"Action"],
-      "role": "https://www.trybooking.com/UserData/Homepage/G/EHI901673-dbe971d96d1f40b8b19a9d438d7c3a64.jpeg",
+        "Mr. Admin",
+      "email": "admin@gmail.com",
+      "password":"$2a$10$cIqFBeeJzk7MpBM/P/9/XebtCS6wMq2NvoV.eFCQ.GVPQ0kBb7sTm",
+      "role": "admin",
+      "gender":"male"
     }
 ]
