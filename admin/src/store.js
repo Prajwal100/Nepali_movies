@@ -12,12 +12,16 @@ import {
 } from "./reducers/celebrityReducer";
 
 import { userReducer } from "./reducers/userReducer";
+
+import { getDashboardInfo } from "./reducers/dashboardReducer";
+
 const reducer = combineReducers({
   celebrityList: celebrityListReducer,
   celebrityDelete: celebrityDeleteReducer,
   celebrityEdit: celebrityEditReducer,
   celebrityUpdate: celebrityUpdateReducer,
   userLogin: userReducer,
+  dashboardInfo: getDashboardInfo,
 });
 
 const initialState = {};

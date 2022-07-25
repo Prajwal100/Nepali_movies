@@ -4,19 +4,17 @@ const catchAsyncErrors = require("../middlewares/catchAsyncErrors");
 
 const multer = require("multer");
 // get celebrities route here
-exports.getCelebrities = async (req, res, next) => {
+exports.getCelebrities = catchAsyncErrors(async (req, res, next) => {
   let sortObject = {};
   let sortByField = "_id";
   sortObject[sortByField] = -1;
   const celebrities = await Celebrity.find().sort(sortObject);
   res.status(200).json({ data: celebrities, message: "Successfully fetched." });
-};
+});
 
 // store celebrity route here
 
 exports.storeCelebrity = catchAsyncErrors(async (req, res, next) => {
-  console.log(req.body, req.file);
-
   const celebrity = new Celebrity({
     name: req.body.name,
     biography: req.body.biography,
