@@ -20,10 +20,12 @@ app.use(express.static(path.join(__dirname, "uploads")));
 const user = require("./routes/userRoute");
 const celebrity = require("./routes/celebrityRoute");
 const movie = require("./routes/movieRoute");
+const dashboardInfo = require("./routes/dashboardRoute");
 
 app.use("/api/v1", user);
 app.use("/api/v1/celebrity", celebrity);
 app.use("/api/v1/movie", movie);
+app.use("/api/v1", dashboardInfo);
 
 if (process.env.NODE_ENV === "PRODUCTION") {
   app.use(express.static(path.join(__dirname, "../frontend/build")));
