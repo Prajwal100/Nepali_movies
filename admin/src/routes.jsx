@@ -5,13 +5,15 @@ import CreateCelebrity from "./components/celebrity/AddCelebrity";
 import EditCelebrity from "./components/celebrity/EditCelebrity";
 import Dashboard from "./components/dashboard";
 import { isLoggedIn } from "./utils/helper";
-
+import ProfilePage from "./components/profile/Profile"
+import AdminLayouts from './components/Layout/index'
 // Login page
 import LoginPage from "./components/auth/login";
 export const getRoutes = () => {
   const routes = [
     {
       path: "/",
+      element:<AdminLayouts />,
       children: [
         {
           path: "login",
@@ -34,6 +36,12 @@ export const getRoutes = () => {
           path: "/admin/celebrity/edit/:id",
           element: <EditCelebrity />,
         },
+        
+        // PROFILE PAGE HERE
+        {
+          path:'/admin/profile',
+          element:<ProfilePage />
+        }
       ],
     },
   ];
