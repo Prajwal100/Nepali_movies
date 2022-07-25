@@ -7,8 +7,9 @@ import { deleteCelebrity } from "../../actions/celebrityActions";
 import { CELEBRITY_DELETE_RESET } from "../../constants/celebrityConstant";
 import moment from "moment";
 import { generateImageUrl } from "../../utils/helper";
+import AdminLayouts from '../Layout'
 
-function Celebrities() {
+function CelebrityList() {
   const dispatch = useDispatch();
   const { loading, error, celebrities } = useSelector(
     (state) => state.celebrityList
@@ -117,4 +118,10 @@ function Celebrities() {
   );
 }
 
+function Celebrities() {
+  return (
+    <>
+    <AdminLayouts children={<CelebrityList />}/></>
+  )
+}
 export default Celebrities;

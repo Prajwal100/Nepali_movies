@@ -6,14 +6,12 @@ import EditCelebrity from "./components/celebrity/EditCelebrity";
 import Dashboard from "./components/dashboard";
 import { isLoggedIn } from "./utils/helper";
 import ProfilePage from "./components/profile/Profile"
-import AdminLayouts from './components/Layout/index'
 // Login page
 import LoginPage from "./components/auth/login";
 export const getRoutes = () => {
   const routes = [
     {
       path: "/",
-      element:<AdminLayouts />,
       children: [
         {
           path: "login",

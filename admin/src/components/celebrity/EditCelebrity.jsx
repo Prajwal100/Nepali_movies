@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { updateCelebrity, editCelebrity } from "../../actions/celebrityActions";
 import { Link, useNavigate, useParams } from "react-router-dom";
-
-function EditCelebrity() {
+import AdminLayouts from "../Layout";
+function EditCelebrityComponent() {
   const { id } = useParams();
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -189,6 +189,11 @@ function EditCelebrity() {
       </React.Fragment>
     </>
   );
+}
+
+
+function EditCelebrity() {
+  return <AdminLayouts children={<EditCelebrityComponent />} />;
 }
 
 export default EditCelebrity;

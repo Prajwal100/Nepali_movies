@@ -1,7 +1,8 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getDashboardInfo } from "../../actions/dashboardActions";
-const Dashboard = () => {
+import AdminLayouts from "../Layout";
+const DashboardComponent = () => {
   const { dashboardData } = useSelector((state) => state.dashboardInfo);
   const dispatch = useDispatch();
   useEffect(() => {
@@ -98,6 +99,11 @@ const Dashboard = () => {
       </div>
     </>
   );
+};
+
+
+const Dashboard = () => {
+  return <AdminLayouts title="Nepali Movies || Dashboard" children={<DashboardComponent />} />;
 };
 
 export default Dashboard;

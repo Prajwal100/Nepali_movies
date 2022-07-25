@@ -3,7 +3,6 @@ import Footer from "./Footer";
 import Sidebar from "./Sidebar";
 import Navbar from "./Header";
 import Helmet from 'react-helmet'
-import { Outlet } from 'react-router-dom';
 
 const AdminLayouts = ({ children,title='' }) => {
   return (
@@ -18,7 +17,7 @@ const AdminLayouts = ({ children,title='' }) => {
           <div id="content">
             <Navbar />
 
-            <Outlet />
+            {children}
           </div>
 
           <Footer />

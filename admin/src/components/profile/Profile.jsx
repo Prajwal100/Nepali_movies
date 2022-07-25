@@ -1,6 +1,7 @@
 import React from "react";
+import AdminLayouts from "../Layout";
 
-function ProfilePage() {
+function ProfilePageComponent() {
   return (
     <>
       <div class="container-fluid">
@@ -8,6 +9,10 @@ function ProfilePage() {
       </div>
     </>
   );
+}
+
+function ProfilePage() {
+  return <AdminLayouts children={<ProfilePageComponent />} title="Profile Page"/>
 }
 
 export default ProfilePage;

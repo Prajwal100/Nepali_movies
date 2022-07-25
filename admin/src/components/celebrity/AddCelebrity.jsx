@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import {createCelebrity} from '../../actions/celebrityActions'
 import {useNavigate} from 'react-router-dom'
-
-function AddCelebrity() {
+import AdminLayouts from "../Layout";
+function AddCelebrityComponent() {
   const dispatch = useDispatch();
   const navigate=useNavigate();
   const [submitted, setSubmitted] = useState(false);
@@ -151,6 +151,10 @@ function AddCelebrity() {
     </div>
   </div>
 </React.Fragment>;
+}
+
+function AddCelebrity() {
+  return <AdminLayouts children={<AddCelebrityComponent />} />;
 }
 
 export default AddCelebrity;
