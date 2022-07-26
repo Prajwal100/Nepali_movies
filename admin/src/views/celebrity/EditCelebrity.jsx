@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { updateCelebrity, editCelebrity } from "../../actions/celebrityActions";
+import { updateCelebrity, listCelebrities } from "../../actions/celebrityActions";
 import { Link, useNavigate, useParams } from "react-router-dom";
+import {toDatetimeLocal} from '../../utils/helper'
 import AdminLayouts from "../Layout";
 function EditCelebrityComponent() {
   const { id } = useParams();
@@ -15,17 +16,22 @@ function EditCelebrityComponent() {
     values: {},
   });
 
-  const { celebrity } = useSelector((state) => state.celebrityEdit);
-  console.log("hey", celebrity);
+  const { celebrities } = useSelector((state) => state.celebrities);
   useEffect(() => {
+    
     setFormState({ values: {} });
-
-    if (celebrity._id !== id) {
-      dispatch(editCelebrity(id));
-    } else {
+    
+    if(!celebrities || celebrities.length === 0){
+      
+      dispatch(listCelebrities());
+    }
+    
+    const celebrity=celebrities.find((celebrity)=>celebrity._id.toString()===id);
+    if(celebrity){
       setFormState({ values: celebrity });
     }
-  }, [celebrity, dispatch, id]);
+  
+  }, [ dispatch, id]);
 
   const handleChange = (e) => {
     if (e.target.name === "image") {
@@ -94,11 +100,11 @@ function EditCelebrityComponent() {
                     <div className="form-group">
                       <label>Date Of Birth</label>
                       <input
-                        type="date"
+                        type="datetime-local"
                         className="form-control"
                         placeholder="Date of birth"
                         name="dob"
-                        value={formState.values.dob || ""}
+                        value={toDatetimeLocal(formState.values.dob)}
                         onChange={handleChange}
                       />
                       {submitted && !formState.values.name && (

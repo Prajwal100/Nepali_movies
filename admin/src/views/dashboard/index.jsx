@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getDashboardInfo } from "../../actions/dashboardActions";
+import { getDashboardInfo } from "../../actions/adminActions";
 import AdminLayouts from "../Layout";
 const DashboardComponent = () => {
-  const { dashboardData } = useSelector((state) => state.dashboardInfo);
+  const {dashboardData} = useSelector((state) => state.dashboard);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getDashboardInfo());

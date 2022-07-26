@@ -19,7 +19,7 @@ import {
 } from "../constants/celebrityConstant";
 
 // All Celebrities
-export const celebrityListReducer = (state = { celebrities: [] }, action) => {
+export const celebrityReducer = (state = { celebrities: [] }, action) => {
   const { type, payload } = action;
 
   switch (type) {

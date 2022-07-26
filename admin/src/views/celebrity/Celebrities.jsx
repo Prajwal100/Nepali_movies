@@ -8,13 +8,13 @@ import { CELEBRITY_DELETE_RESET } from "../../constants/celebrityConstant";
 import moment from "moment";
 import { generateImageUrl } from "../../utils/helper";
 import AdminLayouts from '../Layout'
-
+import Helmet from "react-helmet";
 function CelebrityList() {
   const dispatch = useDispatch();
   const { loading, error, celebrities } = useSelector(
-    (state) => state.celebrityList
+    (state) => state.celebrities
   );
-  const { isDeleted } = useSelector((state) => state.celebrityDelete);
+  const { isDeleted } = useSelector((state) => state.celebrities);
 
   const deleteHandler = (id) => {
     if (window.confirm("Are you sure you want to delete")) {
@@ -30,6 +30,9 @@ function CelebrityList() {
   }, [dispatch, isDeleted]);
   return (
     <>
+    <Helmet>
+        <title>Celebrities List || Dashboard</title>
+      </Helmet>
       <React.Fragment>
         <div className="container-fluid">
           {loading ? (
@@ -53,7 +56,7 @@ function CelebrityList() {
                     className="table table-bordered"
                     id="dataTable"
                     width="100%"
-                    cellspacing="0"
+                    cellSpacing="0"
                   >
                     <thead>
                       <tr>

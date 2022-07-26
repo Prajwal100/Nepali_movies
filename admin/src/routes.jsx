@@ -1,13 +1,13 @@
 import React from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
-import Celebrity from "./components/celebrity/Celebrities";
-import CreateCelebrity from "./components/celebrity/AddCelebrity";
-import EditCelebrity from "./components/celebrity/EditCelebrity";
-import Dashboard from "./components/dashboard";
+import Celebrity from "./views/celebrity/Celebrities";
+import CreateCelebrity from "./views/celebrity/AddCelebrity";
+import EditCelebrity from "./views/celebrity/EditCelebrity";
+import Dashboard from "./views/dashboard";
 import { isLoggedIn } from "./utils/helper";
-import ProfilePage from "./components/profile/Profile"
+import ProfilePage from "./views/profile/Profile"
 // Login page
-import LoginPage from "./components/auth/login";
+import LoginPage from "./views/auth/login";
 export const getRoutes = () => {
   const routes = [
     {

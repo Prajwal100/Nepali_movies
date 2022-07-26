@@ -11,7 +11,7 @@ const LoginPage = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
   const [errorMessage, setErrorMessage] = useState("");
-  const {isAuthenticated} = useSelector((state)=>state.userLogin)
+  const {isAuthenticated} = useSelector((state)=>state.user)
   
   useEffect(()=>{
     if(isAuthenticated){
@@ -23,7 +23,7 @@ const LoginPage = () => {
       <Helmet>
         <title>Admin Login</title>
       </Helmet>
-      <div className="container">
+      <div className="container" >
         <Formik
           initialValues={{
             email: "",

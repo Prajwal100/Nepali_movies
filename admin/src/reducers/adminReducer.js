@@ -2,7 +2,13 @@ import {
   DASHBOARD_INFO_REQUEST,
   DASHBOARD_INFO_SUCCESS,
   DASHBOARD_INFO_FAIL,
-} from "../constants/dashboardConstant";
+} from "../constants/adminConstants";
+
+const initialState = {
+  celebrities: [],
+  movies: [],
+  users: [],
+};
 
 export const getDashboardInfo = (state = {}, action) => {
   const { payload, type } = action;

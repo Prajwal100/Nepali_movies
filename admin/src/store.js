@@ -5,7 +5,7 @@ import thunk from "redux-thunk";
 import { composeWithDevTools } from "redux-devtools-extension";
 
 import {
-  celebrityListReducer,
+  celebrityReducer,
   celebrityDeleteReducer,
   celebrityEditReducer,
   celebrityUpdateReducer,
@@ -13,15 +13,15 @@ import {
 
 import { userReducer } from "./reducers/userReducer";
 
-import { getDashboardInfo } from "./reducers/dashboardReducer";
+import { getDashboardInfo } from "./reducers/adminReducer";
 
 const reducer = combineReducers({
-  celebrityList: celebrityListReducer,
-  celebrityDelete: celebrityDeleteReducer,
-  celebrityEdit: celebrityEditReducer,
-  celebrityUpdate: celebrityUpdateReducer,
-  userLogin: userReducer,
-  dashboardInfo: getDashboardInfo,
+  celebrities: celebrityReducer,
+  // celebrityDelete: celebrityDeleteReducer,
+  // celebrityEdit: celebrityEditReducer,
+  // celebrityUpdate: celebrityUpdateReducer,
+  user: userReducer,
+  dashboard: getDashboardInfo,
 });
 
 const initialState = {};

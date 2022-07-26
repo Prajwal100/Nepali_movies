@@ -8,7 +8,7 @@ import {
   GET_PROFILE_FAIL,
 } from "../constants/userConstant";
 
-export const userReducer = (state = { user: {} }, action) => {
+export const userReducer = (state = { profile: {} }, action) => {
   const { type, payload } = action;
 
   switch (type) {
@@ -23,7 +23,7 @@ export const userReducer = (state = { user: {} }, action) => {
         ...state,
         isAuthenticated: true,
         loading: false,
-        user: payload,
+        profile: payload,
       };
 
     case LOGIN_USER_FAIL:
@@ -31,7 +31,7 @@ export const userReducer = (state = { user: {} }, action) => {
       return {
         isAuthenticated: false,
         loading: false,
-        user: null,
+        profile: null,
         error: action.payload,
       };
 

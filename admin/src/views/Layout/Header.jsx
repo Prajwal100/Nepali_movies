@@ -6,7 +6,7 @@ import {isLoggedIn} from '../../utils/helper'
 const Header = () => {
   const dispatch=useDispatch();
   const navigate = useNavigate();
-  const {user,loading}=useSelector((state)=>state.userLogin);
+  const {profile,loading}=useSelector((state)=>state.user);
   useEffect(() => {
     dispatch(getUserProfile());
   }, [dispatch]);
@@ -255,7 +255,7 @@ const Header = () => {
                 aria-expanded="false"
               >
                 <span className="mr-2 d-none d-lg-inline text-gray-600 small">
-                  {user.name}
+                  {profile.name}
                 </span>
                 <img
                   className="img-profile rounded-circle"

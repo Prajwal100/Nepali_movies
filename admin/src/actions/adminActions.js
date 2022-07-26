@@ -5,7 +5,7 @@ import {
   DASHBOARD_INFO_REQUEST,
   DASHBOARD_INFO_SUCCESS,
   DASHBOARD_INFO_FAIL,
-} from "../constants/dashboardConstant";
+} from "../constants/adminConstants";
 
 export const getDashboardInfo = () => async (dispatch) => {
   try {
