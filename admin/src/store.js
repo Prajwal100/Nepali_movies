@@ -12,11 +12,13 @@ import {
 } from "./reducers/celebrityReducer";
 
 import { userReducer } from "./reducers/userReducer";
+import { movieReducer } from "./reducers/movieReducer";
 
 import { getDashboardInfo } from "./reducers/adminReducer";
 
 const reducer = combineReducers({
-  celebrities: celebrityReducer,
+  celebrityReducer: celebrityReducer,
+  movieReducer: movieReducer,
   // celebrityDelete: celebrityDeleteReducer,
   // celebrityEdit: celebrityEditReducer,
   // celebrityUpdate: celebrityUpdateReducer,

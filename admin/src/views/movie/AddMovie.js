@@ -4,9 +4,7 @@ import Loader from "../Layout/Loader";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 function CreateMovie() {
-  const { loading, error, celebrities } = useSelector(
-    (state) => state.celebrities
-  );
+  const { loading, error, movies } = useSelector((state) => state.movieReducer);
 
   const [formState, setFormState] = useState({ values: {} });
   const [submitted, setSubmitted] = useState(false);

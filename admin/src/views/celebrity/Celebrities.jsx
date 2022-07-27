@@ -11,9 +11,9 @@ import AdminLayouts from '../Layout'
 function CelebrityList() {
   const dispatch = useDispatch();
   const { loading, error, celebrities } = useSelector(
-    (state) => state.celebrities
+    (state) => state.celebrityReducer
   );
-  const { isDeleted } = useSelector((state) => state.celebrities);
+  const { isDeleted } = useSelector((state) => state.celebrityReducer);
 
   const deleteHandler = (id) => {
     if (window.confirm("Are you sure you want to delete")) {

@@ -11,7 +11,7 @@ exports.getMovies = catchAsyncErrors(async (req, res, next) => {
 
   const movies = await searchFeatures.query;
   res.status(200).json({
-    data: movies,
+    movies,
     message: "Successfully fetched data.",
     totalMovies,
   });

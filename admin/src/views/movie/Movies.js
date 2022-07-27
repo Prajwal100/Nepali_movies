@@ -1,12 +1,22 @@
-import React from "react";
+import React, { useEffect } from "react";
 import AdminLayouts from "../Layout";
 import Loader from "../Layout/Loader";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
+import { generateImageUrl } from "../../utils/helper";
+import { moviesActions } from "../../actions/movieActions";
+import moment from "moment";
+
 function MoviesList() {
-  const { loading, error, celebrities } = useSelector(
-    (state) => state.celebrities
-  );
+  const { loading, error, movies } = useSelector((state) => state.movieReducer);
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(moviesActions());
+  }, []);
+
+  const deleteHandler = (e) => {};
   return (
     <>
       <React.Fragment>
@@ -52,22 +62,22 @@ function MoviesList() {
                       </tr>
                     </tfoot>
                     <tbody>
-                      {/* {celebrities.map((celebrity) => (
+                      {movies.map((movie) => (
                         <tr>
-                          <td>{celebrity.name}</td>
+                          <td>{movie.name}</td>
                           <td>
                             <img
-                              src={generateImageUrl(celebrity.image)}
-                              alt={celebrity.name}
+                              src={generateImageUrl(movie.image)}
+                              alt={movie.name}
                               style={{ width: "60px" }}
                             />
                           </td>
-                          <td>{celebrity.gender}</td>
-                          <td>{moment(celebrity.dob).format("YYYY-MMM-DD")}</td>
-                          <td>{celebrity.address}</td>
+                          <td>{movie.gender}</td>
+                          <td>{moment(movie.dob).format("YYYY-MMM-DD")}</td>
+                          <td>{movie.address}</td>
                           <td>
                             <Link
-                              to={`/admin/celebrity/edit/${celebrity._id}`}
+                              to={`/admin/movie/edit/${movie._id}`}
                               className="btn btn-primary btn-sm"
                             >
                               <i className="fa fa-edit"></i>
@@ -75,13 +85,13 @@ function MoviesList() {
                             <Link
                               to="#"
                               className="btn btn-danger btn-sm ml-2"
-                              onClick={() => deleteHandler(celebrity._id)}
+                              onClick={() => deleteHandler(movie._id)}
                             >
                               <i className="fa fa-trash-alt"></i>
                             </Link>
                           </td>
                         </tr>
-                      ))} */}
+                      ))}
                     </tbody>
                   </table>
                 </div>

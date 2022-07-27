@@ -259,7 +259,8 @@ const Header = () => {
                 </span>
                 <img
                   className="img-profile rounded-circle"
-                  src="/img/undraw_profile.svg"
+                  src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp"
+                  alt="Avatar"
                 />
               </a>
               <div
