@@ -53,17 +53,11 @@ const Sidebar = () => {
     </div>
 </li>
 <li className="nav-item">
-    <Link className="nav-link collapsed" to="#" data-toggle="collapse" data-target="#collapseSettings"
+    <Link className="nav-link collapsed" to="/admin/settings" 
         aria-expanded="true" aria-controls="collapseSettings">
         <i className="fas fa-cog"></i>
         <span>Settings</span>
     </Link>
-    <div id="collapseSettings" className="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-        <div className="bg-white py-2 collapse-inner rounded">
-            <Link className="collapse-item" to="">All Movies</Link>
-            <Link className="collapse-item" to="cards.html">Add Movie</Link>
-        </div>
-    </div>
 </li>
 <div className="text-center d-none d-md-inline">
     <button className="rounded-circle border-0" id="sidebarToggle"></button>

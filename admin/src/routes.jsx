@@ -4,13 +4,15 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import Dashboard from "./views/dashboard";
 import { isLoggedIn } from "./utils/helper";
 import ProfilePage from "./views/profile/Profile"
-
+import ProfileSettings from './views/profile/ProfileSettings'
 import Celebrity from "./views/celebrity/Celebrities";
 import CreateCelebrity from "./views/celebrity/AddCelebrity";
 import EditCelebrity from "./views/celebrity/EditCelebrity";
 
 import Movies from './views/movie/Movies'
 import CreateMovie from './views/movie/AddMovie'
+
+import GeneralSettings from './views/settings/GeneralSettings'
 // Login page
 import LoginPage from "./views/auth/login";
 export const getRoutes = () => {
@@ -55,6 +57,16 @@ export const getRoutes = () => {
         {
           path:'/admin/profile',
           element:<ProfilePage />
+        },
+        {
+          path:'/admin/profile-settings',
+          element:<ProfileSettings />
+        },
+        
+        // General Settings
+        {
+          path:'/admin/settings',
+          element:<GeneralSettings />
         }
       ],
     },

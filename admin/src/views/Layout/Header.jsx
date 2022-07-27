@@ -271,10 +271,10 @@ const Header = () => {
                   <i className="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                   Profile
                 </Link>
-                <a className="dropdown-item" href="#">
+                <Link to="/admin/profile-settings" className="dropdown-item">
                   <i className="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
                   Settings
-                </a>
+                </Link>
                 <div className="dropdown-divider"></div>
                 <Link
                   className="dropdown-item"
