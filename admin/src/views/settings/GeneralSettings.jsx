@@ -3,8 +3,31 @@ import AdminLayouts from "../Layout";
 import { useSelector, useDispatch } from "react-redux";
 import { getSettingsInfo, updateSettings } from "../../actions/adminActions";
 import Loader from "../Layout/Loader";
+import { validateForm } from "../../utils/helper";
 function GeneralSettingsComponent() {
-  const [submitted, setSubmitted] = useState(false);
+  const initialFormErrors = {
+    site_title: "",
+    email: "",
+    phone: "",
+    address: "",
+  };
+  const [errors, setErrors] = useState(initialFormErrors);
+
+  const validateInputs = () => {
+    const err = { ...errors };
+
+    err.site_title = !formState.values.site_title
+      ? "Site title is required"
+      : "";
+    err.email = !formState.values.email ? "Email field is required" : "";
+
+    err.phone = !formState.values.phone ? "Phone field is required" : "";
+
+    err.address = !formState.values.address ? "Address field is required" : "";
+
+    setErrors({ ...err });
+    return validateForm(err);
+  };
   const [formState, setFormState] = useState({ values: {} });
 
   const { settings, loading } = useSelector((state) => state.dashboard);
@@ -12,7 +35,6 @@ function GeneralSettingsComponent() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    
     setFormState({ values: {} });
     dispatch(getSettingsInfo());
 
@@ -30,10 +52,10 @@ function GeneralSettingsComponent() {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    setSubmitted(true);
-    dispatch(updateSettings(formState.values));
-    setSubmitted(false);
-    dispatch(getSettingsInfo());
+    if (validateInputs()) {
+      dispatch(updateSettings(formState.values));
+      dispatch(getSettingsInfo());
+    }
   };
   return (
     <div className="container-fluid">
@@ -54,7 +76,9 @@ function GeneralSettingsComponent() {
                     <div className="row">
                       <div className="col-6">
                         <div className="form-group">
-                          <label>Site Name</label>
+                          <label>
+                            Site Name <span className="text-danger">*</span>
+                          </label>
                           <input
                             type="text"
                             className="form-control"
@@ -63,9 +87,9 @@ function GeneralSettingsComponent() {
                             value={formState.values.site_title || ""}
                             onChange={handleChange}
                           />
-                          {submitted && !formState.values.site_title && (
+                          {errors.site_title.length > 0 && (
                             <div className="text-danger">
-                              Site Title field is required
+                              {errors.site_title}
                             </div>
                           )}
                         </div>
@@ -73,7 +97,9 @@ function GeneralSettingsComponent() {
 
                       <div className="col-6">
                         <div className="form-group">
-                          <label>Email Address</label>
+                          <label>
+                            Email Address <span className="text-danger">*</span>
+                          </label>
                           <input
                             type="email"
                             className="form-control"
@@ -82,16 +108,16 @@ function GeneralSettingsComponent() {
                             value={formState.values.email || ""}
                             onChange={handleChange}
                           />
-                          {submitted && !formState.values.email && (
-                            <div className="text-danger">
-                              Email field is required
-                            </div>
+                          {errors.email.length > 0 && (
+                            <div className="text-danger">{errors.email}</div>
                           )}
                         </div>
                       </div>
                       <div className="col-6">
                         <div className="form-group">
-                          <label>Phone Number</label>
+                          <label>
+                            Phone Number <span className="text-danger">*</span>
+                          </label>
                           <input
                             type="text"
                             className="form-control"
@@ -100,17 +126,17 @@ function GeneralSettingsComponent() {
                             value={formState.values.phone || ""}
                             onChange={handleChange}
                           />
-                          {submitted && !formState.values.phone && (
-                            <div className="text-danger">
-                              Phone number field is required
-                            </div>
+                          {errors.phone.length > 0 && (
+                            <div className="text-danger">{errors.phone}</div>
                           )}
                         </div>
                       </div>
 
                       <div className="col-6">
                         <div className="form-group">
-                          <label>Address</label>
+                          <label>
+                            Address <span className="text-danger">*</span>
+                          </label>
                           <input
                             type="text"
                             className="form-control"
@@ -119,10 +145,8 @@ function GeneralSettingsComponent() {
                             value={formState.values.address || ""}
                             onChange={handleChange}
                           />
-                          {submitted && !formState.values.address && (
-                            <div className="text-danger">
-                              Address field is required
-                            </div>
+                          {errors.address.length > 0 && (
+                            <div className="text-danger">{errors.address}</div>
                           )}
                         </div>
                       </div>
