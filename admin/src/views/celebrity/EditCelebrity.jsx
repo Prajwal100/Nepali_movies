@@ -144,8 +144,9 @@ function EditCelebrityComponent() {
                         className="form-control"
                         name="gender"
                         onChange={handleChange}
+                        value={formState.values.gender}
                       >
-                        <option value="male">Male</option>
+                        <option value="male" >Male</option>
                         <option value="female">Female</option>
                       </select>
                     </div>

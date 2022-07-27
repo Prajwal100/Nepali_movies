@@ -1,32 +1,12 @@
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { listCelebrities } from "../../actions/celebrityActions";
-import { Link } from "react-router-dom";
+import React from "react";
+import AdminLayouts from "../Layout";
 import Loader from "../Layout/Loader";
-import { deleteCelebrity } from "../../actions/celebrityActions";
-import { CELEBRITY_DELETE_RESET } from "../../constants/celebrityConstant";
-import moment from "moment";
-import { generateImageUrl } from "../../utils/helper";
-import AdminLayouts from '../Layout'
-function CelebrityList() {
-  const dispatch = useDispatch();
+import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+function MoviesList() {
   const { loading, error, celebrities } = useSelector(
     (state) => state.celebrities
   );
-  const { isDeleted } = useSelector((state) => state.celebrities);
-
-  const deleteHandler = (id) => {
-    if (window.confirm("Are you sure you want to delete")) {
-      dispatch(deleteCelebrity(id));
-    }
-  };
-  useEffect(() => {
-    dispatch(listCelebrities());
-
-    if (isDeleted) {
-      dispatch({ type: CELEBRITY_DELETE_RESET });
-    }
-  }, [dispatch, isDeleted]);
   return (
     <>
       <React.Fragment>
@@ -37,11 +17,8 @@ function CelebrityList() {
             <div className="card shadow mb-4">
               <div className="card-header py-3">
                 <h6 className="m-0 font-weight-bold text-primary">
-                  All Celebrities{" "}
-                  <Link
-                    to="/admin/celebrity/create"
-                    className="btn btn-warning"
-                  >
+                  All Movies{" "}
+                  <Link to="/admin/movie/create" className="btn btn-warning">
                     <i className="fa fa-plus"></i> Create
                   </Link>
                 </h6>
@@ -58,9 +35,9 @@ function CelebrityList() {
                       <tr>
                         <th>Name</th>
                         <th>Image</th>
-                        <th>Gender</th>
-                        <th>DOB</th>
-                        <th>Address</th>
+                        <th>Category</th>
+                        <th>Uploaded By</th>
+                        <th>Review</th>
                         <th>Actions</th>
                       </tr>
                     </thead>
@@ -68,14 +45,14 @@ function CelebrityList() {
                       <tr>
                         <th>Name</th>
                         <th>Image</th>
-                        <th>Gender</th>
-                        <th>DOB</th>
-                        <th>Address</th>
+                        <th>Category</th>
+                        <th>Uploaded By</th>
+                        <th>Review</th>
                         <th>Actions</th>
                       </tr>
                     </tfoot>
                     <tbody>
-                      {celebrities.map((celebrity) => (
+                      {/* {celebrities.map((celebrity) => (
                         <tr>
                           <td>{celebrity.name}</td>
                           <td>
@@ -104,7 +81,7 @@ function CelebrityList() {
                             </Link>
                           </td>
                         </tr>
-                      ))}
+                      ))} */}
                     </tbody>
                   </table>
                 </div>
@@ -116,11 +93,10 @@ function CelebrityList() {
     </>
   );
 }
-
-function Celebrities() {
+function Movies() {
   return (
-    <>
-    <AdminLayouts children={<CelebrityList />} title="Celebrities List || Dashboard"/></>
-  )
+    <AdminLayouts children={<MoviesList />} title="Movies List || Dashboard" />
+  );
 }
-export default Celebrities;
+
+export default Movies;
