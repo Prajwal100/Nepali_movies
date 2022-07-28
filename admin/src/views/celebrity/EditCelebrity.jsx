@@ -108,7 +108,7 @@ function EditCelebrityComponent() {
                 <div className="row">
                   <div className="col-6">
                     <div className="form-group">
-                      <label>Name</label>
+                      <label>Name <span className="text-danger">*</span></label>
                       <input
                         type="text"
                         className="form-control"
@@ -125,7 +125,7 @@ function EditCelebrityComponent() {
 
                   <div className="col-6">
                     <div className="form-group">
-                      <label>Date Of Birth</label>
+                      <label>Date Of Birth <span className="text-danger">*</span></label>
                       <input
                         type="datetime-local"
                         className="form-control"
@@ -142,7 +142,7 @@ function EditCelebrityComponent() {
 
                   <div className="col-6">
                     <div className="form-group">
-                      <label>Image</label>
+                      <label>Image <span className="text-danger">*</span></label>
                       <input
                         type="file"
                         className="form-control"
@@ -168,7 +168,7 @@ function EditCelebrityComponent() {
 
                   <div className="col-6">
                     <div className="form-group">
-                      <label>Gender</label>
+                      <label>Gender <span className="text-danger">*</span></label>
                       <select
                         className="form-control"
                         name="gender"
@@ -186,7 +186,7 @@ function EditCelebrityComponent() {
 
                   <div className="col-6">
                     <div className="form-group">
-                      <label>Address</label>
+                      <label>Address <span className="text-danger">*</span></label>
                       <input
                         type="text"
                         className="form-control"

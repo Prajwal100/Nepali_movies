@@ -80,7 +80,7 @@ function AddCelebrityComponent() {
           <div className="row">
             <div className="col-6">
               <div className="form-group">
-                <label>Name</label>
+                <label>Name <span className="text-danger">*</span></label>
                 <input
                   type="text"
                   className="form-control"
@@ -97,7 +97,7 @@ function AddCelebrityComponent() {
 
             <div className="col-6">
               <div className="form-group">
-                <label>Date Of Birth</label>
+                <label>Date Of Birth <span className="text-danger">*</span></label>
                 <input
                   type="date"
                   className="form-control"
@@ -114,7 +114,7 @@ function AddCelebrityComponent() {
 
             <div className="col-6">
               <div className="form-group">
-                <label>Image</label>
+                <label>Image <span className="text-danger">*</span></label>
                 <input type="file" accept="image/*" className="form-control" name="image" onChange={handleChange}/>
                 {errors.image.length > 0 && (
                         <div className="text-danger">{errors.image}</div>
@@ -135,7 +135,7 @@ function AddCelebrityComponent() {
 
             <div className="col-6">
               <div className="form-group">
-                <label>Gender</label>
+                <label>Gender <span className="text-danger">*</span></label>
                 <select className="form-control" name="gender" onChange={handleChange}>
                   <option value="male">Male</option>
                   <option value="female">Female</option>
@@ -149,7 +149,7 @@ function AddCelebrityComponent() {
 
             <div className="col-6">
               <div className="form-group">
-                <label>Address</label>
+                <label>Address <span className="text-danger">*</span></label>
                 <input
                   type="text"
                   className="form-control"

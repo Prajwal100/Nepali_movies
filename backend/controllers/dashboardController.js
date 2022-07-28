@@ -32,8 +32,6 @@ exports.settings = catchAsyncErrors(async (req, res, next) => {
     message: "Successfully get the settings data.",
     settings,
   });
-
-  console.log(settings);
 });
 
 exports.settingsUpdate = catchAsyncErrors(async (req, res, next) => {
