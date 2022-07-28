@@ -52,24 +52,29 @@ export const register = (userData) => async (dispatch) => {
 
     const config = {
       headers: {
-        "Content-Type": "multipart/form-data",
+        "Content-Type": "application/json",
       },
     };
+    console.log(userData);
 
-    const { data } = await axios.post(
-      "/api/v1/auth/register",
+    const response = await axios.post(
+      `/api/v1/auth/register`,
       userData,
       config
     );
 
     dispatch({
       type: REGISTER_SUCCESS,
-      payload: data.user,
+      payload: response.user,
     });
   } catch (error) {
+    const message =
+      error.response && error.response.data.errorMessage
+        ? error.response.data.errorMessage
+        : error.message;
     dispatch({
       type: REGISTER_FAIL,
-      payload: error.response.data.errorMessage,
+      payload: message,
     });
   }
 };

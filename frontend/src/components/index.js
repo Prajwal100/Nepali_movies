@@ -8,6 +8,8 @@ import MovieDetail from "./Pages/Movies/movieDetails";
 
 import LoginPage from "./Pages/auth/Login";
 import RegisterPage from "./Pages/auth/Register";
+import MovieList from "./Pages/Movies/MovieList";
+import Dashboard from "./Pages/account/Dashboard";
 
 const routes = () => {
   return (
@@ -21,7 +23,10 @@ const routes = () => {
       <Route exact path="/celebrities" element={<CelebrityPage />}></Route>
       <Route exact path="/celebrity/:id" element={<CelebrityDetail />}></Route>
 
+      <Route exact path="/movies" element={<MovieList />}></Route>
       <Route exact path="/movie/:id" element={<MovieDetail />}></Route>
+
+      <Route exact path="/account" element={<Dashboard />} />
     </Routes>
   );
 };

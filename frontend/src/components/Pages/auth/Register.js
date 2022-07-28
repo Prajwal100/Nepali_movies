@@ -36,10 +36,10 @@ const RegisterPage = ({ history }) => {
   }, [dispatch, isAuthenticated, error, history, navigate]);
 
   const { name, username, email, password, cpassword, gender } = user;
-  const [avatar, setAvatar] = useState("");
-  const [avatarPreview, setAvatarPreview] = useState(
-    "https://bukovskevrchy.pl/img/64c9c78b19101eadf6e459ddbb0fd69a.jpg"
-  );
+  // const [avatar, setAvatar] = useState("");
+  // const [avatarPreview, setAvatarPreview] = useState(
+  //   "https://bukovskevrchy.pl/img/64c9c78b19101eadf6e459ddbb0fd69a.jpg"
+  // );
 
   const submitHandler = (e) => {
     e.preventDefault();
@@ -53,26 +53,28 @@ const RegisterPage = ({ history }) => {
       toast.error("Password does not match");
       return;
     }
-    let formData = new FormData();
-    formData.set("name", name);
-    formData.set("username", username);
-    formData.set("email", email);
-    formData.set("password", password);
-    formData.set("gender", gender);
+    // let formData = new FormData();
+    // formData.set("name", name);
+    // formData.set("username", username);
+    // formData.set("email", email);
+    // formData.set("password", password);
+    // formData.set("gender", gender);
 
-    dispatch(register(formData));
+    dispatch(register(user));
+
+    navigate("/login");
   };
 
   const onChange = (e) => {
     if (e.target.name === "avatar") {
-      const reader = new FileReader();
-      reader.onload = () => {
-        if (reader.readyState === 2) {
-          setAvatarPreview(reader.result);
-          setAvatar(reader.result);
-        }
-      };
-      reader.readAsDataURL(e.target.files[0]);
+      // const reader = new FileReader();
+      // reader.onload = () => {
+      //   if (reader.readyState === 2) {
+      //     setAvatarPreview(reader.result);
+      //     setAvatar(reader.result);
+      //   }
+      // };
+      // reader.readAsDataURL(e.target.files[0]);
     } else {
       setUser({
         ...user,
@@ -176,6 +178,7 @@ const RegisterPage = ({ history }) => {
                                 onChange={onChange}
                                 name="gender"
                                 className="form-control"
+                                value={gender}
                               >
                                 <option value="male">Male</option>
                                 <option value="female">Female</option>
@@ -229,7 +232,7 @@ const RegisterPage = ({ history }) => {
                           </div>
                         </div>
 
-                        <div className="form-outline mb-4">
+                        {/* <div className="form-outline mb-4">
                           <img
                             src={avatarPreview}
                             style={{ width: "200px", height: "auto" }}
@@ -243,9 +246,9 @@ const RegisterPage = ({ history }) => {
                           >
                             Avatar Preview
                           </label>
-                        </div>
+                        </div> */}
 
-                        <div className="form-outline mb-4">
+                        {/* <div className="form-outline mb-4">
                           <input
                             type="file"
                             id="form2Example27"
@@ -260,7 +263,7 @@ const RegisterPage = ({ history }) => {
                           >
                             Avatar
                           </label>
-                        </div>
+                        </div> */}
 
                         <div className="pt-1 mb-4">
                           <button

@@ -10,7 +10,7 @@ import toast, { Toaster } from "react-hot-toast";
 import Loader from "../layout/Loader";
 import Moment from "moment";
 import Layout from "../layout";
-import MetaData from "../layout/MetaData";
+
 const CelebrityDetail = () => {
   const dispatch = useDispatch();
   const { id } = useParams();
@@ -38,8 +38,7 @@ const CelebrityDetail = () => {
     }
   };
   return (
-    <Layout>
-      <MetaData title="Login | Nepali Movies" />
+    <Layout title="Celebrity Details Page">
       {loading ? (
         <Loader />
       ) : (
@@ -49,10 +48,11 @@ const CelebrityDetail = () => {
               <div className="card mb-4">
                 <div className="card-body text-center">
                   <img
-                    src={celebrity.image}
+                    src={`http://localhost:4000/${celebrity.image}`}
                     alt={celebrity.name}
                     className="rounded-circle img-fluid"
                   />
+
                   <h5 className="my-3">{celebrity.name}</h5>
                   <p className="text-muted mb-4">{celebrity.address}</p>
                   <div className="d-flex justify-content-center mb-2">

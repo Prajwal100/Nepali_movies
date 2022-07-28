@@ -25,7 +25,7 @@ const CelebrityList = () => {
     dispatch(getCelebrities());
   }, [dispatch, error]);
   return (
-    <Layout>
+    <Layout title="Celebrities List">
       <Container>
         <Toaster />
         {loading ? (

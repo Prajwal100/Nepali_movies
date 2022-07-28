@@ -35,11 +35,8 @@ const Header = () => {
             <Navbar.Brand>Nepali Movies</Navbar.Brand>
           </Link>
           <Nav className="me-auto">
-            <Link to="/" className="nav-link">
-              Home
-            </Link>
-            <Link to="/" className="nav-link">
-              Categories
+            <Link to="/movies" className="nav-link">
+              Movie List
             </Link>
             <Link to="/celebrities" className="nav-link">
               Celebrity List
@@ -48,7 +45,7 @@ const Header = () => {
           <Navbar.Toggle />
           <Navbar.Collapse className="justify-content-end">
             <Nav>
-              <Link to="/register" className="nav-link">
+              <Link to="" className="nav-link">
                 Wishlist <Badge bg="secondary">{wishlistItems.length}</Badge>
               </Link>
               {user ? (

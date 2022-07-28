@@ -20,7 +20,7 @@ export const moviesReducer = (state = { movies: [] }, action) => {
     case ALL_MOVIE_SUCCESS:
       return {
         loading: false,
-        movies: payload.data,
+        movies: payload.movies,
       };
 
     case ALL_MOVIE_FAIL:
