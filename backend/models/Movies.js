@@ -22,12 +22,12 @@ const movieSchema = new mongoose.Schema({
   releaseDate: {
     type: Date,
   },
-  cast: [
-    {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "Celebrity",
-    },
-  ],
+  // cast: [
+  //   {
+  //     type: mongoose.Schema.ObjectId,
+  //     ref: "Celebrity",
+  //   },
+  // ],
 });
 
 module.exports = mongoose.model("Movie", movieSchema);

@@ -1,14 +1,42 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { updateCelebrity, listCelebrities } from "../../actions/celebrityActions";
+import {
+  updateCelebrity,
+  listCelebrities,
+} from "../../actions/celebrityActions";
 import { Link, useNavigate, useParams } from "react-router-dom";
-import {toDatetimeLocal} from '../../utils/helper'
+import { toDatetimeLocal } from "../../utils/helper";
+import { generateImageUrl, validateForm } from "../../utils/helper";
+
 import AdminLayouts from "../Layout";
 function EditCelebrityComponent() {
+  const initialFormErrors = {
+    name: "",
+    dob: "",
+    image: "",
+    gender: "",
+    address: "",
+  };
+
+  const [errors, setErrors] = useState(initialFormErrors);
+  const validateInputs = () => {
+    const err = { ...errors };
+
+    err.name = !formState.values.name ? "Celebrity name is required" : "";
+    err.dob = !formState.values.dob ? "Date of Birth is required" : "";
+
+    err.image = !formState.values.image ? "Image field is required" : "";
+
+    err.gender = !formState.values.gender ? "Gender field is required" : "";
+
+    err.address = !formState.values.address ? "Address field is required" : "";
+
+    setErrors({ ...err });
+    return validateForm(err);
+  };
   const { id } = useParams();
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const [submitted, setSubmitted] = useState(false);
   const [imagePreview, setImagePreview] = useState(
     "https://monstar-lab.com/global/wp-content/uploads/sites/11/2019/04/male-placeholder-image.jpeg"
   );
@@ -16,22 +44,23 @@ function EditCelebrityComponent() {
     values: {},
   });
 
-  const { celebrities } = useSelector((state) => state.celebrities);
+  const { celebrities } = useSelector((state) => state.celebrityReducer);
   useEffect(() => {
-    
     setFormState({ values: {} });
-    
-    if(!celebrities || celebrities.length === 0){
-      
+
+    if (!celebrities || celebrities.length === 0) {
       dispatch(listCelebrities());
     }
-    
-    const celebrity=celebrities.find((celebrity)=>celebrity._id.toString()===id);
-    if(celebrity){
+
+    const celebrity = celebrities.find(
+      (celebrity) => celebrity._id.toString() === id
+    );
+    if (celebrity) {
       setFormState({ values: celebrity });
+
+      setImagePreview(generateImageUrl(celebrity.image));
     }
-  
-  }, [ dispatch, id]);
+  }, [dispatch, id]);
 
   const handleChange = (e) => {
     if (e.target.name === "image") {
@@ -54,13 +83,13 @@ function EditCelebrityComponent() {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    setSubmitted(true);
-    const { name } = formState.values;
-    if (name) {
-      dispatch(updateCelebrity(formState.values));
-      setFormState({ values: {} });
-      navigate("/admin/celebrities");
-      setSubmitted(false);
+    if (validateInputs()) {
+      const { name } = formState.values;
+      if (name) {
+        dispatch(updateCelebrity(formState.values));
+        setFormState({ values: {} });
+        navigate("/admin/celebrities");
+      }
     }
   };
   return (
@@ -88,10 +117,8 @@ function EditCelebrityComponent() {
                         value={formState.values.name || ""}
                         onChange={handleChange}
                       />
-                      {submitted && !formState.values.name && (
-                        <div className="text-danger">
-                          Name field is required
-                        </div>
+                      {errors.name.length > 0 && (
+                        <div className="text-danger">{errors.name}</div>
                       )}
                     </div>
                   </div>
@@ -107,8 +134,8 @@ function EditCelebrityComponent() {
                         value={toDatetimeLocal(formState.values.dob)}
                         onChange={handleChange}
                       />
-                      {submitted && !formState.values.name && (
-                        <div className="text-danger">DOB field is required</div>
+                      {errors.dob.length > 0 && (
+                        <div className="text-danger">{errors.dob}</div>
                       )}
                     </div>
                   </div>
@@ -122,7 +149,9 @@ function EditCelebrityComponent() {
                         name="image"
                         onChange={handleChange}
                       />
-                      <div className="text-danger">Image field is required</div>
+                      {errors.image.length > 0 && (
+                        <div className="text-danger">{errors.image}</div>
+                      )}
                     </div>
                   </div>
                   <div className="col-6">
@@ -146,9 +175,12 @@ function EditCelebrityComponent() {
                         onChange={handleChange}
                         value={formState.values.gender}
                       >
-                        <option value="male" >Male</option>
+                        <option value="male">Male</option>
                         <option value="female">Female</option>
                       </select>
+                      {errors.gender.length > 0 && (
+                        <div className="text-danger">{errors.gender}</div>
+                      )}
                     </div>
                   </div>
 
@@ -163,6 +195,9 @@ function EditCelebrityComponent() {
                         value={formState.values.address || ""}
                         onChange={handleChange}
                       />
+                      {errors.address.length > 0 && (
+                        <div className="text-danger">{errors.address}</div>
+                      )}
                     </div>
                   </div>
                   <div className="col-12">
@@ -185,7 +220,7 @@ function EditCelebrityComponent() {
                       to="/admin/celebrities"
                       className="btn btn-warning ml-2"
                     >
-                      Cancel
+                      Back
                     </Link>
                   </div>
                 </div>
@@ -198,9 +233,8 @@ function EditCelebrityComponent() {
   );
 }
 
-
 function EditCelebrity() {
-  return <AdminLayouts children={<EditCelebrityComponent />} />;
+  return <AdminLayouts children={<EditCelebrityComponent />} title="Edit Celebrity || Dashboard"/>;
 }
 
 export default EditCelebrity;

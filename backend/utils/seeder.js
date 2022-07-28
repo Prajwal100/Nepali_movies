@@ -1,9 +1,12 @@
 const Celebrity = require("../models/Celebrity");
 const Movie = require("../models/Movies");
 const User = require("../models/user");
+const Settings = require("../models/Settings");
+
 const celebrities = require("../data/celebrities");
 const movies = require("../data/movies");
 const users = require("../data/users.json");
+const settings = require("../data/settings.json");
 
 const connectDB = require("../config/database");
 const dotenv = require("dotenv");
@@ -49,8 +52,23 @@ const seederMovies = async () => {
   }
 };
 
+const seederSettings = async () => {
+  try {
+    await Settings.deleteMany();
+    console.log("Deleted all");
+    await Settings.insertMany(settings);
+    console.log("Inserted Settings");
+    process.exit();
+  } catch (error) {
+    console.log(error);
+    process.exit();
+  }
+};
+
 seederUsers();
 
 seederCelebrity();
 
 seederMovies();
+
+seederSettings();

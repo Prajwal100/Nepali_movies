@@ -6,7 +6,7 @@ import Loader from "../Layout/Loader";
 import { deleteCelebrity } from "../../actions/celebrityActions";
 import { CELEBRITY_DELETE_RESET } from "../../constants/celebrityConstant";
 import moment from "moment";
-import { generateImageUrl } from "../../utils/helper";
+import { generateImageUrl,capitalizeFistLetter } from "../../utils/helper";
 import AdminLayouts from '../Layout'
 function CelebrityList() {
   const dispatch = useDispatch();
@@ -85,7 +85,7 @@ function CelebrityList() {
                               style={{ width: "60px" }}
                             />
                           </td>
-                          <td>{celebrity.gender}</td>
+                          <td>{capitalizeFistLetter(celebrity.gender)}</td>
                           <td>{moment(celebrity.dob).format("YYYY-MMM-DD")}</td>
                           <td>{celebrity.address}</td>
                           <td>

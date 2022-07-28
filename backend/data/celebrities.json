@@ -6,7 +6,7 @@
     "dob": "1999-06-20",
     "followers":1000000,
     "address": "kathmandu, Nepal",
-    "gender": "Female",
+    "gender": "female",
     "image":
       "https://i.pinimg.com/originals/27/e0/d3/27e0d35b2b5c2b3bb5aac5d1902be4b5.jpg"
   },
@@ -17,7 +17,7 @@
     "dob": "1999-06-20",
     "followers":5000000,
     "address": "kathmandu, Nepal",
-    "gender": "Male",
+    "gender": "male",
     "image": "https://www.fursadnepal.net/uploads/ckeditor/nikhil.jpg"
   },
   {
@@ -27,7 +27,7 @@
     "dob": "1999-06-20",
     "followers":1345000,
     "address": "kathmandu, Nepal",
-    "gender": "Male",
+    "gender": "male",
     "image":
       "https://3.bp.blogspot.com/-uUE9Um9KnfA/VmomXEPuQ-I/AAAAAAAACKI/83VNZxN6bGA/s640/Rajesh-Hamal-Icon.png"
   },
@@ -38,7 +38,7 @@
     "dob": "1999-06-20",
     "followers":500000,
     "address": "kathmandu, Nepal",
-    "gender": "Female",
+    "gender": "memale",
     "image":
       "https://i0.wp.com/www.nepalitrends.com/wp-content/uploads/2018/01/20052016034648raaaa-600x0.jpg?resize=596%2C758"
   },
@@ -49,7 +49,7 @@
     "dob": "1999-06-20",
     "followers":200000,
     "address": "kathmandu, Nepal",
-    "gender": "Male",
+    "gender": "male",
     "image":
       "https://nepalimoviesweb.files.wordpress.com/2016/07/dayahang-rai.jpg"
   }

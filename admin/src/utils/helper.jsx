@@ -34,3 +34,7 @@ export const toDatetimeLocal = (str) => {
     );
     return valid;
   };
+  
+  export const capitalizeFistLetter=(str)=>{
+    return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
+  }

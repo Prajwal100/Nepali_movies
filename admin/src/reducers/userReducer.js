@@ -6,6 +6,9 @@ import {
   LOGOUT_USER_FAIL,
   GET_PROFILE_SUCCESS,
   GET_PROFILE_FAIL,
+  UPDATE_PROFILE_REQUEST,
+  UPDATE_PROFILE_SUCCESS,
+  UPDATE_PROFILE_FAIL,
 } from "../constants/userConstant";
 
 export const userReducer = (state = { profile: {} }, action) => {
@@ -43,6 +46,26 @@ export const userReducer = (state = { profile: {} }, action) => {
     case LOGOUT_USER_FAIL:
       return {
         ...state,
+      };
+
+    case UPDATE_PROFILE_REQUEST:
+      return {
+        ...state,
+        loading: true,
+      };
+
+    case UPDATE_PROFILE_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+        profile: payload,
+      };
+
+    case UPDATE_PROFILE_FAIL:
+      return {
+        ...state,
+        loading: false,
+        error: payload,
       };
 
     default:

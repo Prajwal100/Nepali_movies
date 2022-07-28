@@ -1,15 +1,55 @@
 import React, { useEffect, useState } from "react";
 import AdminLayouts from "../Layout";
 import { useSelector, useDispatch } from "react-redux";
+import {validateForm} from '../../utils/helper'
+import {profileUpdate} from '../../actions/userActions'
 function ProfileSettingsPageComponent() {
-  const [submitted, setSubmitted] = useState(false);
+  const initialFormErrors={
+    name:"",
+    email:"",
+    password:"",
+    c_password:""
+  };
+  
+  const [errors,setErrors]= useState(initialFormErrors);
+  
+  const validateInputs=()=>{
+    const err={...errors};
+    
+    err.name = !formState.values.name ? "Name field is required" : "";
+    err.email = !formState.values.email ? "Email field is required" : "";
+    // err.password = formState.values.password.length <6 ? "Password must be at least 6 characters." : "";
+    // err.c_password =formState.values.password !== formState.values.c_password ? "Password does not match." : "";
+    
+    setErrors(err);
+    
+    return validateForm(err);
+  }
+  
   const [formState, setFormState] = useState({ values: {} });
 
   const { profile } = useSelector((state) => state.user);
   const dispatch = useDispatch();
+  
+  useEffect(() => {
+    setFormState({values:profile})
+  },[dispatch,profile]);
 
-  const handleChange = (e) => {};
-  const handleSubmit = (e) => {};
+  const handleChange = (e) => {
+    setFormState((formState)=>({
+      ...formState,
+      values:{
+        ...formState.values,
+        [e.target.name]: e.target.value
+      }
+    }))
+  };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if(validateInputs()){
+      dispatch(profileUpdate(formState.values));
+    }
+  };
   return (
     <div className="container-fluid">
       <div className="row">
@@ -48,9 +88,11 @@ function ProfileSettingsPageComponent() {
                       value={formState.values.name || ""}
                       onChange={handleChange}
                     />
-                    {submitted && !formState.values.name && (
-                      <div className="text-danger">Name field is required</div>
-                    )}
+                    {errors.name.length > 0 && (
+                            <div className="text-danger">
+                              {errors.name}
+                            </div>
+                          )}
                   </div>
                 </div>
 
@@ -58,6 +100,7 @@ function ProfileSettingsPageComponent() {
                   <div className="form-group">
                   <label>Email</label>
                     <input
+                    disabled
                       type="email"
                       className="form-control"
                       placeholder="Enter Email address"
@@ -65,44 +108,50 @@ function ProfileSettingsPageComponent() {
                       value={formState.values.email || ""}
                       onChange={handleChange}
                     />
-                    {submitted && !formState.values.email && (
-                      <div className="text-danger">Email field is required</div>
-                    )}
+                     {errors.email.length > 0 && (
+                            <div className="text-danger">
+                              {errors.email}
+                            </div>
+                          )}
                   </div>
                 </div>
-                <div className="col-6">
+                {/* <div className="col-6">
                   <div className="form-group">
                     <label>Current Password</label>
                     <input
-                      type="text"
+                      type="password"
                       className="form-control"
                       placeholder="******"
-                      name="name"
-                      value={formState.values.name || ""}
+                      name="password"
+                      value={formState.values.password || ""}
                       onChange={handleChange}
                     />
-                    {submitted && !formState.values.name && (
-                      <div className="text-danger">Name field is required</div>
-                    )}
+                    {errors.password.length > 0 && (
+                            <div className="text-danger">
+                              {errors.password}
+                            </div>
+                          )}
                   </div>
                 </div>
 
                 <div className="col-6">
                   <div className="form-group">
-                  <label>New Password</label>
+                  <label>Confirm Password</label>
                     <input
-                      type="email"
+                      type="password"
                       className="form-control"
                       placeholder="Enter at least 6 characters"
-                      name="email"
-                      value={formState.values.email || ""}
+                      name="c_password"
+                      value={formState.values.c_password || ""}
                       onChange={handleChange}
                     />
-                    {submitted && !formState.values.email && (
-                      <div className="text-danger">Email field is required</div>
-                    )}
+                    {errors.c_password.length > 0 && (
+                            <div className="text-danger">
+                              {errors.c_password}
+                            </div>
+                          )}
                   </div>
-                </div>
+                </div> */}
             
                 <div className="col-6">
                   <button type="submit" className="btn btn-success">

@@ -24,6 +24,7 @@ export const celebrityReducer = (state = { celebrities: [] }, action) => {
 
   switch (type) {
     case CELEBRITY_LIST_REQUEST:
+    case CELEBRITY_DELETE_REQUEST:
       return {
         loading: true,
         celebrities: [],
@@ -37,8 +38,23 @@ export const celebrityReducer = (state = { celebrities: [] }, action) => {
 
     case CELEBRITY_LIST_FAIL:
       return {
+        ...state,
         loading: true,
-        celebrities: payload,
+        error: payload,
+      };
+
+    case CELEBRITY_DELETE_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+        isDeleted: payload,
+      };
+
+    case CELEBRITY_DELETE_RESET:
+      return {
+        ...state,
+        loading: false,
+        isDeleted: false,
       };
 
     case CLEAR_ERRORS:
@@ -129,42 +145,6 @@ export const celebrityUpdateReducer = (state = { celebrity: {} }, action) => {
         celebrity: null,
         error: payload,
       };
-    default:
-      return state;
-  }
-};
-
-// DELETE CELEBRITY REDUCER
-export const celebrityDeleteReducer = (state = {}, action) => {
-  const { type, payload } = action;
-  switch (type) {
-    case CELEBRITY_DELETE_REQUEST:
-      return {
-        ...state,
-        loading: true,
-      };
-
-    case CELEBRITY_DELETE_SUCCESS:
-      return {
-        ...state,
-        loading: false,
-        isDeleted: payload,
-      };
-
-    case CELEBRITY_DELETE_FAIL:
-      return {
-        ...state,
-        loading: false,
-        error: action.payload,
-      };
-
-    case CELEBRITY_DELETE_RESET:
-      return {
-        ...state,
-        loading: false,
-        isDeleted: false,
-      };
-
     default:
       return state;
   }

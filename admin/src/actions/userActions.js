@@ -10,6 +10,9 @@ import {
   GET_PROFILE_REQUEST,
   GET_PROFILE_SUCCESS,
   GET_PROFILE_FAIL,
+  UPDATE_PROFILE_REQUEST,
+  UPDATE_PROFILE_SUCCESS,
+  UPDATE_PROFILE_FAIL,
 } from "../constants/userConstant";
 
 export const userLogin = (email, password) => async (dispatch) => {
@@ -70,5 +73,35 @@ export const getUserProfile = () => async (dispatch) => {
         : error.message;
     toast.error(message, ToastObjects);
     dispatch({ type: GET_PROFILE_FAIL });
+  }
+};
+
+export const profileUpdate = (reqData) => async (dispatch) => {
+  try {
+    dispatch({ type: UPDATE_PROFILE_REQUEST });
+
+    const response = await axios.patch(
+      `/api/v1/profile/update/${reqData._id}`,
+      reqData
+    );
+
+    const responseData = response.data;
+
+    if (!responseData.status) {
+      toast.error(responseData.message, ToastObjects);
+    } else {
+      toast.success(responseData.message, ToastObjects);
+      dispatch({
+        type: UPDATE_PROFILE_SUCCESS,
+        payload: responseData.user,
+      });
+    }
+  } catch (error) {
+    const message =
+      error.response && error.response.data.errorMessage
+        ? error.response.data.errorMessage
+        : error.message;
+    toast.error(message, ToastObjects);
+    dispatch({ type: UPDATE_PROFILE_FAIL });
   }
 };

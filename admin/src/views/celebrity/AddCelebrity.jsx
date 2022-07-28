@@ -1,9 +1,35 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import {createCelebrity} from '../../actions/celebrityActions'
-import {useNavigate} from 'react-router-dom'
+import {useNavigate,Link} from 'react-router-dom'
 import AdminLayouts from "../Layout";
+import {  validateForm } from "../../utils/helper";
+
 function AddCelebrityComponent() {
+  const initialFormErrors = {
+    name: "",
+    dob: "",
+    image: "",
+    gender: "",
+    address: "",
+  };
+
+  const [errors, setErrors] = useState(initialFormErrors);
+  const validateInputs = () => {
+    const err = { ...errors };
+
+    err.name = !formState.values.name ? "Celebrity name is required" : "";
+    err.dob = !formState.values.dob ? "Date of Birth is required" : "";
+
+    err.image = !formState.values.image ? "Image field is required" : "";
+
+    err.gender = !formState.values.gender ? "Gender field is required" : "";
+
+    err.address = !formState.values.address ? "Address field is required" : "";
+
+    setErrors({ ...err });
+    return validateForm(err);
+  };
   const dispatch = useDispatch();
   const navigate=useNavigate();
   const [submitted, setSubmitted] = useState(false);
@@ -32,13 +58,13 @@ function AddCelebrityComponent() {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    setSubmitted(true);
-    const { name } = formState.values;
+    if(validateInputs()){
+      const { name } = formState.values;
     if (name) {
       dispatch(createCelebrity(formState.values));
       setFormState({ values: {} });
       navigate("/admin/celebrities")
-      setSubmitted(false);
+    }
     }
   };
   return  <React.Fragment>
@@ -63,9 +89,9 @@ function AddCelebrityComponent() {
                   value={formState.values.name || ''}
                   onChange={handleChange}
                 />
-                {submitted && !formState.values.name && (
-                  <div className="text-danger">Name field is required</div>
-                )}
+                 {errors.name.length > 0 && (
+                        <div className="text-danger">{errors.name}</div>
+                      )}
               </div>
             </div>
 
@@ -80,9 +106,9 @@ function AddCelebrityComponent() {
                   value={formState.values.dob || ''}
                   onChange={handleChange}
                 />
-                {submitted && !formState.values.name && (
-                  <div className="text-danger">DOB field is required</div>
-                )}
+                 {errors.dob.length > 0 && (
+                        <div className="text-danger">{errors.dob}</div>
+                      )}
               </div>
             </div>
 
@@ -90,9 +116,9 @@ function AddCelebrityComponent() {
               <div className="form-group">
                 <label>Image</label>
                 <input type="file" accept="image/*" className="form-control" name="image" onChange={handleChange}/>
-                {submitted && !formState.values.image && (
-                  <div className="text-danger">Image field is required</div>
-                )}
+                {errors.image.length > 0 && (
+                        <div className="text-danger">{errors.image}</div>
+                      )}
               </div>
             </div>
             <div className="col-6">
@@ -114,6 +140,10 @@ function AddCelebrityComponent() {
                   <option value="male">Male</option>
                   <option value="female">Female</option>
                 </select>
+                
+                {errors.gender.length > 0 && (
+                        <div className="text-danger">{errors.gender}</div>
+                      )}
               </div>
             </div>
 
@@ -127,6 +157,9 @@ function AddCelebrityComponent() {
                   name="address"
                   onChange={handleChange}
                 />
+                 {errors.address.length > 0 && (
+                        <div className="text-danger">{errors.address}</div>
+                      )}
               </div>
             </div>
             <div className="col-12">
@@ -144,6 +177,12 @@ function AddCelebrityComponent() {
               <button type="submit" className="btn btn-success">
                 Submit
               </button>
+              <Link
+                      to="/admin/celebrities"
+                      className="btn btn-warning ml-2"
+                    >
+                      Back
+                    </Link>
             </div>
           </div>
         </form>
@@ -154,7 +193,7 @@ function AddCelebrityComponent() {
 }
 
 function AddCelebrity() {
-  return <AdminLayouts children={<AddCelebrityComponent />} />;
+  return <AdminLayouts children={<AddCelebrityComponent />} title="Add celebrity || Dashboard" />;
 }
 
 export default AddCelebrity;
