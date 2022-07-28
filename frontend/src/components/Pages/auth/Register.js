@@ -60,7 +60,6 @@ const RegisterPage = ({ history }) => {
     formData.set("password", password);
     formData.set("gender", gender);
 
-    console.log("register", JSON.stringify(formData), formData, name);
     dispatch(register(formData));
   };
 

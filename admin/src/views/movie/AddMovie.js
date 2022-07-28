@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { capitalizeFistLetter, validateForm } from "../../utils/helper";
 import { listCelebrities } from "../../actions/celebrityActions";
+import { addMovieAction } from "../../actions/movieActions";
 import Select from "react-select";
 function CreateMovie() {
   const initialErrors = {
@@ -16,38 +17,47 @@ function CreateMovie() {
   const inputValidators = () => {
     let err = { ...errors };
 
-    err.name = !formState.values.name ? "Movie name is required." : "";
-    err.image = !formState.values.name ? "Image is required." : "";
-    err.category = !formState.values.category
-      ? "Category field is required."
-      : "";
+    err.name = !name ? "Movie name is required." : "";
+    err.image = !image ? "Image is required." : "";
+    err.category = !category ? "Category field is required." : "";
 
     setErrors({ ...err });
     return validateForm(err);
   };
 
   const dispatch = useDispatch();
-  const [formState, setFormState] = useState({ values: {} });
   const [defaultImage, setDefaultImage] = useState(
     "https://user-images.githubusercontent.com/43302778/106805462-7a908400-6645-11eb-958f-cd72b74a17b3.jpg"
   );
+
+  const [casts, setCasts] = useState(null);
+  const [name, setName] = useState("");
+  const [releaseDate, setReleaseDate] = useState(null);
+  const [category, setCategory] = useState(null);
+  const [image, setImage] = useState(null);
+  const [uploadedBy, setUploadedBy] = useState("");
+  const [overview, setOverview] = useState("");
   const { celebrities } = useSelector((state) => state.celebrityReducer);
   const categories = ["popular", "old", "new", "action"];
 
   useEffect(() => {
     dispatch(listCelebrities());
   }, [dispatch]);
+
+  const handleCasts = (value) => {
+    setCasts(value);
+  };
   const handleChange = (e) => {
-    console.log(e.target.name);
-    // if (e.target.name === "image") {
-    //   const reader = new FileReader();
-    //   reader.onload = () => {
-    //     if (reader.readyState === 2) {
-    //       setDefaultImage(reader.result);
-    //     }
-    //   };
-    //   reader.readAsDataURL(e.target.files[0]);
-    // }
+    if (e.target.name === "image") {
+      const reader = new FileReader();
+      reader.onload = () => {
+        if (reader.readyState === 2) {
+          setDefaultImage(reader.result);
+        }
+      };
+      reader.readAsDataURL(e.target.files[0]);
+      setImage(e.target.files[0]);
+    }
     // setFormState((formState) => ({
     //   ...formState,
     //   values: {
@@ -60,6 +70,15 @@ function CreateMovie() {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (inputValidators()) {
+      let formData = new FormData();
+      formData.set("name", name);
+      formData.set("releaseDate", releaseDate);
+      formData.set("category", category);
+      formData.set("image", image);
+      formData.set("casts", casts);
+      formData.set("overview", overview);
+
+      dispatch(addMovieAction(formData));
     }
   };
   return (
@@ -82,8 +101,8 @@ function CreateMovie() {
                       className="form-control"
                       placeholder="Enter movie name"
                       name="name"
-                      value={formState.values.name || ""}
-                      onChange={handleChange}
+                      value={name || ""}
+                      onChange={(e) => setName(e.target.value)}
                     />
                     {errors.name.length > 0 && (
                       <div className="text-danger">{errors.name}</div>
@@ -99,8 +118,8 @@ function CreateMovie() {
                       className="form-control"
                       placeholder="Release Date"
                       name="releaseDate"
-                      value={formState.values.releaseDate || ""}
-                      onChange={handleChange}
+                      value={releaseDate || ""}
+                      onChange={(e) => setReleaseDate(e.target.value)}
                     />
                   </div>
                 </div>
@@ -137,7 +156,7 @@ function CreateMovie() {
                     <select
                       className="form-control"
                       name="category"
-                      onChange={handleChange}
+                      onChange={(e) => setCategory(e.target.value)}
                     >
                       {categories.map((category) => {
                         return (
@@ -165,7 +184,7 @@ function CreateMovie() {
                         };
                       })}
                       menuPlacement="auto"
-                      onChange={handleChange}
+                      onChange={handleCasts}
                     />
                     {/* <select
                       className="form-control"
@@ -192,7 +211,8 @@ function CreateMovie() {
                       className="form-control"
                       placeholder="Enter uploader name"
                       name="uploadedBy"
-                      onChange={handleChange}
+                      value={uploadedBy}
+                      onChange={(e) => setUploadedBy(e.target.value)}
                     />
                   </div>
                 </div>
@@ -203,8 +223,10 @@ function CreateMovie() {
                       className="form-control"
                       placeholder="Enter overview"
                       name="overview"
-                      onChange={handleChange}
-                    ></textarea>
+                      onChange={(e) => setOverview(e.target.value)}
+                    >
+                      {overview}
+                    </textarea>
                   </div>
                 </div>
                 <div className="col-6">

@@ -50,8 +50,6 @@ export const register = (userData) => async (dispatch) => {
       type: REGISTER_REQUEST,
     });
 
-    console.log("hrere", userData);
-
     const config = {
       headers: {
         "Content-Type": "multipart/form-data",

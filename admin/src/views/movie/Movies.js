@@ -14,7 +14,7 @@ function MoviesList() {
 
   useEffect(() => {
     dispatch(moviesActions());
-  }, []);
+  }, [dispatch]);
 
   const deleteHandler = (e) => {};
   return (

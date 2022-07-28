@@ -2,6 +2,9 @@ import {
   MOVIE_LIST_REQUEST,
   MOVIE_LIST_SUCCESS,
   MOVIE_LIST_FAIL,
+  MOVIE_CREATE_REQUEST,
+  MOVIE_CREATE_SUCCESS,
+  MOVIE_CREATE_FAIL,
 } from "../constants/movieConstant";
 
 import { toast } from "react-toastify";
@@ -25,6 +28,29 @@ export const moviesActions = () => async (dispatch) => {
         : error.message;
 
     dispatch({ type: MOVIE_LIST_FAIL, payload: message });
+
+    toast.error(message, ToastObjects);
+  }
+};
+
+export const addMovieAction = (movieData) => async (dispatch) => {
+  console.log(movieData);
+  try {
+    dispatch({ type: MOVIE_CREATE_REQUEST });
+    const config = {
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
+    };
+
+    const data = await axios.post("/api/v1/movie");
+  } catch (error) {
+    const message =
+      error.response && error.response.data.errorMessage
+        ? error.response.data.errorMessage
+        : error.message;
+
+    dispatch({ type: MOVIE_CREATE_FAIL, payload: message });
 
     toast.error(message, ToastObjects);
   }
