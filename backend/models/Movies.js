@@ -9,7 +9,7 @@ const movieSchema = new mongoose.Schema({
     type: String,
   },
   category: {
-    type: Array,
+    type: String,
     required: [true, "Please select category."],
   },
   uploadedBy: {
@@ -22,12 +22,12 @@ const movieSchema = new mongoose.Schema({
   releaseDate: {
     type: Date,
   },
-  // cast: [
-  //   {
-  //     type: mongoose.Schema.ObjectId,
-  //     ref: "Celebrity",
-  //   },
-  // ],
+  casts: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Celebrity",
+    },
+  ],
 });
 
 module.exports = mongoose.model("Movie", movieSchema);

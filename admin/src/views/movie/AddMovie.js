@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import AdminLayouts from "../Layout";
 import Loader from "../Layout/Loader";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { capitalizeFistLetter, validateForm } from "../../utils/helper";
 import { listCelebrities } from "../../actions/celebrityActions";
@@ -26,6 +26,7 @@ function CreateMovie() {
   };
 
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [defaultImage, setDefaultImage] = useState(
     "https://user-images.githubusercontent.com/43302778/106805462-7a908400-6645-11eb-958f-cd72b74a17b3.jpg"
   );
@@ -79,6 +80,8 @@ function CreateMovie() {
       formData.set("overview", overview);
 
       dispatch(addMovieAction(formData));
+
+      navigate("/admin/movies");
     }
   };
   return (

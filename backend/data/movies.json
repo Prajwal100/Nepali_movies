@@ -1,322 +1,78 @@
 [
-    {
-      "name": "Kabaddi 4: The Final Match",
-      "overview":
-        "Kabaddi 4: The Final Match, also known as Kabbadi 4 and कबड्डी ४: द फाइनल म्याच is a 2022 Nepali romantic comedy film, directed by Ram Babu Gurung. The film is produced by Mani Ram Pokharel, Om Chand Rauniyar and Sushma Gurung under the banner of Baasuri Films.",
-      "releaseDate": "May 27, 2022",
-      "category":["Comedy" ,"Action"],
-      "uploadedBy": "62ac0f32be965d831422119e",
-      "image": "https://www.trybooking.com/UserData/Homepage/G/EHI901673-dbe971d96d1f40b8b19a9d438d7c3a64.jpeg",
-      "cast":[
-        {
-            "castId":"62aec5a9cc7df32618f9ca83"
-        },
-        {
-            "castId":"62aec5a9cc7df32618f9ca84"
-        },
-        {
-            "castId":"62aec5a9cc7df32618f9ca85"
-        }
-      ]
-    },
-    {
-      "name": "Chiso Maanchhe",
-      "overview":
-        "Chiso Maanchhe is a Nepali film written and directed by Dipendra K. Khanal and produced by Sharmila Pandey.It stars Arpan Thapa, Swastima Khadka, Desh Bhakta Khanal, Aashant Sharma, Prabhakar Neupane, Ram Babu Regmi, Jhaken BC, Sanjog Rasali, Puspa Awasti, Shristi Acharya, and Bikash Khanal.",
-      "releaseDate": "May 27, 2022",
-      "category":["Comedy" ,"Action"],
-      "uploadedBy": "62ac0f32be965d831422119e",
-      "image": "https://neplych.com/wp-content/uploads/2022/04/Chiso-Maanchhe-Movie-Poster.jpg",
-      "cast":[
-        {
-            "castId":"62aec5a9cc7df32618f9ca83"
-        },
-        {
-            "castId":"62aec5a9cc7df32618f9ca84"
-        },
-        {
-            "castId":"62aec5a9cc7df32618f9ca85"
-        }
-      ]
-    },
-    {
-      "name": "Kawach ",
-      "overview":
-        "Kawach features some good action scenes, overall its a action pack movie.",
-      "releaseDate": "May 4, 2012",
-      "category":["Love" ,"Action"],
-      "uploadedBy": "62ac0f32be965d831422119e",
-      "image": "http://1.bp.blogspot.com/-rJ1UfSq2e9A/UOCJ98fDo2I/AAAAAAAAAwQ/_7AaoIJpLIU/s1600/kawach-movie-poster.jpg",
-      "cast":[
-        {
-            "castId":"62aec5a9cc7df32618f9ca83"
-        },
-        {
-            "castId":"62aec5a9cc7df32618f9ca84"
-        },
-        {
-            "castId":"62aec5a9cc7df32618f9ca85"
-        }
-      ]
-    },
-    {
-      "name": "Dhoom4",
-      "overview":
-        "Dhoom4 movie",
-      "releaseDate": "May 27, 2022",
-      "category":["Comedy" ,"Action"],
-      "uploadedBy": "62ac0f32be965d831422119e",
-      "image": "https://www.lensnepal.com/files/movies/dhoom-4.jpg",
-      "cast":[
-        {
-            "castId":"62aec5a9cc7df32618f9ca83"
-        },
-        {
-            "castId":"62aec5a9cc7df32618f9ca84"
-        },
-        {
-            "castId":"62aec5a9cc7df32618f9ca85"
-        }
-      ]
-    },
-    {
-      "name": "Kabaddi 4: The Final Match",
-      "overview":
-        "Kabaddi 4: The Final Match, also known as Kabbadi 4 and कबड्डी ४: द फाइनल म्याच is a 2022 Nepali romantic comedy film, directed by Ram Babu Gurung. The film is produced by Mani Ram Pokharel, Om Chand Rauniyar and Sushma Gurung under the banner of Baasuri Films.",
-      "releaseDate": "May 27, 2022",
-      "category":["Comedy" ,"Action"],
-      "uploadedBy": "62ac0f32be965d831422119e",
-      "image": "https://www.trybooking.com/UserData/Homepage/G/EHI901673-dbe971d96d1f40b8b19a9d438d7c3a64.jpeg",
-      "cast":[
-        {
-            "castId":"62aec5a9cc7df32618f9ca83"
-        },
-        {
-            "castId":"62aec5a9cc7df32618f9ca84"
-        },
-        {
-            "castId":"62aec5a9cc7df32618f9ca85"
-        }
-      ]
-    },
-    {
-      "name": "Chiso Maanchhe",
-      "overview":
-        "Chiso Maanchhe is a Nepali film written and directed by Dipendra K. Khanal and produced by Sharmila Pandey.It stars Arpan Thapa, Swastima Khadka, Desh Bhakta Khanal, Aashant Sharma, Prabhakar Neupane, Ram Babu Regmi, Jhaken BC, Sanjog Rasali, Puspa Awasti, Shristi Acharya, and Bikash Khanal.",
-      "releaseDate": "May 27, 2022",
-      "category":["Comedy" ,"Action"],
-      "uploadedBy": "62ac0f32be965d831422119e",
-      "image": "https://neplych.com/wp-content/uploads/2022/04/Chiso-Maanchhe-Movie-Poster.jpg",
-      "cast":[
-        {
-            "castId":"62aec5a9cc7df32618f9ca83"
-        },
-        {
-            "castId":"62aec5a9cc7df32618f9ca84"
-        },
-        {
-            "castId":"62aec5a9cc7df32618f9ca85"
-        }
-      ]
-    },
-    {
-      "name": "Kawach ",
-      "overview":
-        "Kawach features some good action scenes, overall its a action pack movie.",
-      "releaseDate": "May 4, 2012",
-      "category":["Love" ,"Action"],
-      "uploadedBy": "62ac0f32be965d831422119e",
-      "image": "http://1.bp.blogspot.com/-rJ1UfSq2e9A/UOCJ98fDo2I/AAAAAAAAAwQ/_7AaoIJpLIU/s1600/kawach-movie-poster.jpg",
-      "cast":[
-        {
-            "castId":"62aec5a9cc7df32618f9ca83"
-        },
-        {
-            "castId":"62aec5a9cc7df32618f9ca84"
-        },
-        {
-            "castId":"62aec5a9cc7df32618f9ca85"
-        }
-      ]
-    },
-    {
-      "name": "Dhoom4",
-      "overview":
-        "Dhoom4 movie",
-      "releaseDate": "May 27, 2022",
-      "category":["Comedy" ,"Action"],
-      "uploadedBy": "62ac0f32be965d831422119e",
-      "image": "https://www.lensnepal.com/files/movies/dhoom-4.jpg",
-      "cast":[
-        {
-            "castId":"62aec5a9cc7df32618f9ca83"
-        },
-        {
-            "castId":"62aec5a9cc7df32618f9ca84"
-        },
-        {
-            "castId":"62aec5a9cc7df32618f9ca85"
-        }
-      ]
-    },
-    {
-      "name": "Kabaddi 4: The Final Match",
-      "overview":
-        "Kabaddi 4: The Final Match, also known as Kabbadi 4 and कबड्डी ४: द फाइनल म्याच is a 2022 Nepali romantic comedy film, directed by Ram Babu Gurung. The film is produced by Mani Ram Pokharel, Om Chand Rauniyar and Sushma Gurung under the banner of Baasuri Films.",
-      "releaseDate": "May 27, 2022",
-      "category":["Comedy" ,"Action"],
-      "uploadedBy": "62ac0f32be965d831422119e",
-      "image": "https://www.trybooking.com/UserData/Homepage/G/EHI901673-dbe971d96d1f40b8b19a9d438d7c3a64.jpeg",
-      "cast":[
-        {
-            "castId":"62aec5a9cc7df32618f9ca83"
-        },
-        {
-            "castId":"62aec5a9cc7df32618f9ca84"
-        },
-        {
-            "castId":"62aec5a9cc7df32618f9ca85"
-        }
-      ]
-    },
-    {
-      "name": "Chiso Maanchhe",
-      "overview":
-        "Chiso Maanchhe is a Nepali film written and directed by Dipendra K. Khanal and produced by Sharmila Pandey.It stars Arpan Thapa, Swastima Khadka, Desh Bhakta Khanal, Aashant Sharma, Prabhakar Neupane, Ram Babu Regmi, Jhaken BC, Sanjog Rasali, Puspa Awasti, Shristi Acharya, and Bikash Khanal.",
-      "releaseDate": "May 27, 2022",
-      "category":["Comedy" ,"Action"],
-      "uploadedBy": "62ac0f32be965d831422119e",
-      "image": "https://neplych.com/wp-content/uploads/2022/04/Chiso-Maanchhe-Movie-Poster.jpg",
-      "cast":[
-        {
-            "castId":"62aec5a9cc7df32618f9ca83"
-        },
-        {
-            "castId":"62aec5a9cc7df32618f9ca84"
-        },
-        {
-            "castId":"62aec5a9cc7df32618f9ca85"
-        }
-      ]
-    },
-    {
-      "name": "Kawach ",
-      "overview":
-        "Kawach features some good action scenes, overall its a action pack movie.",
-      "releaseDate": "May 4, 2012",
-      "category":["Love" ,"Action"],
-      "uploadedBy": "62ac0f32be965d831422119e",
-      "image": "http://1.bp.blogspot.com/-rJ1UfSq2e9A/UOCJ98fDo2I/AAAAAAAAAwQ/_7AaoIJpLIU/s1600/kawach-movie-poster.jpg",
-      "cast":[
-        {
-            "castId":"62aec5a9cc7df32618f9ca83"
-        },
-        {
-            "castId":"62aec5a9cc7df32618f9ca84"
-        },
-        {
-            "castId":"62aec5a9cc7df32618f9ca85"
-        }
-      ]
-    },
-    {
-      "name": "Dhoom4",
-      "overview":
-        "Dhoom4 movie",
-      "releaseDate": "May 27, 2022",
-      "category":["Comedy" ,"Action"],
-      "uploadedBy": "62ac0f32be965d831422119e",
-      "image": "https://www.lensnepal.com/files/movies/dhoom-4.jpg",
-      "cast":[
-        {
-            "castId":"62aec5a9cc7df32618f9ca83"
-        },
-        {
-            "castId":"62aec5a9cc7df32618f9ca84"
-        },
-        {
-            "castId":"62aec5a9cc7df32618f9ca85"
-        }
-      ]
-    },
-    {
-      "name": "Kabaddi 4: The Final Match",
-      "overview":
-        "Kabaddi 4: The Final Match, also known as Kabbadi 4 and कबड्डी ४: द फाइनल म्याच is a 2022 Nepali romantic comedy film, directed by Ram Babu Gurung. The film is produced by Mani Ram Pokharel, Om Chand Rauniyar and Sushma Gurung under the banner of Baasuri Films.",
-      "releaseDate": "May 27, 2022",
-      "category":["Comedy" ,"Action"],
-      "uploadedBy": "62ac0f32be965d831422119e",
-      "image": "https://www.trybooking.com/UserData/Homepage/G/EHI901673-dbe971d96d1f40b8b19a9d438d7c3a64.jpeg",
-      "cast":[
-        {
-            "castId":"62aec5a9cc7df32618f9ca83"
-        },
-        {
-            "castId":"62aec5a9cc7df32618f9ca84"
-        },
-        {
-            "castId":"62aec5a9cc7df32618f9ca85"
-        }
-      ]
-    },
-    {
-      "name": "Chiso Maanchhe",
-      "overview":
-        "Chiso Maanchhe is a Nepali film written and directed by Dipendra K. Khanal and produced by Sharmila Pandey.It stars Arpan Thapa, Swastima Khadka, Desh Bhakta Khanal, Aashant Sharma, Prabhakar Neupane, Ram Babu Regmi, Jhaken BC, Sanjog Rasali, Puspa Awasti, Shristi Acharya, and Bikash Khanal.",
-      "releaseDate": "May 27, 2022",
-      "category":["Comedy" ,"Action"],
-      "uploadedBy": "62ac0f32be965d831422119e",
-      "image": "https://neplych.com/wp-content/uploads/2022/04/Chiso-Maanchhe-Movie-Poster.jpg",
-      "cast":[
-        {
-            "castId":"62aec5a9cc7df32618f9ca83"
-        },
-        {
-            "castId":"62aec5a9cc7df32618f9ca84"
-        },
-        {
-            "castId":"62aec5a9cc7df32618f9ca85"
-        }
-      ]
-    },
-    {
-      "name": "Kawach ",
-      "overview":
-        "Kawach features some good action scenes, overall its a action pack movie.",
-      "releaseDate": "May 4, 2012",
-      "category":["Love" ,"Action"],
-      "uploadedBy": "62ac0f32be965d831422119e",
-      "image": "http://1.bp.blogspot.com/-rJ1UfSq2e9A/UOCJ98fDo2I/AAAAAAAAAwQ/_7AaoIJpLIU/s1600/kawach-movie-poster.jpg",
-      "cast":[
-        {
-            "castId":"62aec5a9cc7df32618f9ca83"
-        },
-        {
-            "castId":"62aec5a9cc7df32618f9ca84"
-        },
-        {
-            "castId":"62aec5a9cc7df32618f9ca85"
-        }
-      ]
-    },
-    {
-      "name": "Dhoom4",
-      "overview":
-        "Dhoom4 movie",
-      "releaseDate": "May 27, 2022",
-      "category":["Comedy" ,"Action"],
-      "uploadedBy": "62ac0f32be965d831422119e",
-      "image": "https://www.lensnepal.com/files/movies/dhoom-4.jpg",
-      "cast":[
-        {
-            "castId":"62aec5a9cc7df32618f9ca83"
-        },
-        {
-            "castId":"62aec5a9cc7df32618f9ca84"
-        },
-        {
-            "castId":"62aec5a9cc7df32618f9ca85"
-        }
-      ]
-    }
+  {
+    "name": "Kabaddi 4: The Final Match",
+    "overview": "Kabaddi 4: The Final Match, also known as Kabbadi 4 and कबड्डी ४: द फाइनल म्याच is a 2022 Nepali romantic comedy film, directed by Ram Babu Gurung. The film is produced by Mani Ram Pokharel, Om Chand Rauniyar and Sushma Gurung under the banner of Baasuri Films.",
+    "releaseDate": "May 27, 2022",
+    "category": "popular",
+    "uploadedBy": "62ac0f32be965d831422119e",
+    "image": "https://www.trybooking.com/UserData/Homepage/G/EHI901673-dbe971d96d1f40b8b19a9d438d7c3a64.jpeg",
+    "cast": [
+      {
+        "castId": "62aec5a9cc7df32618f9ca83"
+      },
+      {
+        "castId": "62aec5a9cc7df32618f9ca84"
+      },
+      {
+        "castId": "62aec5a9cc7df32618f9ca85"
+      }
+    ]
+  },
+  {
+    "name": "Chiso Maanchhe",
+    "overview": "Chiso Maanchhe is a Nepali film written and directed by Dipendra K. Khanal and produced by Sharmila Pandey.It stars Arpan Thapa, Swastima Khadka, Desh Bhakta Khanal, Aashant Sharma, Prabhakar Neupane, Ram Babu Regmi, Jhaken BC, Sanjog Rasali, Puspa Awasti, Shristi Acharya, and Bikash Khanal.",
+    "releaseDate": "May 27, 2022",
+    "category": "action",
+    "uploadedBy": "62ac0f32be965d831422119e",
+    "image": "https://neplych.com/wp-content/uploads/2022/04/Chiso-Maanchhe-Movie-Poster.jpg",
+    "cast": [
+      {
+        "castId": "62aec5a9cc7df32618f9ca83"
+      },
+      {
+        "castId": "62aec5a9cc7df32618f9ca84"
+      },
+      {
+        "castId": "62aec5a9cc7df32618f9ca85"
+      }
+    ]
+  },
+  {
+    "name": "Kawach ",
+    "overview": "Kawach features some good action scenes, overall its a action pack movie.",
+    "releaseDate": "May 4, 2012",
+    "category": "love",
+    "uploadedBy": "62ac0f32be965d831422119e",
+    "image": "http://1.bp.blogspot.com/-rJ1UfSq2e9A/UOCJ98fDo2I/AAAAAAAAAwQ/_7AaoIJpLIU/s1600/kawach-movie-poster.jpg",
+    "cast": [
+      {
+        "castId": "62aec5a9cc7df32618f9ca83"
+      },
+      {
+        "castId": "62aec5a9cc7df32618f9ca84"
+      },
+      {
+        "castId": "62aec5a9cc7df32618f9ca85"
+      }
+    ]
+  },
+  {
+    "name": "Dhoom4",
+    "overview": "Dhoom4 movie",
+    "releaseDate": "May 27, 2022",
+    "category": "comedy",
+    "uploadedBy": "62ac0f32be965d831422119e",
+    "image": "https://www.lensnepal.com/files/movies/dhoom-4.jpg",
+    "cast": [
+      {
+        "castId": "62aec5a9cc7df32618f9ca83"
+      },
+      {
+        "castId": "62aec5a9cc7df32618f9ca84"
+      },
+      {
+        "castId": "62aec5a9cc7df32618f9ca85"
+      }
+    ]
+  }
 ]

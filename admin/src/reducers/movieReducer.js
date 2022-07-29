@@ -5,6 +5,9 @@ import {
   MOVIE_CREATE_REQUEST,
   MOVIE_CREATE_SUCCESS,
   MOVIE_CREATE_FAIL,
+  MOVIE_DELETE_REQUEST,
+  MOVIE_DELETE_SUCCESS,
+  MOVIE_DELETE_FAIL,
 } from "../constants/movieConstant";
 
 export const movieReducer = (state = { movies: [] }, action) => {
@@ -13,13 +16,13 @@ export const movieReducer = (state = { movies: [] }, action) => {
   switch (type) {
     case MOVIE_LIST_REQUEST:
     case MOVIE_CREATE_REQUEST:
+    case MOVIE_DELETE_REQUEST:
       return {
         ...state,
         loading: true,
       };
 
     case MOVIE_LIST_SUCCESS:
-    case MOVIE_CREATE_SUCCESS:
       return {
         movies: payload,
         loading: false,
@@ -27,12 +30,27 @@ export const movieReducer = (state = { movies: [] }, action) => {
 
     case MOVIE_LIST_FAIL:
     case MOVIE_CREATE_FAIL:
+    case MOVIE_DELETE_FAIL:
       return {
-        movies: null,
+        ...state,
         loading: false,
         error: payload,
       };
 
+    case MOVIE_CREATE_SUCCESS:
+      let movies = [...state.movies];
+      movies.push(payload);
+      return {
+        movies: movies,
+        loading: false,
+      };
+
+    case MOVIE_DELETE_SUCCESS:
+      return {
+        ...state,
+        isDelete: payload,
+        loading: false,
+      };
     default:
       return state;
   }

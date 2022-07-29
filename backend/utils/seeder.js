@@ -65,10 +65,10 @@ const seederSettings = async () => {
   }
 };
 
-seederUsers();
+// seederUsers();
 
-seederCelebrity();
+// seederCelebrity();
 
 seederMovies();
 
-seederSettings();
+// seederSettings();

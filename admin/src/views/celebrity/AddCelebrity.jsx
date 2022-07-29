@@ -32,7 +32,6 @@ function AddCelebrityComponent() {
   };
   const dispatch = useDispatch();
   const navigate=useNavigate();
-  const [submitted, setSubmitted] = useState(false);
   const [defaultImage,setDefaultImage] = useState('https://monstar-lab.com/global/wp-content/uploads/sites/11/2019/04/male-placeholder-image.jpeg')
   const [formState, setFormState] = useState({
     values: {},

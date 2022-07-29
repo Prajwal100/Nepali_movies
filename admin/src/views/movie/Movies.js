@@ -3,20 +3,25 @@ import AdminLayouts from "../Layout";
 import Loader from "../Layout/Loader";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { generateImageUrl } from "../../utils/helper";
-import { moviesActions } from "../../actions/movieActions";
+import { generateImageUrl, capitalizeFistLetter } from "../../utils/helper";
+import { moviesActions, deleteMovie } from "../../actions/movieActions";
 import moment from "moment";
 
 function MoviesList() {
-  const { loading, error, movies } = useSelector((state) => state.movieReducer);
-
+  const { loading, error, movies, isDelete } = useSelector(
+    (state) => state.movieReducer
+  );
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(moviesActions());
-  }, [dispatch]);
+  }, [dispatch, isDelete]);
 
-  const deleteHandler = (e) => {};
+  const deleteHandler = (id) => {
+    if (window.confirm("Are you sure you want to delete")) {
+      dispatch(deleteMovie(id));
+    }
+  };
   return (
     <>
       <React.Fragment>
@@ -47,7 +52,7 @@ function MoviesList() {
                         <th>Image</th>
                         <th>Category</th>
                         <th>Uploaded By</th>
-                        <th>Review</th>
+                        <th>Celebrities</th>
                         <th>Actions</th>
                       </tr>
                     </thead>
@@ -57,7 +62,7 @@ function MoviesList() {
                         <th>Image</th>
                         <th>Category</th>
                         <th>Uploaded By</th>
-                        <th>Review</th>
+                        <th>Celebrities</th>
                         <th>Actions</th>
                       </tr>
                     </tfoot>
@@ -69,10 +74,10 @@ function MoviesList() {
                             <img
                               src={generateImageUrl(movie.image)}
                               alt={movie.name}
-                              style={{ width: "60px" }}
+                              style={{ width: "100px" }}
                             />
                           </td>
-                          <td>{movie.gender}</td>
+                          <td>{capitalizeFistLetter(movie.category)}</td>
                           <td>{moment(movie.dob).format("YYYY-MMM-DD")}</td>
                           <td>{movie.address}</td>
                           <td>

@@ -5,6 +5,9 @@ import {
   MOVIE_CREATE_REQUEST,
   MOVIE_CREATE_SUCCESS,
   MOVIE_CREATE_FAIL,
+  MOVIE_DELETE_REQUEST,
+  MOVIE_DELETE_SUCCESS,
+  MOVIE_DELETE_FAIL,
 } from "../constants/movieConstant";
 
 import { toast } from "react-toastify";
@@ -43,7 +46,48 @@ export const addMovieAction = (movieData) => async (dispatch) => {
       },
     };
 
-    const data = await axios.post("/api/v1/movie");
+    const response = await axios.post(
+      "/api/v1/movie/create-movie",
+      movieData,
+      config
+    );
+
+    const responseData = response.data;
+
+    if (!responseData.status) {
+      toast.error(responseData.message, ToastObjects);
+    } else {
+      toast.success(responseData.message, ToastObjects);
+      dispatch({
+        type: MOVIE_CREATE_SUCCESS,
+        payload: responseData.movie,
+      });
+    }
+  } catch (error) {
+    const message =
+      error.response && error.response.data.errorMessage
+        ? error.response.data.errorMessage
+        : error.message;
+
+    dispatch({ type: MOVIE_CREATE_FAIL, payload: message });
+
+    toast.error(message, ToastObjects);
+  }
+};
+
+export const deleteMovie = (id) => async (dispatch) => {
+  try {
+    dispatch({ type: MOVIE_DELETE_REQUEST });
+
+    const response = await axios.delete(`/api/v1/movie/delete-movie/${id}`);
+
+    const data = response.data;
+    if (!data.status) {
+      toast.error(data.message, ToastObjects);
+    } else {
+      toast.success(data.message, ToastObjects);
+      dispatch({ type: MOVIE_DELETE_SUCCESS, payload: data.status });
+    }
   } catch (error) {
     const message =
       error.response && error.response.data.errorMessage
