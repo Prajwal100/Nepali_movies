@@ -51,7 +51,29 @@ exports.storeMovies = catchAsyncErrors(async (req, res, next) => {
 });
 
 // UPDATE MOVIE;
-exports.updateMovies = catchAsyncErrors(async (req, res, next) => {});
+exports.updateMovies = catchAsyncErrors(async (req, res, next) => {
+  let movie = await Movie.findById(req.params.id);
+  if (!movie) {
+    return next(new ErrorHandler("Movie not found.", 404));
+  }
+
+  let { name, releaseDate, category, uploadedBy, overview } = req.body;
+  movieData = Movie.findById(req.params.id).then((movie) => {
+    movie.name = name;
+    movie.releaseDate = releaseDate;
+    movie.category = category;
+    movie.uploadedBy = uploadedBy;
+    movie.overview = overview;
+    if (req.file) {
+      movie.image = req.file.filename;
+    }
+
+    return movie.save();
+  });
+  res
+    .status(200)
+    .json({ movie, status: true, message: "Successfully updated." });
+});
 
 // DELETE MOVIE;
 exports.deleteMovies = catchAsyncErrors(async (req, res, next) => {

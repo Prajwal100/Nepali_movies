@@ -5,6 +5,9 @@ import {
   MOVIE_CREATE_REQUEST,
   MOVIE_CREATE_SUCCESS,
   MOVIE_CREATE_FAIL,
+  MOVIE_UPDATE_REQUEST,
+  MOVIE_UPDATE_SUCCESS,
+  MOVIE_UPDATE_FAIL,
   MOVIE_DELETE_REQUEST,
   MOVIE_DELETE_SUCCESS,
   MOVIE_DELETE_FAIL,
@@ -17,6 +20,7 @@ export const movieReducer = (state = { movies: [] }, action) => {
     case MOVIE_LIST_REQUEST:
     case MOVIE_CREATE_REQUEST:
     case MOVIE_DELETE_REQUEST:
+    case MOVIE_UPDATE_REQUEST:
       return {
         ...state,
         loading: true,
@@ -31,6 +35,7 @@ export const movieReducer = (state = { movies: [] }, action) => {
     case MOVIE_LIST_FAIL:
     case MOVIE_CREATE_FAIL:
     case MOVIE_DELETE_FAIL:
+    case MOVIE_UPDATE_FAIL:
       return {
         ...state,
         loading: false,
@@ -49,6 +54,17 @@ export const movieReducer = (state = { movies: [] }, action) => {
       return {
         ...state,
         isDelete: payload,
+        loading: false,
+      };
+
+    case MOVIE_UPDATE_SUCCESS:
+      let moviesdata = [...state.movies];
+      let index = moviesdata.findIndex((movie) => movie._id === payload._id);
+      moviesdata[index] = payload;
+      return {
+        ...state,
+        movies: moviesdata,
+        isUpdate: true,
         loading: false,
       };
     default:

@@ -35,11 +35,10 @@ function GeneralSettingsComponent() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    setFormState({ values: {} });
     dispatch(getSettingsInfo());
 
     setFormState({ values: settings });
-  }, [dispatch]);
+  }, []);
 
   const handleChange = (e) => {
     setFormState((formState) => ({
@@ -84,7 +83,7 @@ function GeneralSettingsComponent() {
                             className="form-control"
                             placeholder="Enter site title"
                             name="site_title"
-                            value={formState.values.site_title || ""}
+                            value={settings.site_title || ""}
                             onChange={handleChange}
                           />
                           {errors.site_title.length > 0 && (
@@ -105,7 +104,7 @@ function GeneralSettingsComponent() {
                             className="form-control"
                             placeholder="Enter Email address"
                             name="email"
-                            value={formState.values.email || ""}
+                            value={settings.email || ""}
                             onChange={handleChange}
                           />
                           {errors.email.length > 0 && (
@@ -123,7 +122,7 @@ function GeneralSettingsComponent() {
                             className="form-control"
                             placeholder="Enter phone number"
                             name="phone"
-                            value={formState.values.phone || ""}
+                            value={settings.phone || ""}
                             onChange={handleChange}
                           />
                           {errors.phone.length > 0 && (
@@ -142,7 +141,7 @@ function GeneralSettingsComponent() {
                             className="form-control"
                             placeholder="Enter address details"
                             name="address"
-                            value={formState.values.address || ""}
+                            value={settings.address || ""}
                             onChange={handleChange}
                           />
                           {errors.address.length > 0 && (
@@ -159,7 +158,7 @@ function GeneralSettingsComponent() {
                             className="form-control"
                             placeholder="Enter copyright content here"
                             name="copyright"
-                            value={formState.values.copyright || ""}
+                            value={settings.copyright || ""}
                             onChange={handleChange}
                           />
                         </div>

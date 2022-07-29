@@ -28,6 +28,7 @@ const LoginPage = () => {
           initialValues={{
             email: "",
             password: "",
+            panel:"admin",
           }}
           validationSchema={Yup.object().shape({
             email: Yup.string()

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import AdminLayouts from "../Layout";
 import { useSelector, useDispatch } from "react-redux";
 import {validateForm} from '../../utils/helper'
-import {profileUpdate} from '../../actions/userActions'
+import {profileUpdate,getUserProfile} from '../../actions/userActions'
 function ProfileSettingsPageComponent() {
   const initialFormErrors={
     name:"",
@@ -19,7 +19,7 @@ function ProfileSettingsPageComponent() {
     err.name = !formState.values.name ? "Name field is required" : "";
     err.email = !formState.values.email ? "Email field is required" : "";
     // err.password = formState.values.password.length <6 ? "Password must be at least 6 characters." : "";
-    // err.c_password =formState.values.password !== formState.values.c_password ? "Password does not match." : "";
+    err.c_password =formState.values.password !== formState.values.c_password ? "Password does not match." : "";
     
     setErrors(err);
     
@@ -30,7 +30,7 @@ function ProfileSettingsPageComponent() {
 
   const { profile } = useSelector((state) => state.user);
   const dispatch = useDispatch();
-  
+
   useEffect(() => {
     setFormState({values:profile})
   },[dispatch,profile]);
@@ -48,7 +48,11 @@ function ProfileSettingsPageComponent() {
     e.preventDefault();
     if(validateInputs()){
       dispatch(profileUpdate(formState.values));
+      
+    dispatch(getUserProfile());
+      
     }
+    
   };
   return (
     <div className="container-fluid">
@@ -83,7 +87,7 @@ function ProfileSettingsPageComponent() {
                     <input
                       type="text"
                       className="form-control"
-                      placeholder="Enter Celebrity name"
+                      placeholder="Enter admin name"
                       name="name"
                       value={formState.values.name || ""}
                       onChange={handleChange}
@@ -115,9 +119,9 @@ function ProfileSettingsPageComponent() {
                           )}
                   </div>
                 </div>
-                {/* <div className="col-6">
+                <div className="col-6">
                   <div className="form-group">
-                    <label>Current Password</label>
+                    <label>New Password</label>
                     <input
                       type="password"
                       className="form-control"
@@ -151,7 +155,7 @@ function ProfileSettingsPageComponent() {
                             </div>
                           )}
                   </div>
-                </div> */}
+                </div>
             
                 <div className="col-6">
                   <button type="submit" className="btn btn-success">

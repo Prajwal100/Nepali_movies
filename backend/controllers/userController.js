@@ -33,9 +33,6 @@ exports.loginUser = catchAsyncErrors(async (req, res, next) => {
     return next(new ErrorHandler("Invalid credentials", 401)); // unauthenticated user
   }
   console.log(user);
-  if (user.role === "user") {
-    return next(new ErrorHandler("Please login with admin credentials", 401));
-  }
 
   // Check if password is correct or not;
 
@@ -45,7 +42,11 @@ exports.loginUser = catchAsyncErrors(async (req, res, next) => {
     return next(new ErrorHandler("Invalid credentials", 401)); // unauthenticated user
   }
 
-  sendToken(user, 200, res);
+  if (user.role === req.body.panel) {
+    sendToken(user, 200, res);
+  } else {
+    return next(new ErrorHandler("Please login with correct credentials", 401));
+  }
 });
 
 // LOGOUT ROUTE => api/v1/auth/logout;
@@ -102,12 +103,35 @@ exports.updateUser = async (req, res, next) => {
       status: false,
     });
   }
+  // user = await User.findByIdAndUpdate(req.params.id, req.body, {
+  //   new: true,
+  //   runValidators: true,
+  //   useFindAndModify: false,
+  // });
 
-  user = await User.findByIdAndUpdate(req.params.id, req.body, {
-    new: true,
-    runValidators: true,
-    useFindAndModify: false,
-  });
+  let { name, password } = req.body;
+  userData = User.findById(req.params.id).then(
+    (user) => {
+      user.name = name;
+
+      if (user.password) {
+        console.log(password);
+
+        user.password = password;
+      }
+
+      return user.save();
+    },
+    { new: true }
+  );
+
+  console.log(req.body, user);
+
+  // user = await User.findByIdAndUpdate(req.params.id, req.body, {
+  //   new: true,
+  //   runValidators: true,
+  //   useFindAndModify: false,
+  // });
 
   res.status(200).json({
     user,

@@ -8,9 +8,9 @@ import { Toaster } from "react-hot-toast";
 //Loader spinner
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 function App() {
-  // useEffect(() => {
-  //   store.dispatch(loadUser());
-  // }, []);
+  useEffect(() => {
+    store.dispatch(loadUser());
+  }, []);
   return (
     <div className="section">
       <Toaster position="bottom-right" reverseOrder={false} />

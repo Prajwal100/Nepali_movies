@@ -35,7 +35,7 @@ const SingleMovie = (props) => {
           <div className="image">
             <div className="wrapper">
               <Link
-                to={`movie/${props.movie._id}`}
+                to={`/movie/${props.movie._id}`}
                 className="movie_image"
                 title={props.movie.name}
               >
@@ -55,7 +55,7 @@ const SingleMovie = (props) => {
           </div>
           <div className="content">
             <h2 className="text-center">
-              <Link to={`movie/${props.movie._id}`} title={props.movie.name}>
+              <Link to={`/movie/${props.movie._id}`} title={props.movie.name}>
                 {props.movie.name}
               </Link>
             </h2>

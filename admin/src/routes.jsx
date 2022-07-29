@@ -11,7 +11,7 @@ import EditCelebrity from "./views/celebrity/EditCelebrity";
 
 import Movies from './views/movie/Movies'
 import CreateMovie from './views/movie/AddMovie'
-
+import EditMovie from './views/movie/EditMovie';
 import GeneralSettings from './views/settings/GeneralSettings'
 // Login page
 import LoginPage from "./views/auth/login";
@@ -52,6 +52,10 @@ export const getRoutes = () => {
         {
           path: "/admin/movie/create",
           element: <CreateMovie />,
+        },
+        {
+          path: "/admin/movie/edit/:id",
+          element: <EditMovie />,
         },
         // PROFILE PAGE HERE
         {

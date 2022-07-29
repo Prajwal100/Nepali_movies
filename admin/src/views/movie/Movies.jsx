@@ -8,14 +8,14 @@ import { moviesActions, deleteMovie } from "../../actions/movieActions";
 import moment from "moment";
 
 function MoviesList() {
-  const { loading, error, movies, isDelete } = useSelector(
+  const { loading, movies, isDelete,isUpdate } = useSelector(
     (state) => state.movieReducer
   );
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(moviesActions());
-  }, [dispatch, isDelete]);
+  }, [dispatch, isDelete,isUpdate]);
 
   const deleteHandler = (id) => {
     if (window.confirm("Are you sure you want to delete")) {
@@ -51,6 +51,7 @@ function MoviesList() {
                         <th>Name</th>
                         <th>Image</th>
                         <th>Category</th>
+                        <th>Release Date</th>
                         <th>Uploaded By</th>
                         <th>Celebrities</th>
                         <th>Actions</th>
@@ -61,6 +62,7 @@ function MoviesList() {
                         <th>Name</th>
                         <th>Image</th>
                         <th>Category</th>
+                        <th>Release Date</th>
                         <th>Uploaded By</th>
                         <th>Celebrities</th>
                         <th>Actions</th>
@@ -79,7 +81,8 @@ function MoviesList() {
                           </td>
                           <td>{capitalizeFistLetter(movie.category)}</td>
                           <td>{moment(movie.dob).format("YYYY-MMM-DD")}</td>
-                          <td>{movie.address}</td>
+                          <td>{movie.uploadedBy}</td>
+                          <td>{movie.cast}</td>
                           <td>
                             <Link
                               to={`/admin/movie/edit/${movie._id}`}

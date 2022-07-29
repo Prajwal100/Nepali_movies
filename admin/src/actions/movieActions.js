@@ -5,6 +5,9 @@ import {
   MOVIE_CREATE_REQUEST,
   MOVIE_CREATE_SUCCESS,
   MOVIE_CREATE_FAIL,
+  MOVIE_UPDATE_REQUEST,
+  MOVIE_UPDATE_SUCCESS,
+  MOVIE_UPDATE_FAIL,
   MOVIE_DELETE_REQUEST,
   MOVIE_DELETE_SUCCESS,
   MOVIE_DELETE_FAIL,
@@ -75,6 +78,44 @@ export const addMovieAction = (movieData) => async (dispatch) => {
   }
 };
 
+export const updateMovie = (movieData, id) => async (dispatch) => {
+  try {
+    dispatch({ type: MOVIE_UPDATE_REQUEST });
+    const config = {
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
+    };
+
+    const response = await axios.patch(
+      `/api/v1/movie/update-movie/${id}`,
+      movieData,
+      config
+    );
+
+    const responseData = response.data;
+
+    if (!responseData.status) {
+      toast.error(responseData.message, ToastObjects);
+    } else {
+      toast.success(responseData.message, ToastObjects);
+      dispatch({
+        type: MOVIE_UPDATE_SUCCESS,
+        payload: responseData.movie,
+      });
+    }
+  } catch (error) {
+    const message =
+      error.response && error.response.data.errorMessage
+        ? error.response.data.errorMessage
+        : error.message;
+
+    dispatch({ type: MOVIE_UPDATE_FAIL, payload: message });
+
+    toast.error(message, ToastObjects);
+  }
+};
+
 export const deleteMovie = (id) => async (dispatch) => {
   try {
     dispatch({ type: MOVIE_DELETE_REQUEST });
@@ -94,7 +135,7 @@ export const deleteMovie = (id) => async (dispatch) => {
         ? error.response.data.errorMessage
         : error.message;
 
-    dispatch({ type: MOVIE_CREATE_FAIL, payload: message });
+    dispatch({ type: MOVIE_DELETE_FAIL, payload: message });
 
     toast.error(message, ToastObjects);
   }

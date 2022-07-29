@@ -37,7 +37,7 @@ const MovieDetails = () => {
               <div className="card mb-4">
                 <div className="card-body text-center">
                   <img
-                    src={movie.image}
+                    src={`http://localhost:4000/${movie.image}`}
                     alt={movie.name}
                     className="thumbnail-circle img-fluid"
                   />
